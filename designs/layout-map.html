@@ -1,0 +1,769 @@
+<title>მადარტის განლაგებების რუკა</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+Georgian:wght@300;400;600&display=swap">
+<style>
+:root{
+  --bg:#FFFDF9;
+  --panel:#FBEED3;
+  --panel2:#FDF6E7;
+  --tx:#422C22;
+  --tx2:#6B5546;
+  --tx3:#9C8471;
+  --acc:#E2AC2B;
+  --link:#8C6410;
+  --rule:rgba(66,44,34,.18);
+  --rule2:rgba(66,44,34,.10);
+  --ph:rgba(66,44,34,.13);
+  --svgacc:#9A6B12;
+  --keep:#33604A;   --keep-bg:#E6EEE8;
+  --cut:#8E3226;    --cut-bg:#F6E1DC;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1E1410;
+    --panel:#2C1F16;
+    --panel2:#251A12;
+    --tx:#F7EEDD;
+    --tx2:#D3C0A9;
+    --tx3:#A08D77;
+    --acc:#E2AC2B;
+    --link:#EFC15F;
+    --rule:rgba(247,238,221,.20);
+    --rule2:rgba(247,238,221,.10);
+    --ph:rgba(247,238,221,.14);
+    --svgacc:#EFC15F;
+    --keep:#8FC2A5;  --keep-bg:#22322A;
+    --cut:#E39184;   --cut-bg:#3A211C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1E1410;
+  --panel:#2C1F16;
+  --panel2:#251A12;
+  --tx:#F7EEDD;
+  --tx2:#D3C0A9;
+  --tx3:#A08D77;
+  --acc:#E2AC2B;
+  --link:#EFC15F;
+  --rule:rgba(247,238,221,.20);
+  --rule2:rgba(247,238,221,.10);
+  --ph:rgba(247,238,221,.14);
+  --svgacc:#EFC15F;
+  --keep:#8FC2A5;  --keep-bg:#22322A;
+  --cut:#E39184;   --cut-bg:#3A211C;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--tx);
+  font-family:"Noto Sans Georgian","Segoe UI",system-ui,sans-serif;
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+.w{max-width:1040px;margin:0 auto;padding:0 32px 110px}
+p{margin:0 0 12px}
+p:last-child{margin-bottom:0}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:4px;border-radius:8px}
+.mono{font-family:"DM Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+
+/* ── masthead ── */
+.mast{padding:72px 0 0}
+.kick{font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.17em;color:var(--tx3);margin:0 0 24px}
+.mast h1{
+  font-weight:300;letter-spacing:-.035em;line-height:1.0;
+  font-size:clamp(34px,5.6vw,62px);margin:0 0 24px;max-width:20ch;text-wrap:balance;
+}
+.mast .lead{font-size:19px;line-height:1.6;color:var(--tx2);max-width:58ch;margin:0}
+.mast .lead b{color:var(--tx);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin:38px 0 0;
+  border-top:1px solid var(--tx);border-bottom:1px solid var(--rule)}
+.facts div{padding:14px 18px 14px 0}
+.facts b{display:block;font-family:"DM Mono",monospace;font-size:27px;font-weight:500;line-height:1;letter-spacing:-.02em}
+.facts span{display:block;font-size:13px;color:var(--tx3);margin-top:6px;line-height:1.4}
+.axiom{
+  margin-top:30px;background:var(--panel);border-radius:22px;padding:22px 26px;
+  font-size:16px;line-height:1.62;color:var(--tx2);max-width:74ch;
+}
+.axiom b{color:var(--tx);font-weight:600}
+
+/* ── section heads (იგივე ხერხი, რაც საიტზე: ყვითელი წვეთი + ერთი ზომა) ── */
+.sh{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  margin:78px 0 0;padding-bottom:14px;border-bottom:1px solid var(--rule);
+}
+.sh h2{
+  display:flex;align-items:center;gap:13px;
+  font-weight:300;font-size:clamp(25px,2.8vw,38px);letter-spacing:-.035em;line-height:1.05;margin:0;
+}
+.sh h2::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--acc);flex:none}
+.sh .r{margin-left:auto;font-family:"DM Mono",monospace;font-size:12px;color:var(--tx3);letter-spacing:.08em}
+.note{margin:18px 0 0;max-width:68ch;color:var(--tx2);font-size:16px}
+.note b{color:var(--tx);font-weight:600}
+
+/* ── visual layer ── */
+.layer{display:grid;gap:1px;background:var(--rule2);border:1px solid var(--rule2);border-radius:22px;overflow:hidden;margin-top:26px}
+.layer>div{background:var(--bg);display:grid;grid-template-columns:158px 1fr;gap:22px;padding:18px 22px}
+.layer dt{font-weight:600;font-size:15px;margin:0;line-height:1.45}
+.layer dt small{display:block;font-family:"DM Mono",monospace;font-size:11px;color:var(--tx3);font-weight:400;letter-spacing:.06em;margin-top:3px}
+.layer dd{margin:0;color:var(--tx2);font-size:15.4px;line-height:1.58;max-width:62ch}
+.layer dd code{font-family:"DM Mono",monospace;font-size:13px;background:var(--panel);color:var(--tx);padding:1px 6px;border-radius:5px}
+.sw{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+.sw i{display:grid;place-items:end center;width:64px;height:44px;border-radius:10px;border:1px solid var(--rule);
+  font-family:"DM Mono",monospace;font-size:9.5px;padding-bottom:3px;color:var(--tx3)}
+
+/* ── motion table ── */
+.tbl{overflow-x:auto;border:1px solid var(--rule2);border-radius:22px;margin-top:26px}
+table{width:100%;border-collapse:collapse;font-size:15.2px;min-width:620px}
+th,td{text-align:left;padding:11px 18px;border-bottom:1px solid var(--rule2);vertical-align:top;line-height:1.5}
+th{background:var(--panel2);font-weight:600;font-size:12.5px;letter-spacing:.05em;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td{color:var(--tx2)}td:first-child{color:var(--tx);font-weight:600;white-space:nowrap}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px 3px;border-radius:999px;white-space:nowrap}
+.b-keep{background:var(--keep-bg);color:var(--keep)}
+.b-cut{background:var(--cut-bg);color:var(--cut)}
+
+/* ── per-section blocks ── */
+.blk{padding:38px 0;border-bottom:1px solid var(--rule2)}
+.blk-top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+.blk-n{font-family:"DM Mono",monospace;font-size:12px;font-weight:500;color:var(--tx);
+  border:1px solid var(--rule);border-radius:999px;padding:2px 11px 3px}
+.blk-top h3{font-weight:300;font-size:29px;letter-spacing:-.03em;margin:0;line-height:1.12}
+.blk-top .ref{margin-left:auto;font-size:13px;color:var(--tx3);white-space:nowrap}
+.blk-top .ref b{color:var(--tx2);font-weight:600}
+.inv{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.inv span{
+  font-size:13px;line-height:1.35;background:var(--panel2);border:1px solid var(--rule2);
+  border-radius:999px;padding:3px 12px 4px;color:var(--tx2);
+}
+.inv .h{background:var(--panel);color:var(--tx);font-weight:600}
+.inv-lab{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.13em;color:var(--tx3);margin:18px 0 0}
+
+figure{margin:16px 0 0;background:var(--panel2);border:1px solid var(--rule2);border-radius:22px;padding:20px 22px 14px}
+.wf{width:100%;height:auto;display:block}
+.wf text{font-family:"Noto Sans Georgian","Segoe UI",system-ui,sans-serif}
+figcaption{margin-top:12px;font-size:14px;line-height:1.55;color:var(--tx3);max-width:74ch}
+figcaption b{color:var(--tx2);font-weight:600}
+
+.pick{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.pick-tag{
+  font-size:13px;font-weight:600;background:var(--tx);color:var(--bg);
+  border-radius:999px;padding:4px 14px 5px;white-space:nowrap;
+}
+.pick p{font-size:15.6px;line-height:1.6;color:var(--tx2);max-width:66ch;margin:0}
+.pick p b{color:var(--tx);font-weight:600}
+.pick p em{font-style:normal;box-shadow:inset 0 -.4em 0 rgba(226,172,43,.42);padding:0 2px}
+
+/* ── keep list ── */
+.keeps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:1px;background:var(--rule2);
+  border:1px solid var(--rule2);border-radius:22px;overflow:hidden}
+.keeps li{background:var(--bg);padding:15px 22px;display:grid;grid-template-columns:26px 1fr;gap:16px;font-size:15.5px;line-height:1.58}
+.keeps .x{font-family:"DM Mono",monospace;color:var(--keep);font-weight:500}
+.keeps b{font-weight:600}
+.keeps span{color:var(--tx2);display:block;margin-top:1px;font-size:14.6px}
+
+.end{margin-top:78px;background:var(--panel);border-top:6px solid var(--acc)}
+.end .w{padding-top:26px;padding-bottom:36px;font-size:14px;line-height:1.8;color:var(--tx2)}
+.end b{color:var(--tx);font-weight:600}
+
+@media (max-width:760px){
+  .w{padding:0 20px 80px}
+  .layer>div{grid-template-columns:1fr;gap:6px}
+  .pick{grid-template-columns:1fr;gap:10px}
+  .pick-tag{justify-self:start}
+  .mast{padding-top:48px}
+}
+</style>
+
+<div class="w">
+
+  <header class="mast">
+    <p class="kick">მადარტი · მთავარი გვერდი · ვიზუალური სტილი და განლაგებები · 08.09.2026</p>
+    <h1>ცხრა არსებული სექცია, ორი განლაგება თითოეულზე</h1>
+    <p class="lead">შინაარსი <b>უცვლელია</b> — არც ერთი ბლოკი, ტექსტი, ფასი ან ღილაკი არ ემატება და არ აკლდება. იცვლება მხოლოდ ის, <b>როგორ არის დალაგებული</b>: ბადე, ფოტოს ჩარჩო, ტიპოგრაფიის ზომა, ფერის ადგილი. ყველა შემოთავაზება არსებულ ასეტებზე და არსებულ დიზაინ-ტოკენებზე დგას.</p>
+
+    <div class="facts">
+      <div><b>9</b><span>არსებული სექცია</span></div>
+      <div><b>0</b><span>ახალი ბლოკი</span></div>
+      <div><b>0</b><span>ახალი ფოტოსესია</span></div>
+      <div><b>0</b><span>ახალი მონაცემი</span></div>
+      <div><b>7→3</b><span>მოძრავი ელემენტი</span></div>
+    </div>
+
+    <p class="axiom"><b>რას ნიშნავს „მარტივი“ ამ დოკუმენტში.</b> სამი შემოწმება ყველა სექციაზე: <b>1)</b> ყველაფერი, რაც სექციაშია, ჩანს კონტროლის გამოყენების გარეშე — არა სქროლის, არა hover-ის, არა ისრების. <b>2)</b> ერთი სექცია — ერთი მოქმედება. <b>3)</b> ერთი ბადე, ერთი მომრგვალება, ერთი ფოტოს პროპორცია. სადაც დღევანდელი მაკეტი ამ სამს არღვევს, ქვემოთ ალტერნატივაა.</p>
+  </header>
+
+  <!-- ═══════════ ვიზუალური ფენა ═══════════ -->
+  <div class="sh">
+    <h2>ვიზუალური ფენა — ხუთი წესი მთელ გვერდზე</h2>
+    <span class="r mono">A</span>
+  </div>
+  <p class="note">ეს ხუთი პარამეტრი სექციებზე მაღლა დგას. ისინი უკვე არსებობს <code>hp-2026</code>-ის ტოკენებში — ქვემოთ მხოლოდ <b>გამოყენების საზღვრებია</b> დაზუსტებული, რომ იერსახე ერთიანი დარჩეს.</p>
+
+  <dl class="layer">
+    <div>
+      <dt>ფერი<small>4 ტოკენი</small></dt>
+      <dd>კრემისფერი ფურცელი მთელ გვერდზე. ყავისფერი — ტექსტი და <b>ორი</b> მუქი ველი (შემოგვიერთდი, ფუტერი), მეტი არა. ყვითელი <b>არასდროს ტექსტისთვის</b>: მხოლოდ სექციის წვეთი, ფასდაკლების ნიშანი და ღილაკის hover. ტექსტური აქცენტი — <code>#8C6410</code>.
+        <span class="sw">
+          <i style="background:#FFFDF9;color:#9C8471">FFFDF9</i>
+          <i style="background:#FBEED3;color:#6B5546">FBEED3</i>
+          <i style="background:#422C22;color:#C7B6A6">422C22</i>
+          <i style="background:#E2AC2B;color:#4A3A12">E2AC2B</i>
+        </span>
+      </dd>
+    </div>
+    <div>
+      <dt>მომრგვალება<small>2 მნიშვნელობა</small></dt>
+      <dd>პანელი და დიდი ფოტო — <code>34px</code>. ბარათი და პატარა ფოტო — <code>22px</code>. ღილაკი — <code>999px</code>. სამზე მეტი მნიშვნელობა გვერდზე არ არსებობს; ეს N1-ის ფორმალიზებაა.</dd>
+    </div>
+    <div>
+      <dt>ტიპოგრაფია<small>4 საფეხური</small></dt>
+      <dd>ჰერო <code>--h1</code> · ყველა სექციის სათაური <code>--h2</code>, გამონაკლისის გარეშე · ტექსტი <code>--p 16.5px</code> · ბმული და ლეიბლი <code>--sm 14.5px</code>. სათაურები FiraGO Light-ია <code>-.035em</code> ტრეკინგით — სწორედ ეს ხდის ხელწერას საკუთარს. მთავრული ქართულზე არ არსებობს.</dd>
+    </div>
+    <div>
+      <dt>ფოტოს ჩარჩო<small>3 პროპორცია</small></dt>
+      <dd>პროდუქტი — <code>1:1</code>. ადგილი და ინტერიერი — <code>3:2</code>. ჰერო — <code>16:9</code>. ერთი სექციის შიგნით პროპორცია არ იცვლება. ყველა ფოტოს ერთი და იგივე მომრგვალება აქვს — ფოტო „ბარათია“, არა ფონი, გარდა ჰეროსი.</dd>
+    </div>
+    <div>
+      <dt>რიტმი<small>1 მანძილი</small></dt>
+      <dd>სექციებს შორის ერთი ვერტიკალური მანძილი. ყველა სექცია ერთი და იმავე ჰედერით იწყება (<code>.sh</code>: წვეთი · სათაური · თმისოდენა ხაზი · მარჯვნივ მოქმედება) — ეს N11-ია და ის მთელ გვერდს ერთ სისტემად კრავს.</dd>
+    </div>
+  </dl>
+
+  <!-- ═══════════ მოძრაობა ═══════════ -->
+  <div class="sh">
+    <h2>მოძრაობა: შვიდიდან სამი</h2>
+    <span class="r mono">B</span>
+  </div>
+  <p class="note">კლიენტმა მოძრავი ელემენტები მოიწონა, მაგრამ შვიდი ერთ გვერდზე ბევრია — და ოთხი მათგანი <b>ინფორმაციას მალავს</b>. სამი რჩება: ისინი, რომლებიც არაფერს არ მალავენ.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ელემენტი</th><th>სექცია</th><th>რას აკეთებს</th><th>გადაწყვეტილება</th></tr></thead>
+      <tbody>
+        <tr><td>ჰედერის blur</td><td>ჰედერი</td><td>სქროლზე ფონს ამუქებს — ტექსტი იკითხება</td><td><span class="badge b-keep">რჩება</span></td></tr>
+        <tr><td>ჰეროს ვიდეო</td><td>ჰერო</td><td>პროდუქტს აჩვენებს მოქმედებაში</td><td><span class="badge b-keep">რჩება</span></td></tr>
+        <tr><td>მბრუნავი ზოლი</td><td>ზოლი</td><td>ბრენდის შვიდი ფაქტი — მობილურზე სხვაგვარად ვერ ჯდება</td><td><span class="badge b-keep">რჩება, უფრო ნელა</span></td></tr>
+        <tr><td>scroll-snap ისრები</td><td>კატეგორიები</td><td><b>ორ კატეგორიას მალავს</b> ეკრანს გარეთ</td><td><span class="badge b-cut">იხსნება</span></td></tr>
+        <tr><td>დიპტიქის გადასვლა</td><td>ინდივიდუალური ტორტი</td><td>ორი პანელი ერთმანეთს ცვლის — ინფორმაცია არ ემატება</td><td><span class="badge b-cut">იხსნება</span></td></tr>
+        <tr><td>„სუნთქვის“ ზუმი</td><td>ინდივიდუალური ტორტი</td><td>დეკორატიული; ტექსტს კითხვაში უშლის</td><td><span class="badge b-cut">იხსნება</span></td></tr>
+        <tr><td>ფილიალების აკორდეონი</td><td>ფილიალები</td><td><b>ოთხ მისამართს მალავს</b>; შეხებით ეკრანზე არ მუშაობს</td><td><span class="badge b-cut">იხსნება</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════ სექცია სექციაზე ═══════════ -->
+  <div class="sh">
+    <h2>სექცია სექციაზე</h2>
+    <span class="r mono">C · 01—09</span>
+  </div>
+  <p class="note">თითოეულთან: <b>რა შინაარსია დღეს</b> (სრული ჩამონათვალი — შესადარებლად), ორი განლაგება ჩანახატად, არჩევანი და ერთი წინადადება რატომ. მარჯვნივ მითითებულია რეფერენსი, რომლის ვიზუალური ხერხიც გამოიყენება.</p>
+
+  <!-- 01 ჰედერი -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">00</span>
+      <h3>ჰედერი</h3>
+      <span class="ref"><b>Ole &amp; Steen</b> · მკვრივი ზოლი</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span class="h">ლოგო</span><span>მთავარი</span><span>ჩვენს შესახებ</span><span>პროდუქცია</span><span>შეთავაზებები</span><span>სიახლეები</span><span>კარიერა</span><span>კონტაქტი</span><span>ძიება</span><span>GE · EN</span><span>ანგარიში</span><span class="h">შეუკვეთე · 0</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 205" role="img" aria-label="ორი ჰედერის შედარება: მარცხნივ გამჭვირვალე ზოლი ჰერო-ფოტოზე, მარჯვნივ მკვრივი კრემისფერი ზოლი ფოტოს ზემოთ">
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — ზოლი ფოტოზე</text>
+        <rect x="0" y="26" width="322" height="112" rx="8" fill="var(--ph)"/>
+        <rect x="0" y="26" width="322" height="28" rx="8" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-dasharray="4 3"/>
+        <rect x="12" y="35" width="36" height="10" rx="3" fill="currentColor" opacity=".7"/>
+        <rect x="64" y="38" width="20" height="5" rx="2.5" fill="currentColor" opacity=".45"/>
+        <rect x="90" y="38" width="20" height="5" rx="2.5" fill="currentColor" opacity=".45"/>
+        <rect x="116" y="38" width="20" height="5" rx="2.5" fill="currentColor" opacity=".45"/>
+        <rect x="142" y="38" width="20" height="5" rx="2.5" fill="currentColor" opacity=".45"/>
+        <rect x="168" y="38" width="20" height="5" rx="2.5" fill="currentColor" opacity=".45"/>
+        <rect x="194" y="38" width="20" height="5" rx="2.5" fill="currentColor" opacity=".45"/>
+        <rect x="220" y="38" width="20" height="5" rx="2.5" fill="currentColor" opacity=".45"/>
+        <circle cx="256" cy="40" r="5" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <circle cx="274" cy="40" r="5" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <rect x="288" y="33" width="26" height="14" rx="7" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <text x="0" y="160" font-size="12" fill="currentColor" opacity=".8">11 ელემენტი ერთ რიგში, ფოტოს თავზე</text>
+        <text x="0" y="178" font-size="11.5" fill="currentColor" opacity=".5">კითხვადობა ფოტოს კადრზეა დამოკიდებული</text>
+
+        <line x1="350" y1="26" x2="350" y2="196" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — ზოლი ფოტოს ზემოთ</text>
+        <rect x="378" y="20" width="176" height="3" rx="1.5" fill="var(--svgacc)"/>
+        <rect x="378" y="30" width="322" height="30" rx="8" fill="var(--panel)" stroke="currentColor" stroke-opacity=".22"/>
+        <rect x="390" y="40" width="36" height="10" rx="3" fill="currentColor" opacity=".7"/>
+        <rect x="440" y="42" width="18" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="464" y="42" width="18" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="488" y="42" width="18" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="512" y="42" width="18" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="536" y="42" width="18" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="560" y="42" width="18" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="584" y="42" width="18" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <circle cx="620" cy="45" r="5" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <circle cx="638" cy="45" r="5" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <rect x="652" y="38" width="38" height="14" rx="7" fill="var(--svgacc)"/>
+        <rect x="378" y="68" width="322" height="70" rx="8" fill="var(--ph)"/>
+        <text x="378" y="160" font-size="12" fill="currentColor" opacity=".8">იგივე 11 ელემენტი, ორ ჯგუფად</text>
+        <text x="378" y="178" font-size="11.5" fill="currentColor" opacity=".5">კრემისფერი ფონი — კითხვადობა მუდმივია</text>
+      </svg>
+      <figcaption>განსხვავება ერთია: ზოლი <b>ფოტოზე</b> იჯდეს თუ <b>ფოტოს ზემოთ</b>. მარჯვნივ ბმულების რიგი მარცხნივაა მიწეული, ხოლო ძიება · ანგარიში · კალათა მარჯვნივ — კალათა ერთადერთი სავსე ღილაკია მთელ ჰედერში.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B</span>
+      <p>ჰერო ვიდეოა და კადრი მუდმივად იცვლება — გამჭვირვალე ჰედერზე ბმულების კითხვადობა ვიდეოს ნათელ წამებზეა დამოკიდებული. მკვრივი კრემისფერი ზოლი ამ საკითხს სამუდამოდ ხსნის და <em>blur-ის მდგომარეობა მაინც რჩება</em> — ზოლი სქროლზე ოდნავ ვიწროვდება. კალათა სავსე ღილაკია, დანარჩენი — ტექსტი: ერთი სექცია, ერთი მთავარი მოქმედება.</p>
+    </div>
+  </section>
+
+  <!-- 01 ჰერო -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">01</span>
+      <h3>ჰერო</h3>
+      <span class="ref"><b>Janjou · Toraya</b> · ერთი კადრი</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span>საცხობი მადარტი · 2009</span><span class="h">ბედნიერების რეცეპტი</span><span class="h">შეუკვეთე</span><span>ნახე კატალოგი</span><span>ტორტი · ნამცხვარი · ცხობა</span><span>ხუთი ფილიალი თბილისში</span><span>მადარტ დელივერი</span><span>2 ვიდეო</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 205" role="img" aria-label="ორი ჰეროს შედარება: მარცხნივ სამუჯრიანი ბენტო ორი ვიდეოთი და ყვითელი ველით, მარჯვნივ ერთი ვიდეო-ჩარჩო კრემისფერი ბარათით ქვედა მარცხენა კუთხეში">
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — ვიდეო-ბენტო</text>
+        <rect x="0" y="26" width="150" height="104" rx="8" fill="var(--ph)"/>
+        <text x="12" y="122" font-size="10.5" fill="currentColor" opacity=".5">ვიდეო 1</text>
+        <rect x="158" y="26" width="76" height="104" rx="8" fill="var(--ph)"/>
+        <text x="166" y="122" font-size="10.5" fill="currentColor" opacity=".5">ვიდეო 2</text>
+        <rect x="242" y="26" width="80" height="104" rx="8" fill="var(--svgacc)"/>
+        <rect x="252" y="52" width="58" height="9" rx="4.5" fill="var(--bg)" opacity=".9"/>
+        <rect x="252" y="66" width="42" height="9" rx="4.5" fill="var(--bg)" opacity=".9"/>
+        <rect x="0" y="140" width="66" height="15" rx="7.5" fill="currentColor" opacity=".8"/>
+        <rect x="74" y="140" width="66" height="15" rx="7.5" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <text x="0" y="178" font-size="11.5" fill="currentColor" opacity=".5">სამი ველი · სათაური ყვითელ უჯრაშია</text>
+
+        <line x1="350" y1="26" x2="350" y2="196" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — ერთი კადრი</text>
+        <rect x="378" y="20" width="160" height="3" rx="1.5" fill="var(--svgacc)"/>
+        <rect x="378" y="30" width="322" height="112" rx="8" fill="var(--ph)"/>
+        <text x="620" y="138" font-size="10.5" fill="currentColor" opacity=".5">ვიდეო</text>
+        <rect x="394" y="76" width="192" height="76" rx="8" fill="var(--panel)" stroke="currentColor" stroke-opacity=".2"/>
+        <rect x="408" y="88" width="52" height="4" rx="2" fill="currentColor" opacity=".45"/>
+        <rect x="408" y="99" width="128" height="10" rx="5" fill="currentColor" opacity=".8"/>
+        <rect x="408" y="114" width="92" height="10" rx="5" fill="currentColor" opacity=".8"/>
+        <rect x="408" y="132" width="58" height="13" rx="6.5" fill="var(--svgacc)"/>
+        <rect x="472" y="132" width="58" height="13" rx="6.5" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <rect x="378" y="160" width="90" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <rect x="478" y="160" width="118" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <rect x="606" y="160" width="94" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <text x="378" y="188" font-size="11.5" fill="currentColor" opacity=".5">სამი ქვედა ხაზი უცვლელია</text>
+      </svg>
+      <figcaption>ორივეში იგივე შვიდი ელემენტია. სხვაობა: ბენტოში სათაური <b>ყვითელ უჯრაშია ჩასმული</b> და ვიდეო ორად იყოფა; მარჯვნივ სათაური კრემისფერ ბარათზეა <b>ერთი კადრის კუთხეში</b>, ვიდეო კი მთელ სიგანეს იკავებს.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B</span>
+      <p>ორი ვიდეო ერთდროულად ორ ცენტრს ქმნის და თვალს ჰყოფს; ერთი კადრი ერთ ცენტრს აძლევს, ტექსტს კი <em>საკუთარ, მუდმივად კითხვად ფონს</em>. ბონუსად — მობილურზე ბენტო ისედაც ერთ სვეტად იშლება, ანუ B ორივე ეკრანზე ერთი და იგივე განლაგებაა. ვიდეო რჩება (N2), მხოლოდ ერთი, უხმო, გამორთვადი.</p>
+    </div>
+  </section>
+
+  <!-- 02 ზოლი -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">02</span>
+      <h3>მბრუნავი ზოლი</h3>
+      <span class="ref"><b>Graza</b> · მოკლე სიტყვების ზოლი</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span>ტორტი</span><span>ნამცხვარი</span><span>ცხობა</span><span>2009 წლიდან</span><span>5 ფილიალი</span><span>900+ თანამშრომელი</span><span>მადარტ დელივერი</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 175" role="img" aria-label="ორი ზოლის შედარება: მარცხნივ მბრუნავი ზოლი, სადაც სიტყვები კიდეებზე იჭრება, მარჯვნივ უძრავი ზოლი შვიდივე სიტყვით">
+        <defs>
+          <marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0,0 8,4 0,8" fill="currentColor" opacity=".65"/>
+          </marker>
+        </defs>
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — მოძრავი</text>
+        <rect x="0" y="26" width="322" height="38" rx="19" fill="currentColor" opacity=".85"/>
+        <rect x="-10" y="42" width="34" height="6" rx="3" fill="var(--bg)" opacity=".75"/>
+        <rect x="38" y="42" width="52" height="6" rx="3" fill="var(--bg)" opacity=".75"/>
+        <rect x="104" y="42" width="40" height="6" rx="3" fill="var(--bg)" opacity=".75"/>
+        <rect x="158" y="42" width="58" height="6" rx="3" fill="var(--bg)" opacity=".75"/>
+        <rect x="230" y="42" width="46" height="6" rx="3" fill="var(--bg)" opacity=".75"/>
+        <rect x="290" y="42" width="42" height="6" rx="3" fill="var(--bg)" opacity=".75"/>
+        <line x1="112" y1="86" x2="212" y2="86" stroke="currentColor" stroke-opacity=".65" marker-end="url(#ar3)"/>
+        <text x="0" y="118" font-size="12" fill="currentColor" opacity=".8">სიტყვები კიდეებზე იჭრება</text>
+        <text x="0" y="136" font-size="11.5" fill="currentColor" opacity=".5">კითხვის დასაწყისი ყოველ წამს სხვაგანაა</text>
+
+        <line x1="350" y1="26" x2="350" y2="166" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — უძრავი, ცენტრში</text>
+        <rect x="378" y="20" width="188" height="3" rx="1.5" fill="var(--svgacc)"/>
+        <rect x="378" y="30" width="322" height="38" rx="19" fill="currentColor" opacity=".85"/>
+        <rect x="390" y="46" width="26" height="6" rx="3" fill="var(--bg)" opacity=".8"/>
+        <circle cx="424" cy="49" r="2" fill="var(--bg)" opacity=".5"/>
+        <rect x="432" y="46" width="40" height="6" rx="3" fill="var(--bg)" opacity=".8"/>
+        <circle cx="480" cy="49" r="2" fill="var(--bg)" opacity=".5"/>
+        <rect x="488" y="46" width="28" height="6" rx="3" fill="var(--bg)" opacity=".8"/>
+        <circle cx="524" cy="49" r="2" fill="var(--bg)" opacity=".5"/>
+        <rect x="532" y="46" width="44" height="6" rx="3" fill="var(--bg)" opacity=".8"/>
+        <circle cx="584" cy="49" r="2" fill="var(--bg)" opacity=".5"/>
+        <rect x="592" y="46" width="34" height="6" rx="3" fill="var(--bg)" opacity=".8"/>
+        <circle cx="634" cy="49" r="2" fill="var(--bg)" opacity=".5"/>
+        <rect x="642" y="46" width="48" height="6" rx="3" fill="var(--bg)" opacity=".8"/>
+        <text x="378" y="118" font-size="12" fill="currentColor" opacity=".8">შვიდივე ფაქტი ერთდროულად ჩანს</text>
+        <text x="378" y="136" font-size="11.5" fill="currentColor" opacity=".5">მობილურზე — მოძრაობა უბრუნდება, სივრცე აღარ ჰყოფნის</text>
+      </svg>
+      <figcaption>ერთი და იგივე შვიდი ფაქტი. სხვაობა მხოლოდ იმაშია, <b>ერთდროულად ჩანს თუ რიგრიგობით</b> — და მოძრავ ვერსიაში ზოლის კიდეებზე სიტყვები ყოველთვის დაჭრილია.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B დესკტოპზე · A მობილურზე</span>
+      <p>დესკტოპზე 1560px-ის სიგანე შვიდივე ფაქტს იტევს — მოძრაობა აქ მხოლოდ კითხვას ურთულებს. მობილურზე კი სივრცე ობიექტურად არ ჰყოფნის და <em>მბრუნავი ზოლი ერთადერთი გამოსავალია</em>. ერთი და იგივე მარკირება, ერთი <code>@media</code> — და მოძრავი ელემენტი ინარჩუნებს იმ ერთადერთ ადგილს, სადაც მას რეალური ფუნქცია აქვს.</p>
+    </div>
+  </section>
+
+  <!-- 03 დღის შეთავაზება -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">03</span>
+      <h3>დღის შეთავაზება</h3>
+      <span class="ref"><b>Potluck · Ole &amp; Steen</b> · ბადე ფასით</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span class="h">−20%</span><span>ყველა შეთავაზება →</span><span>ხორცის საფირმო ღვეზელი · 5.68 ₾ / 7.10 ₾</span><span>ქათმის ღვეზელი · 5.68 ₾ / 7.10 ₾</span><span>კარტოფილის ღვეზელი · 2.96 ₾ / 3.70 ₾</span><span>+ ღილაკი × 3</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 205" role="img" aria-label="ორი შეთავაზების განლაგება: მარცხნივ ვიწრო ზოლი წრიული ფოტოებით, მარჯვნივ სამი თანაბარი ბარათი კვადრატული ფოტოთი და ფასის რიგით">
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — ვიწრო ზოლი, წრიული ფოტო</text>
+        <rect x="0" y="26" width="322" height="86" rx="22" fill="var(--panel)" stroke="currentColor" stroke-opacity=".14"/>
+        <circle cx="42" cy="69" r="26" fill="var(--ph)"/>
+        <rect x="76" y="58" width="24" height="6" rx="3" fill="currentColor" opacity=".55"/>
+        <rect x="76" y="72" width="16" height="7" rx="3.5" fill="currentColor" opacity=".8"/>
+        <circle cx="150" cy="69" r="26" fill="var(--ph)"/>
+        <rect x="184" y="58" width="24" height="6" rx="3" fill="currentColor" opacity=".55"/>
+        <rect x="184" y="72" width="16" height="7" rx="3.5" fill="currentColor" opacity=".8"/>
+        <circle cx="258" cy="69" r="26" fill="var(--ph)"/>
+        <rect x="292" y="58" width="22" height="6" rx="3" fill="currentColor" opacity=".55"/>
+        <rect x="292" y="72" width="16" height="7" rx="3.5" fill="currentColor" opacity=".8"/>
+        <text x="0" y="142" font-size="12" fill="currentColor" opacity=".8">წრეში პროდუქტი იჭრება</text>
+        <text x="0" y="160" font-size="11.5" fill="currentColor" opacity=".5">ღვეზელი მართკუთხაა — წრე მას ჰკვეთს</text>
+        <text x="0" y="178" font-size="11.5" fill="currentColor" opacity=".5">სახელს და ორ ფასს ერთ ხაზზე ადგილი არ რჩება</text>
+
+        <line x1="350" y1="26" x2="350" y2="196" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — სამი თანაბარი ბარათი</text>
+        <rect x="378" y="20" width="196" height="3" rx="1.5" fill="var(--svgacc)"/>
+
+        <rect x="378" y="30" width="100" height="132" rx="14" fill="var(--bg)" stroke="currentColor" stroke-opacity=".18"/>
+        <rect x="388" y="40" width="80" height="60" rx="8" fill="var(--ph)"/>
+        <rect x="388" y="110" width="64" height="6" rx="3" fill="currentColor" opacity=".55"/>
+        <rect x="388" y="124" width="30" height="9" rx="4.5" fill="currentColor" opacity=".85"/>
+        <rect x="424" y="126" width="22" height="6" rx="3" fill="currentColor" opacity=".3"/>
+        <line x1="422" y1="129" x2="448" y2="129" stroke="currentColor" stroke-opacity=".45"/>
+        <circle cx="456" cy="144" r="10" fill="var(--svgacc)"/>
+
+        <rect x="489" y="30" width="100" height="132" rx="14" fill="var(--bg)" stroke="currentColor" stroke-opacity=".18"/>
+        <rect x="499" y="40" width="80" height="60" rx="8" fill="var(--ph)"/>
+        <rect x="499" y="110" width="52" height="6" rx="3" fill="currentColor" opacity=".55"/>
+        <rect x="499" y="124" width="30" height="9" rx="4.5" fill="currentColor" opacity=".85"/>
+        <rect x="535" y="126" width="22" height="6" rx="3" fill="currentColor" opacity=".3"/>
+        <line x1="533" y1="129" x2="559" y2="129" stroke="currentColor" stroke-opacity=".45"/>
+        <circle cx="567" cy="144" r="10" fill="var(--svgacc)"/>
+
+        <rect x="600" y="30" width="100" height="132" rx="14" fill="var(--bg)" stroke="currentColor" stroke-opacity=".18"/>
+        <rect x="610" y="40" width="80" height="60" rx="8" fill="var(--ph)"/>
+        <rect x="610" y="110" width="70" height="6" rx="3" fill="currentColor" opacity=".55"/>
+        <rect x="610" y="124" width="30" height="9" rx="4.5" fill="currentColor" opacity=".85"/>
+        <rect x="646" y="126" width="22" height="6" rx="3" fill="currentColor" opacity=".3"/>
+        <line x1="644" y1="129" x2="670" y2="129" stroke="currentColor" stroke-opacity=".45"/>
+        <circle cx="678" cy="144" r="10" fill="var(--svgacc)"/>
+
+        <text x="378" y="184" font-size="11.5" fill="currentColor" opacity=".5">1:1 ფოტო · სახელი · ახალი და ძველი ფასი · „+“ ერთ ადგილას</text>
+      </svg>
+      <figcaption>სამივე ბარათს <b>ერთი და იგივე კიდე, ერთი და იგივე შიდა padding და „+“ ერთსა და იმავე კუთხეში</b> აქვს. −20% ნიშანი სექციის ჰედერზე რჩება და ბარათებზე არ მეორდება — ერთი ინფორმაცია, ერთი ადგილი.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B</span>
+      <p>ეს გვერდის ერთადერთი ბლოკია, სადაც ფასი წერია — ანუ ერთადერთი, სადაც <em>ყიდვის გადაწყვეტილება მიიღება</em>. წრიულ ფოტოში ღვეზელი იჭრება და სახელს, ორ ფასს და ღილაკს ერთ ხაზზე ადგილი არ რჩება. კვადრატული ბარათი ოთხივეს თავის ადგილს აძლევს — და მობილურზე იგივე ბარათი ერთ სვეტად ეწყობა ხელახალი ხატვის გარეშე.</p>
+    </div>
+  </section>
+
+  <!-- 04 კატეგორიები -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">04</span>
+      <h3>პროდუქციის კატეგორიები</h3>
+      <span class="ref"><b>Ottolenghi</b> · ყველაფერი ჩანს</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span>01 ტორტები</span><span>02 ნამცხვრები</span><span>03 ცხობა</span><span>04 ბოქსები</span><span>05 სასმელები</span><span>06 აქსესუარები</span><span>ნახე → × 6</span><span>← → ისრები</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 205" role="img" aria-label="ორი კატეგორიების განლაგება: მარცხნივ ჰორიზონტალური სქროლი, სადაც მეექვსე ველი ეკრანს გარეთაა, მარჯვნივ სამ-ორზე ბადე ექვსივე ველით">
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — ჰორიზონტალური სქროლი</text>
+        <rect x="0" y="26" width="68" height="104" rx="12" fill="var(--ph)"/>
+        <rect x="8" y="112" width="30" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="76" y="26" width="68" height="104" rx="12" fill="var(--ph)"/>
+        <rect x="84" y="112" width="38" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="152" y="26" width="68" height="104" rx="12" fill="var(--ph)"/>
+        <rect x="160" y="112" width="26" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="228" y="26" width="68" height="104" rx="12" fill="var(--ph)"/>
+        <rect x="236" y="112" width="34" height="5" rx="2.5" fill="currentColor" opacity=".5"/>
+        <rect x="304" y="26" width="18" height="104" rx="12" fill="var(--ph)"/>
+        <line x1="322" y1="20" x2="322" y2="140" stroke="currentColor" stroke-opacity=".5" stroke-dasharray="3 3"/>
+        <text x="266" y="152" font-size="10.5" fill="currentColor" opacity=".55">ეკრანის კიდე</text>
+        <circle cx="14" cy="172" r="12" fill="none" stroke="currentColor" stroke-opacity=".4"/>
+        <circle cx="44" cy="172" r="12" fill="none" stroke="currentColor" stroke-opacity=".4"/>
+        <text x="66" y="176" font-size="12" fill="currentColor" opacity=".8">05 და 06 ეკრანს გარეთაა</text>
+
+        <line x1="350" y1="26" x2="350" y2="196" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — 3 × 2 ბადე</text>
+        <rect x="378" y="20" width="146" height="3" rx="1.5" fill="var(--svgacc)"/>
+        <rect x="378" y="30" width="100" height="62" rx="12" fill="var(--ph)"/>
+        <text x="386" y="46" font-size="10" fill="currentColor" opacity=".6">01</text>
+        <rect x="386" y="76" width="46" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="489" y="30" width="100" height="62" rx="12" fill="var(--ph)"/>
+        <text x="497" y="46" font-size="10" fill="currentColor" opacity=".6">02</text>
+        <rect x="497" y="76" width="56" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="600" y="30" width="100" height="62" rx="12" fill="var(--ph)"/>
+        <text x="608" y="46" font-size="10" fill="currentColor" opacity=".6">03</text>
+        <rect x="608" y="76" width="38" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="378" y="100" width="100" height="62" rx="12" fill="var(--ph)"/>
+        <text x="386" y="116" font-size="10" fill="currentColor" opacity=".6">04</text>
+        <rect x="386" y="146" width="44" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="489" y="100" width="100" height="62" rx="12" fill="var(--ph)"/>
+        <text x="497" y="116" font-size="10" fill="currentColor" opacity=".6">05</text>
+        <rect x="497" y="146" width="52" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="600" y="100" width="100" height="62" rx="12" fill="var(--ph)"/>
+        <text x="608" y="116" font-size="10" fill="currentColor" opacity=".6">06</text>
+        <rect x="608" y="146" width="60" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <text x="378" y="184" font-size="12" fill="currentColor" opacity=".8">ექვსივე ჩანს · ისრები აღარ არსებობს</text>
+      </svg>
+      <figcaption>ექვსი კატეგორია ზუსტად 3×2 ბადეა. მარცხნივ ორი მათგანი ეკრანს გარეთაა და მათ სანახავად <b>ისრის დაჭერა სჭირდება</b>; მარჯვნივ კონტროლი აღარ არსებობს, რადგან საჭირო აღარაა.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B</span>
+      <p>ეს გვერდის მთავარი ნავიგაციაა — აქედან იწყება პროდუქციაში შესვლა. თუ ორი კატეგორია (სასმელები, აქსესუარები) <em>დაჭერამდე არ ჩანს</em>, მათი ნახვის ალბათობა მკვეთრად ეცემა. ფერადი ველები რჩება — ექვსივეს თავისი ფერი აქვს, უბრალოდ ერთ ეკრანზე, ერთი გადახედვით. ეს ერთი ცვლილება მთელ სიაში ყველაზე დიდი მოგებაა.</p>
+    </div>
+  </section>
+
+  <!-- 05 ინდივიდუალური ტორტი -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">05</span>
+      <h3>ინდივიდუალური დიზაინის ტორტი</h3>
+      <span class="ref"><b>Toraya</b> · მშვიდი 50/50</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span class="h">ინდივიდუალური დიზაინის ტორტი</span><span>შეარჩიე დიზაინი და შექმენი განსაკუთრებული ტორტი შენი მნიშვნელოვანი დღისთვის.</span><span class="h">შეუკვეთე</span><span>ნახე მაგალითები</span><span>2 ფოტო</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 190" role="img" aria-label="ორი განლაგება: მარცხნივ დიპტიქი, სადაც ორი პანელი ჯვარედინად იცვლება, მარჯვნივ უძრავი ორმოცდაათი-ორმოცდაათი გაყოფა ფოტოთი და კრემისფერი პანელით">
+        <defs>
+          <marker id="ar6" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0,0 8,4 0,8" fill="currentColor" opacity=".65"/>
+          </marker>
+          <marker id="ar6b" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+            <polygon points="8,0 0,4 8,8" fill="currentColor" opacity=".65"/>
+          </marker>
+        </defs>
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — დიპტიქი, ჯვარედინი გადასვლა</text>
+        <rect x="0" y="26" width="150" height="100" rx="14" fill="var(--ph)"/>
+        <rect x="172" y="26" width="150" height="100" rx="14" fill="var(--panel)" stroke="currentColor" stroke-opacity=".16"/>
+        <rect x="186" y="46" width="94" height="9" rx="4.5" fill="currentColor" opacity=".75"/>
+        <rect x="186" y="64" width="118" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <rect x="186" y="76" width="88" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <rect x="186" y="96" width="52" height="13" rx="6.5" fill="currentColor" opacity=".8"/>
+        <line x1="152" y1="70" x2="170" y2="70" stroke="currentColor" stroke-opacity=".65" marker-end="url(#ar6)"/>
+        <line x1="152" y1="82" x2="170" y2="82" stroke="currentColor" stroke-opacity=".65" marker-end="url(#ar6b)"/>
+        <text x="0" y="152" font-size="12" fill="currentColor" opacity=".8">პანელები საპირისპირო ფაზით იცვლება</text>
+        <text x="0" y="170" font-size="11.5" fill="currentColor" opacity=".5">ტექსტი მოძრავ ფონზე იკითხება · ინფორმაცია არ ემატება</text>
+
+        <line x1="350" y1="26" x2="350" y2="180" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — უძრავი 50/50</text>
+        <rect x="378" y="20" width="164" height="3" rx="1.5" fill="var(--svgacc)"/>
+        <rect x="378" y="30" width="158" height="106" rx="14" fill="var(--ph)"/>
+        <rect x="542" y="30" width="158" height="106" rx="14" fill="var(--panel)" stroke="currentColor" stroke-opacity=".16"/>
+        <rect x="558" y="52" width="112" height="9" rx="4.5" fill="currentColor" opacity=".78"/>
+        <rect x="558" y="70" width="126" height="5" rx="2.5" fill="currentColor" opacity=".42"/>
+        <rect x="558" y="82" width="96" height="5" rx="2.5" fill="currentColor" opacity=".42"/>
+        <rect x="558" y="102" width="56" height="13" rx="6.5" fill="var(--svgacc)"/>
+        <rect x="622" y="102" width="56" height="13" rx="6.5" fill="none" stroke="currentColor" stroke-opacity=".45"/>
+        <text x="378" y="160" font-size="12" fill="currentColor" opacity=".8">ერთი ფოტო · ერთი ტექსტი · ორი ღილაკი</text>
+        <text x="378" y="178" font-size="11.5" fill="currentColor" opacity=".5">მეორე ფოტო „ნახე მაგალითების“ გვერდზე გადადის</text>
+      </svg>
+      <figcaption>ორივეში ერთი და იგივე წინადადება და იგივე ორი ღილაკია. სხვაობა: მარცხნივ ორივე პანელი <b>განუწყვეტლივ იცვლება</b>; მარჯვნივ ისინი უძრავია და მეორე ღილაკს („ნახე მაგალითები“) სივრცე უჩნდება.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B</span>
+      <p>ეს სექცია ერთ კონკრეტულ სერვისს ყიდის და ერთადერთი წინადადება აქვს — მოძრაობა ამ წინადადებას მხოლოდ ხელს უშლის. უძრავ ვერსიაში <em>ორივე ღილაკი თანაბრად ჩანს</em>, რაც დღეს ასე არაა: „ნახე მაგალითები“ პანელის ცვლის დროს იკარგება. მეორე ფოტო არ იშლება — ის უკვე არსებულ „მაგალითების“ გვერდზეა.</p>
+    </div>
+  </section>
+
+  <!-- 06 საკონდიტრო მადარტი -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">06</span>
+      <h3>საკონდიტრო მადარტი</h3>
+      <span class="ref"><b>Oddbox</b> · ერთი სვეტი, გასაგები</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span class="h">საკონდიტრო მადარტი</span><span>აბზაცი 1 — ლიდერი საკონდიტრო, ტექნოლოგიები, უსაფრთხოება</span><span>აბზაცი 2 — 2009 წლიდან, 5 ფილიალი</span><span>17 წელი ბაზარზე</span><span>5 ფილიალი</span><span>900+ თანამშრომელი</span><span class="h">გაიგე მეტი</span><span>1 ფოტო</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 205" role="img" aria-label="ორი განლაგება: მარცხნივ ასიმეტრიული პანელი აწეული ფოტოთი, მარჯვნივ ერთი სვეტი — ფოტო ზემოთ, ტექსტი ქვემოთ, ციფრები რიგში">
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — ასიმეტრიული, ფოტო აწეული</text>
+        <rect x="0" y="34" width="322" height="118" rx="16" fill="var(--panel)"/>
+        <rect x="196" y="22" width="118" height="94" rx="12" fill="var(--ph)"/>
+        <rect x="14" y="52" width="112" height="9" rx="4.5" fill="currentColor" opacity=".75"/>
+        <rect x="14" y="70" width="166" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <rect x="14" y="82" width="158" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <rect x="14" y="94" width="120" height="5" rx="2.5" fill="currentColor" opacity=".4"/>
+        <rect x="14" y="118" width="26" height="10" rx="3" fill="currentColor" opacity=".8"/>
+        <rect x="14" y="132" width="42" height="4" rx="2" fill="currentColor" opacity=".35"/>
+        <rect x="76" y="118" width="18" height="10" rx="3" fill="currentColor" opacity=".8"/>
+        <rect x="76" y="132" width="36" height="4" rx="2" fill="currentColor" opacity=".35"/>
+        <rect x="130" y="118" width="34" height="10" rx="3" fill="currentColor" opacity=".8"/>
+        <rect x="130" y="132" width="46" height="4" rx="2" fill="currentColor" opacity=".35"/>
+        <text x="0" y="176" font-size="12" fill="currentColor" opacity=".8">ტექსტის ზოლი 166px — ვიწრო სვეტში ხვდება</text>
+        <text x="0" y="194" font-size="11.5" fill="currentColor" opacity=".5">ორი აბზაცი და ციფრები ერთ ვიწრო მხარეს იკუმშება</text>
+
+        <line x1="350" y1="26" x2="350" y2="196" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — ერთი სვეტი</text>
+        <rect x="378" y="20" width="152" height="3" rx="1.5" fill="var(--svgacc)"/>
+        <rect x="378" y="30" width="322" height="56" rx="14" fill="var(--ph)"/>
+        <rect x="378" y="98" width="126" height="9" rx="4.5" fill="currentColor" opacity=".78"/>
+        <rect x="378" y="116" width="284" height="5" rx="2.5" fill="currentColor" opacity=".42"/>
+        <rect x="378" y="128" width="292" height="5" rx="2.5" fill="currentColor" opacity=".42"/>
+        <rect x="378" y="140" width="238" height="5" rx="2.5" fill="currentColor" opacity=".42"/>
+        <line x1="378" y1="156" x2="700" y2="156" stroke="currentColor" stroke-opacity=".18"/>
+        <rect x="378" y="164" width="30" height="12" rx="3" fill="currentColor" opacity=".85"/>
+        <rect x="378" y="180" width="52" height="4" rx="2" fill="currentColor" opacity=".35"/>
+        <rect x="486" y="164" width="18" height="12" rx="3" fill="currentColor" opacity=".85"/>
+        <rect x="486" y="180" width="42" height="4" rx="2" fill="currentColor" opacity=".35"/>
+        <rect x="594" y="164" width="42" height="12" rx="3" fill="currentColor" opacity=".85"/>
+        <rect x="594" y="180" width="56" height="4" rx="2" fill="currentColor" opacity=".35"/>
+        <text x="378" y="200" font-size="11.5" fill="currentColor" opacity=".5">ტექსტი 62 სიმბოლომდე · ციფრები სამ თანაბარ სვეტში</text>
+      </svg>
+      <figcaption>ეს გვერდის <b>ერთადერთი ნამდვილი საკითხავი ბლოკია</b> — ორი აბზაცი. მარცხნივ მას ვიწრო სვეტი უჭირავს ფოტოს გვერდით; მარჯვნივ ტექსტს მთელი სიგანე აქვს და ციფრები ცალკე, თანაბარ რიგში ჯდება.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B</span>
+      <p>17 · 5 · 900+ ბრენდის ყველაზე ძლიერი ციფრებია და დღეს ისინი <em>ტექსტთან ერთად, ვიწრო მხარეს იკუმშება</em>. ერთი სვეტი ორივეს ხსნის: აბზაცები 62 სიმბოლოს ზოლში იკითხება, ციფრები კი სამ თანაბარ სვეტში დგება საკუთარი ხაზის ქვემოთ. ფოტო რჩება, უბრალოდ ზემოთ გადადის და მთელ სიგანეს იკავებს — არსებული 3:2 კადრი ზუსტად ამისთვისაა.</p>
+    </div>
+  </section>
+
+  <!-- 07 ფილიალები -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">07</span>
+      <h3>ჩვენი ფილიალები</h3>
+      <span class="ref"><b>Tartine</b> · ყველა ლოკაცია ჩანს</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span>ყველა რუკაზე →</span><span>01 პეკინის ქუჩა #17</span><span>02 ო. ხიზანიშვილის ქუჩა #37</span><span>03 ო. მანდელშტამის ქუჩა #3</span><span>04 ც. დადიანის ქუჩა #162</span><span>05 ს. ცინცაძის ქუჩა #37</span><span>5 ფოტო · 5 რუკის ბმული</span>
+    </div>
+    <figure>
+      <svg class="wf" viewBox="0 0 700 195" role="img" aria-label="ორი განლაგება: მარცხნივ აკორდეონი, სადაც ერთი ფილიალი გაშლილია და ოთხი შეკრული, მარჯვნივ ხუთი თანაბარი სვეტი ხუთივე მისამართით">
+        <text x="0" y="13" font-size="11.5" fill="currentColor" opacity=".55">A · დღეს — აკორდეონი (hover)</text>
+        <rect x="0" y="26" width="142" height="106" rx="14" fill="var(--ph)"/>
+        <text x="10" y="44" font-size="10" fill="currentColor" opacity=".6">01</text>
+        <rect x="10" y="112" width="96" height="6" rx="3" fill="currentColor" opacity=".6"/>
+        <rect x="150" y="26" width="40" height="106" rx="14" fill="var(--ph)" opacity=".55"/>
+        <text x="160" y="44" font-size="10" fill="currentColor" opacity=".5">02</text>
+        <rect x="194" y="26" width="40" height="106" rx="14" fill="var(--ph)" opacity=".55"/>
+        <text x="204" y="44" font-size="10" fill="currentColor" opacity=".5">03</text>
+        <rect x="238" y="26" width="40" height="106" rx="14" fill="var(--ph)" opacity=".55"/>
+        <text x="248" y="44" font-size="10" fill="currentColor" opacity=".5">04</text>
+        <rect x="282" y="26" width="40" height="106" rx="14" fill="var(--ph)" opacity=".55"/>
+        <text x="292" y="44" font-size="10" fill="currentColor" opacity=".5">05</text>
+        <text x="0" y="156" font-size="12" fill="currentColor" opacity=".8">ოთხი მისამართი დამალულია</text>
+        <text x="0" y="174" font-size="11.5" fill="currentColor" opacity=".5">შეხებით ეკრანზე hover არ არსებობს</text>
+
+        <line x1="350" y1="26" x2="350" y2="186" stroke="currentColor" stroke-opacity=".18" stroke-dasharray="3 4"/>
+
+        <text x="378" y="13" font-size="11.5" fill="var(--svgacc)">B · ვირჩევთ — ხუთი თანაბარი სვეტი</text>
+        <rect x="378" y="20" width="198" height="3" rx="1.5" fill="var(--svgacc)"/>
+        <rect x="378" y="30" width="58" height="70" rx="12" fill="var(--ph)"/>
+        <text x="378" y="116" font-size="10" fill="currentColor" opacity=".6">01</text>
+        <rect x="378" y="124" width="54" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="378" y="134" width="38" height="5" rx="2.5" fill="currentColor" opacity=".35"/>
+        <rect x="444" y="30" width="58" height="70" rx="12" fill="var(--ph)"/>
+        <text x="444" y="116" font-size="10" fill="currentColor" opacity=".6">02</text>
+        <rect x="444" y="124" width="54" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="444" y="134" width="44" height="5" rx="2.5" fill="currentColor" opacity=".35"/>
+        <rect x="510" y="30" width="58" height="70" rx="12" fill="var(--ph)"/>
+        <text x="510" y="116" font-size="10" fill="currentColor" opacity=".6">03</text>
+        <rect x="510" y="124" width="54" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="510" y="134" width="40" height="5" rx="2.5" fill="currentColor" opacity=".35"/>
+        <rect x="576" y="30" width="58" height="70" rx="12" fill="var(--ph)"/>
+        <text x="576" y="116" font-size="10" fill="currentColor" opacity=".6">04</text>
+        <rect x="576" y="124" width="54" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="576" y="134" width="46" height="5" rx="2.5" fill="currentColor" opacity=".35"/>
+        <rect x="642" y="30" width="58" height="70" rx="12" fill="var(--ph)"/>
+        <text x="642" y="116" font-size="10" fill="currentColor" opacity=".6">05</text>
+        <rect x="642" y="124" width="54" height="5" rx="2.5" fill="currentColor" opacity=".55"/>
+        <rect x="642" y="134" width="42" height="5" rx="2.5" fill="currentColor" opacity=".35"/>
+        <text x="378" y="164" font-size="12" fill="currentColor" opacity=".8">ხუთივე მისამართი ერთდროულად იკითხება</text>
+        <text x="378" y="182" font-size="11.5" fill="currentColor" opacity=".5">მობილურზე — ხუთი რიგი, ფოტო მარცხნივ</text>
+      </svg>
+      <figcaption>განსხვავება ერთადერთია: მისამართი <b>დაწკაპუნებამდე ჩანს თუ არა</b>. აკორდეონში ერთ დროს ერთი მისამართი იკითხება; ხუთსვეტიან რიგში — ხუთივე.</figcaption>
+    </figure>
+    <div class="pick">
+      <span class="pick-tag">B</span>
+      <p>ფილიალის მისამართი საიტის ერთ-ერთი ყველაზე პრაქტიკული ინფორმაციაა — ადამიანი შემოდის იმისთვის, რომ <em>უახლოესი ფილიალი იპოვოს</em>. აკორდეონი ამ ინფორმაციას hover-ის უკან მალავს, ხოლო შეხებით ეკრანზე hover საერთოდ არ არსებობს, ანუ მობილურზე ის უბრალოდ არ მუშაობს. ხუთი ფილიალი ხუთ თანაბარ სვეტს ჯდება — არსებული 3:2 კადრებით, ხელახალი გადაღების გარეშე.</p>
+    </div>
+  </section>
+
+  <!-- 08 შემოგვიერთდი + 09 ფუტერი -->
+  <section class="blk">
+    <div class="blk-top">
+      <span class="blk-n">08 · 09</span>
+      <h3>შემოგვიერთდი და ფუტერი</h3>
+      <span class="ref"><b>Partake</b> · ერთი ბრტყელი ველი</span>
+    </div>
+    <p class="inv-lab">დღევანდელი შინაარსი — უცვლელი</p>
+    <div class="inv">
+      <span class="h">შემოგვიერთდი</span><span>კომპანიაში 900-ზე მეტი ადამიანია დასაქმებული…</span><span class="h">იხილე ვაკანსიები</span><span>პირობები · დაბრუნების პოლიტიკა · მიტანის სერვისი · წესები · კონფიდენციალურობა</span><span>შპს „არბო 2009“ · ს/კ 205273498 · პეკინის ქ. #17</span>
+    </div>
+    <p class="note" style="margin-top:20px">ამ ორ სექციაზე <b>ალტერნატივა არ სჭირდება</b> — დღევანდელი განლაგება სწორია და მისი შეცვლა უსაფუძვლო იქნებოდა. ორივე ყავისფერ ველზეა და ერთად გვერდის დახურვას ქმნის. საკმარისია სამი დაზუსტება:</p>
+    <ol class="keeps" style="counter-reset:none">
+      <li><span class="x">01</span><div><b>ორი მუქი ველი ზედიზედ — ერთი ბლოკია</b><span>„შემოგვიერთდი“ და ფუტერი ერთმანეთს ეკვრის, შუაში კრემისფერი ზოლის გარეშე. მუქი მთელ გვერდზე მხოლოდ აქ ჩნდება, ბოლოში — ეს ბუნებრივი დასასრულია.</span></div></li>
+      <li><span class="x">02</span><div><b>„იხილე ვაკანსიები“ — ერთადერთი ღილაკი მუქ ველზე</b><span>სავსე ყვითელი (N13). ტექსტი 60 სიმბოლოს ზოლში, ცენტრში არა — მარცხნივ, დანარჩენი გვერდის ბადეზე.</span></div></li>
+      <li><span class="x">03</span><div><b>ფუტერი — სამი სვეტი, გიგანტური ლოგოს გარეშე</b><span>N10 ძალაშია: 42px ნიშანი მარცხნივ ზემოთ. სვეტები: ნავიგაცია · პირობები · რეკვიზიტები. ერთი ზომა, ერთი მანძილი.</span></div></li>
+    </ol>
+  </section>
+
+  <!-- ═══════════ რას არ ვცვლით ═══════════ -->
+  <div class="sh">
+    <h2>რას არ ვცვლით</h2>
+    <span class="r mono">D</span>
+  </div>
+  <p class="note">ეს სია ისეთივე მნიშვნელოვანია, როგორც ზემოთ ჩამოთვლილი — რადგან ყველაზე დიდი რისკი ის არის, რომ <b>დიზაინის განახლება ახალ სამუშაოდ იქცეს</b>.</p>
+  <ul class="keeps">
+    <li><span class="x">✓</span><div><b>არც ერთი ახალი სექცია</b><span>ცხრა ბლოკი იყო, ცხრა რჩება. ახალი ბლოკის ცდა (კიქერები, ფასდაკლების ლენტი) N12-ით უკვე უარყოფილია.</span></div></li>
+    <li><span class="x">✓</span><div><b>არც ერთი ახალი ტექსტი</b><span>ყველა სათაური, აბზაცი, ღილაკის წარწერა და ფასი დღევანდელია. „ცხობა“ — უცვლელი N8-ის მიხედვით.</span></div></li>
+    <li><span class="x">✓</span><div><b>არც ერთი ახალი ფოტოსესია</b><span>ყველა შემოთავაზება <code>hp-2026/img/</code>-ის 23 ასეტზე ჯდება. სადაც ფოტო ერთით ნაკლებია (ინდივიდუალური ტორტი), მეორე კადრი უკვე არსებულ გვერდზეა.</span></div></li>
+    <li><span class="x">✓</span><div><b>არც ერთი ახალი მონაცემი</b><span>არ სჭირდება მარაგის სტატუსი, ალერგენების თეგები, სეზონური კალენდარი, მიტანის ზონები. ეს ყველაფერი პირველ დოსიეებში იყო განხილული და <b>ამ ეტაპზე გვერდიდან გამოდის</b>.</span></div></li>
+    <li><span class="x">✓</span><div><b>ტოკენები და ფონტი</b><span>FiraGO Light · Regular · SemiBold; <code>--paper</code> <code>--cream</code> <code>--choco</code> <code>--yolk</code> <code>--r</code> <code>--r-s</code>. ახალი ფერი და ახალი ფონტი არ ემატება.</span></div></li>
+    <li><span class="x">✓</span><div><b>13 გვერდის სტრუქტურა</b><span>ჰედერის ბმულები იგივე შვიდია, იმავე რიგით. საიტის რუკა ხელუხლებელია.</span></div></li>
+  </ul>
+
+</div>
+
+<div class="end">
+  <div class="w">
+    <b>მადარტი</b> · შპს „არბო 2009“ · მთავარი გვერდი — ვიზუალური სტილი და განლაგებები · 08.09.2026<br>
+    საფუძველი: <b>hp-2026/madart-hp.src.html</b> (არსებული ცხრა სექცია და ტოკენები) · განლაგებების რეფერენსები მეორე დოსიედან<br>
+    ცხრა სექცია · შვიდი შემოთავაზებული განლაგება · ორი სექცია უცვლელი · ახალი შინაარსი — არ არის
+  </div>
+</div>

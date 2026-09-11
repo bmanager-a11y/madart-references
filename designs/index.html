@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>მადარტი — მთავარი გვერდის დიზაინები</title>
+<meta name="description" content="მადარტის მთავარი გვერდის ყველა დამუშავებული ვიზუალური მიმართულება — თორმეტი დიზაინი და კვლევის დოკუმენტები.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700&family=Archivo:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#17130e; --raise:#211b14; --sunk:#1b1610; --ink:#f4eee2; --mut:#a89a83;
+    --soft:#7e7261; --line:#332a20; --line2:#463a2c; --acc:#e8b33c; --accink:#2a1e0c;
+    --no:#8f7a6b;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans Georgian","Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.6;
+  }
+  .lat{font-family:"Archivo","Segoe UI",system-ui,sans-serif}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+  header{padding:54px 0 34px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:"Archivo",sans-serif;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin:0 0 16px}
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.12;letter-spacing:-.02em;font-weight:700;margin:0 0 18px;text-wrap:balance;max-width:18ch}
+  .sub{margin:0;max-width:62ch;color:var(--mut);font-size:16.5px}
+  .legend{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;align-items:center}
+
+  .st{display:inline-block;border-radius:5px;padding:3px 9px;font-size:11px;line-height:1.6;font-weight:600;white-space:nowrap;vertical-align:2px}
+  .st-live{background:var(--acc);color:var(--accink)}
+  .st-work{border:1px solid var(--acc);color:var(--acc)}
+  .st-rev{border:1px solid var(--line2);color:var(--mut)}
+  .st-old{border:1px solid var(--line2);color:var(--soft)}
+  .st-no{border:1px dashed var(--no);color:var(--no)}
+
+  section{padding:44px 0 8px}
+  .shead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  .shead h2{font-size:22px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .shead .date{font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+  .sdesc{color:var(--mut);max-width:70ch;margin:10px 0 28px;font-size:15px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px}
+  a.card{
+    display:flex;flex-direction:column;text-decoration:none;color:inherit;
+    background:var(--raise);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  a.card:hover,a.card:focus-visible{border-color:var(--acc);transform:translateY(-3px)}
+  a.card:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+  .shot{aspect-ratio:1440/1000;background:var(--sunk);border-bottom:1px solid var(--line);overflow:hidden}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .cap{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .ttl{font-size:17px;font-weight:600;line-height:1.35;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .cap p{margin:0;font-size:14px;color:var(--mut);line-height:1.55;flex:1}
+  .mf{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
+  .mf span{font-family:"Archivo",sans-serif;font-size:11.5px;letter-spacing:.06em;color:var(--soft);font-variant-numeric:tabular-nums}
+
+  .rows{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  a.row{
+    display:grid;grid-template-columns:132px 1fr auto;gap:18px;align-items:center;
+    padding:14px 18px;background:var(--sunk);text-decoration:none;color:inherit;
+    border-bottom:1px solid var(--line);transition:background .16s ease;
+  }
+  a.row:last-child{border-bottom:0}
+  a.row:hover,a.row:focus-visible{background:var(--raise)}
+  a.row:focus-visible{outline:2px solid var(--acc);outline-offset:-2px}
+  .row .th{aspect-ratio:1440/1000;border:1px solid var(--line2);border-radius:5px;overflow:hidden;background:var(--bg)}
+  .row .th img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .row .tx b{display:block;font-size:15.5px;font-weight:600;margin-bottom:3px}
+  .row .tx span{font-size:13.5px;color:var(--mut);line-height:1.5}
+  .row .sz{font-family:"Archivo",sans-serif;font-size:11.5px;color:var(--soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  .note{margin-top:30px;background:var(--sunk);border:1px solid var(--line);border-right:3px solid var(--acc);border-radius:8px;padding:14px 17px;font-size:14px;color:var(--mut);max-width:74ch}
+  .note b{color:var(--ink);font-weight:600}
+
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:26px 0 54px;color:var(--soft);font-size:13px}
+  footer p{margin:0 0 7px;max-width:76ch}
+
+  @media (max-width:620px){
+    .grid{grid-template-columns:1fr}
+    a.row{grid-template-columns:88px 1fr;row-gap:8px}
+    .row .sz{grid-column:2;justify-self:start}
+  }
+  @media (prefers-reduced-motion: reduce){
+    a.card,a.row{transition:none}
+    a.card:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">მადარტი · შპს „არბო 2009" · თბილისი</p>
+    <h1>მთავარი გვერდის დიზაინები</h1>
+    <p class="sub">ყველა ვიზუალური მიმართულება, რაც მადარტის მთავარი გვერდისთვის დამუშავდა — თორმეტი სრული მაკეტი და კვლევის ხუთი დოკუმენტი. თითოეული მაკეტი ცოცხალია: იხსნება, სქროლდება, ღილაკები და ანიმაციები მუშაობს.</p>
+    <div class="legend">
+      <span class="st st-live">მიმდინარე</span>
+      <span class="st st-work">მუშავდება</span>
+      <span class="st st-rev">განსახილველი</span>
+      <span class="st st-old">ადრინდელი რაუნდი</span>
+      <span class="st st-no">უარყოფილი</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <div class="shead"><h2>მესამე რაუნდი</h2><span class="date lat">2026 · 8 სექტემბერი</span></div>
+    <p class="sdesc">მეორე რეფერენს-კვლევის შემდეგ აგებული მიმართულებები. სამი დამოუკიდებელი ვიზუალური სისტემა (ეტიკეტი · დახლი · მოზაიკა), გამარტივებული ვერსია და სამი საფეხური Arensbak-ის ენაზე — სექციებიდან სრულ კარკასამდე.</p>
+    <div class="grid">
+
+      <a class="card" href="a-etiketi.html">
+        <div class="shot"><img src="thumbs/a-etiketi.jpg" alt="A · ეტიკეტი — ბრტყელი ყვითელი ველი გიგანტური სათაურით" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">A · ეტიკეტი <span class="st st-rev">განსახილველი</span></div>
+          <p>ბრტყელი ფერის ველები, ტიპოგრაფია 138px-მდე. ფოტო აქ ფონი არაა — ამოჭრილი ობიექტია ფერზე.</p>
+          <div class="mf"><span class="lat">hp-3styles</span><span class="lat">7 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="b-daxli.html">
+        <div class="shot"><img src="thumbs/b-daxli.jpg" alt="B · დახლი — ფასების ფურცელი მჭიდრო რიგებით" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">B · დახლი <span class="st st-rev">განსახილველი</span></div>
+          <p>მთავარი გვერდი, როგორც მუშა დახლი: ღია საძებნი ველი, ფასი და მარაგი პირველივე ეკრანზე. ჰერო-ფოტო არ არსებობს.</p>
+          <div class="mf"><span class="lat">hp-3styles</span><span class="lat">7 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="c-mozaika.html">
+        <div class="shot"><img src="thumbs/c-mozaika.jpg" alt="C · მოზაიკა — უწყვეტი ბადე მუქი ნაკერით" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">C · მოზაიკა <span class="st st-rev">განსახილველი</span></div>
+          <p>ერთი ბადე კიდიდან კიდემდე, 3px მუქი ნაკერით. ფოტო დომინირებს, ტექსტი ბადეში ჯდება.</p>
+          <div class="mf"><span class="lat">hp-3styles</span><span class="lat">7 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="arensbak-ref.html">
+        <div class="shot"><img src="thumbs/arensbak-ref.jpg" alt="რეფერენსის კარკასი — Arensbak-ის აგებულება" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">რეფერენსის კარკასი <span class="st st-rev">განსახილველი</span></div>
+          <p>Arensbak-ის მთავარი გვერდის სრული აგებულება, ჩვენი შინაარსით. ყველაზე შორს წასული ვერსია ამ ხაზში.</p>
+          <div class="mf"><span class="lat">hp-ref-arensbak</span><span class="lat">9 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="arensbak-panels.html">
+        <div class="shot"><img src="thumbs/arensbak-panels.jpg" alt="პანელები — ჩვენი სექციები Arensbak-ის ენაზე" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">პანელები <span class="st st-rev">განსახილველი</span></div>
+          <p>ჩვენი ცხრავე სექცია გადაყვანილი პანელების ენაზე — შუალედური საფეხური სექციებსა და სრულ კარკასს შორის.</p>
+          <div class="mf"><span class="lat">hp-arensbak-full</span><span class="lat">9 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="arensbak-sections.html">
+        <div class="shot"><img src="thumbs/arensbak-sections.jpg" alt="Arensbak სექციები — ორი სექცია გადაყვანილი" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">Arensbak სექციები <span class="st st-rev">განსახილველი</span></div>
+          <p>პირველი ცდა: ორი სექცია გადაყვანილი რეფერენსის ენაზე, დანარჩენი უცვლელი. საწყისი წერტილი ამ ხაზისთვის.</p>
+          <div class="mf"><span class="lat">hp-arensbak</span><span class="lat">10 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="hp-simple.html">
+        <div class="shot"><img src="thumbs/hp-simple.jpg" alt="გამარტივებული მთავარი გვერდი" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">გამარტივებული <span class="st st-rev">განსახილველი</span></div>
+          <p>იგივე ცხრა სექცია, უფრო მშვიდი განლაგებით და ერთი ვიდეოთი ორის ნაცვლად.</p>
+          <div class="mf"><span class="lat">hp-simple</span><span class="lat">7 MB</span></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><h2>პირველი და მეორე რაუნდი</h2><span class="date lat">2026 · 1–2 სექტემბერი</span></div>
+    <p class="sdesc">პირველი კვლევიდან გამოსული მიმართულებები. აქედან ორი ცოცხალია: „ბედნიერების რეცეპტი" კლიენტს გაგზავნილია, „ჟურნალი" ხელახლა დამუშავებაშია.</p>
+    <div class="grid">
+
+      <a class="card" href="hp-2026.html">
+        <div class="shot"><img src="thumbs/hp-2026.jpg" alt="ბედნიერების რეცეპტი — ვიდეო-ბენტო ჰერო ყვითელი ველით" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">ბედნიერების რეცეპტი <span class="st st-live">მიმდინარე</span></div>
+          <p>მიმდინარე მიმართულება. რეფერენსი — Lune Croissanterie. ჰერო ვიდეო-ბენტოა, ფილიალები აკორდეონი, კატეგორიები ექვსი ფერის ველი.</p>
+          <div class="mf"><span class="lat">hp-2026</span><span class="lat">7 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="jurnali.html">
+        <div class="shot"><img src="thumbs/jurnali.jpg" alt="ჟურნალი — შვიდთავიანი მთავარი გვერდი" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">ჟურნალი <span class="st st-work">მუშავდება</span></div>
+          <p>მთავარი გვერდი შვიდ თავად: გახსნა · ასორტიმენტი · ჩვენს შესახებ · საწარმო · დელივერი · ფილიალები · ვაკანსიები. თითოეულს თავისი განლაგება.</p>
+          <div class="mf"><span class="lat">direction-j</span><span class="lat">6 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="3-homepages.html">
+        <div class="shot"><img src="thumbs/3-homepages.jpg" alt="სამი მთავარი გვერდი ერთ ფაილში" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">სამი მთავარი გვერდი <span class="st st-old">ადრინდელი რაუნდი</span></div>
+          <p>სამი მიმართულება ერთ ფაილში, თითო რეფერენსის სტრუქტურით: GAIL's · Levain · Poilâne.</p>
+          <div class="mf"><span class="lat">direction-abc</span><span class="lat">10 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="2-homepages.html">
+        <div class="shot"><img src="thumbs/2-homepages.jpg" alt="ორი მთავარი გვერდი იდენტური ინფორმაციით" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">ორი მთავარი გვერდი <span class="st st-old">ადრინდელი რაუნდი</span></div>
+          <p>ორი ვერსია იდენტური ჰედერით და იდენტური ინფორმაციით — განსხვავება მხოლოდ განლაგებაშია.</p>
+          <div class="mf"><span class="lat">direction-abc</span><span class="lat">12 MB</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="taro.html">
+        <div class="shot"><img src="thumbs/taro.jpg" alt="თარო — მუქი ყავისფერი მიმართულება" loading="lazy" width="760" height="528"></div>
+        <div class="cap">
+          <div class="ttl">თარო <span class="st st-no">უარყოფილი</span></div>
+          <p>მუქი ყავისფერი, კვადრატული ფორმები, ამოჭრილი პროდუქტები. კლიენტმა უარყო — ისტორიისთვის რჩება.</p>
+          <div class="mf"><span class="lat">direction-c</span><span class="lat">9 MB</span></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="shead"><h2>კვლევა და დოკუმენტაცია</h2><span class="date lat">რაზე დგას ეს დიზაინები</span></div>
+    <p class="sdesc">დიზაინები ჰაერში არ გაჩენილა — წინ უსწრებს ორი რეფერენს-კვლევა და განლაგებების რუკა. ეს დოკუმენტები მსუბუქია და სწრაფად იხსნება.</p>
+    <div class="rows">
+
+      <a class="row" href="references.html">
+        <div class="th"><img src="thumbs/references.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><b>საერთაშორისო რეფერენსები — სრული ნუსხა</b><span>ყველა 25 უცხოური საიტი ერთ გვერდზე, ბმულებით, ძებნით და იმ ელემენტით, რომელიც თითოეულიდან ავიღეთ.</span></div>
+        <div class="sz">1 MB</div>
+      </a>
+
+      <a class="row" href="dossier-2.html">
+        <div class="th"><img src="thumbs/dossier-2.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><b>რეფერენს-დოსიე II — 12 ახალი საიტი</b><span>მეორე კვლევა: Ole &amp; Steen · Tartine · Sweetgreen · Partake · Graza · Little Sesame · Ottolenghi · Toraya · Oddbox · Potluck · Aura Bora · Arensbak. აქედან გამოვიდა მესამე რაუნდი.</span></div>
+        <div class="sz">1 MB</div>
+      </a>
+
+      <a class="row" href="dossier-1.html">
+        <div class="th"><img src="thumbs/dossier-1.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><b>რეფერენს-დოსიე I — 10 საცხობი მსოფლიოდან</b><span>პირველი კვლევა: GAIL's · Konditor · Levain · Lune · Yann Couvreur · Milk Bar · Grolet · Poilâne · Crumbl · Pierre Hermé, შეფასებებით და დასკვნებით.</span></div>
+        <div class="sz">1 MB</div>
+      </a>
+
+      <a class="row" href="layout-map.html">
+        <div class="th"><img src="thumbs/layout-map.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><b>განლაგებების რუკა</b><span>ცხრავე არსებული სექცია და თითოეულზე ორი ალტერნატიული განლაგება — გვერდიგვერდ შედარებისთვის.</span></div>
+        <div class="sz">1 MB</div>
+      </a>
+
+      <a class="row" href="reference-map.html">
+        <div class="th"><img src="thumbs/reference-map.jpg" alt="" loading="lazy"></div>
+        <div class="tx"><b>რეფერენსების რუკა</b><span>რომელი რეფერენსიდან რომელი ელემენტი და ჩვენს რომელ სექციაში ჩაჯდება.</span></div>
+        <div class="sz">3 MB</div>
+      </a>
+
+    </div>
+
+    <p class="note"><b>ერთი რამ ჩამოტვირთვაზე.</b> მაკეტებში ფოტოები და ვიდეოები თვით ფაილშია ჩაშენებული, ამიტომ თითოეული 6–12 MB-ია. პირველად გახსნას 5–15 წამი სჭირდება, მერე ბრაუზერი ინახავს და მყისიერად იხსნება. მობილურ ინტერნეტზე ჯობია Wi-Fi-ზე გახსნათ.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>ეს გვერდი მადარტის მთავარი გვერდის რედიზაინის სამუშაო არქივია. ყველა მაკეტი ცოცხალია — სქროლდება, ღილაკები და ანიმაციები მუშაობს ისე, როგორც მზა საიტზე იმუშავებდა.</p>
+    <p>განახლდა: 2026 წლის 11 სექტემბერი.</p>
+  </div>
+</footer>
+
+</body>
+</html>

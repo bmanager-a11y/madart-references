@@ -1,0 +1,782 @@
+<title>მადარტის რეფერენს-დოსიე</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Georgian:wght@400;500;600&family=Noto+Serif+Georgian:wght@600;700&display=swap">
+
+<style>
+:root{
+  --paper:#F7F3F2;
+  --surface:#FFFEFD;
+  --ink:#241A1C;
+  --ink-soft:#4B3A3D;
+  --muted:#7C6A6D;
+  --rule:#E3D8D6;
+  --rule-soft:#EFE7E5;
+  --accent:#9B2242;
+  --accent-ink:#9B2242;
+  --pistachio:#2F5D50;
+  --meter-off:#E3D8D6;
+  --take-bg:#F1E9E9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15100F;
+    --surface:#1E1717;
+    --ink:#F2E9E7;
+    --ink-soft:#D6C6C4;
+    --muted:#9C8785;
+    --rule:#33272A;
+    --rule-soft:#271E20;
+    --accent:#E9748C;
+    --accent-ink:#E9748C;
+    --pistachio:#89BFA9;
+    --meter-off:#33272A;
+    --take-bg:#26191C;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15100F;
+  --surface:#1E1717;
+  --ink:#F2E9E7;
+  --ink-soft:#D6C6C4;
+  --muted:#9C8785;
+  --rule:#33272A;
+  --rule-soft:#271E20;
+  --accent:#E9748C;
+  --accent-ink:#E9748C;
+  --pistachio:#89BFA9;
+  --meter-off:#33272A;
+  --take-bg:#26191C;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans Georgian","Segoe UI",system-ui,sans-serif;
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{
+  max-width:920px;
+  margin:0 auto;
+  padding:0 28px 96px;
+}
+
+a{color:inherit}
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead{
+  padding:64px 0 34px;
+  border-bottom:1px solid var(--ink);
+}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 22px;
+}
+.masthead h1{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;
+  font-size:clamp(34px,6vw,58px);
+  line-height:1.12;
+  letter-spacing:-.015em;
+  margin:0 0 20px;
+  text-wrap:balance;
+}
+.masthead h1 em{
+  font-style:normal;
+  color:var(--accent-ink);
+}
+.lead{
+  margin:0;
+  max-width:60ch;
+  font-size:18px;
+  color:var(--ink-soft);
+}
+
+.facts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  margin-top:34px;
+  border-top:1px solid var(--rule);
+}
+.fact{
+  flex:1 1 150px;
+  padding:16px 20px 16px 0;
+  border-right:1px solid var(--rule);
+}
+.fact:last-child{border-right:none}
+.fact b{
+  display:block;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:26px;
+  font-weight:500;
+  font-variant-numeric:tabular-nums;
+  line-height:1.1;
+}
+.fact span{
+  display:block;
+  font-size:13px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.note{
+  margin:30px 0 0;
+  padding:16px 20px;
+  background:var(--take-bg);
+  font-size:14.5px;
+  color:var(--ink-soft);
+  max-width:66ch;
+}
+.note strong{color:var(--ink)}
+
+/* ---------- section headers ---------- */
+
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  margin:76px 0 8px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--ink);
+}
+.sec-head h2{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;
+  font-size:24px;
+  margin:0;
+  letter-spacing:-.01em;
+}
+.sec-head .count{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;
+  color:var(--muted);
+  margin-left:auto;
+  letter-spacing:.08em;
+}
+
+/* ---------- entries ---------- */
+
+.entry{
+  display:grid;
+  grid-template-columns:104px 1fr;
+  gap:0 30px;
+  padding:38px 0;
+  border-bottom:1px solid var(--rule);
+}
+
+.rail{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.rank{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:40px;
+  font-weight:400;
+  line-height:.9;
+  font-variant-numeric:tabular-nums;
+  color:var(--accent-ink);
+}
+.meters{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.meter-label{
+  font-size:10.5px;
+  letter-spacing:.06em;
+  color:var(--muted);
+  display:block;
+  margin-bottom:4px;
+}
+.bar{display:flex;gap:3px}
+.bar i{
+  display:block;
+  width:100%;
+  height:5px;
+  background:var(--meter-off);
+}
+.bar i.on{background:var(--accent)}
+
+.entry h3{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-weight:700;
+  font-size:27px;
+  line-height:1.2;
+  margin:-6px 0 6px;
+  letter-spacing:-.01em;
+}
+.place{
+  display:block;
+  font-family:"Noto Sans Georgian",sans-serif;
+  font-size:13.5px;
+  font-weight:400;
+  letter-spacing:.02em;
+  color:var(--muted);
+  margin-top:6px;
+}
+.visit{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:14px;
+  color:var(--accent-ink);
+  text-decoration:none;
+  border-bottom:1px solid currentColor;
+  padding-bottom:1px;
+}
+.visit:hover{background:var(--take-bg)}
+.visit::after{content:" ↗";border:none}
+
+.pitch{
+  margin:14px 0 0;
+  font-size:16px;
+  color:var(--ink-soft);
+  max-width:62ch;
+}
+
+ul.likes{
+  margin:16px 0 0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  max-width:64ch;
+}
+ul.likes li{
+  position:relative;
+  padding-left:20px;
+  font-size:15.5px;
+}
+ul.likes li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.62em;
+  width:9px;
+  height:1px;
+  background:var(--muted);
+}
+
+.take{
+  margin-top:18px;
+  padding:15px 18px;
+  background:var(--take-bg);
+  max-width:64ch;
+  font-size:15.5px;
+}
+.take .tl{
+  display:block;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent-ink);
+  margin-bottom:6px;
+}
+.take .warn{
+  display:block;
+  margin-top:9px;
+  padding-top:9px;
+  border-top:1px solid var(--rule);
+  font-size:14px;
+  color:var(--muted);
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:16px;
+}
+.tags span{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.04em;
+  color:var(--muted);
+  border:1px solid var(--rule);
+  padding:3px 9px;
+}
+
+/* ---------- synthesis ---------- */
+
+.moves{
+  margin:0;
+  padding:0;
+  list-style:none;
+  counter-reset:m;
+  display:grid;
+  gap:0;
+}
+.moves li{
+  counter-increment:m;
+  display:grid;
+  grid-template-columns:104px 1fr;
+  gap:0 30px;
+  padding:22px 0;
+  border-bottom:1px solid var(--rule);
+}
+.moves li::before{
+  content:counter(m,decimal-leading-zero);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:15px;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+.moves h4{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 5px;
+}
+.moves p{
+  margin:0;
+  font-size:15.5px;
+  color:var(--ink-soft);
+  max-width:62ch;
+}
+
+.trends{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+  margin-top:26px;
+}
+.trend{
+  background:var(--surface);
+  padding:20px;
+}
+.trend b{
+  display:block;
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:16px;
+  margin-bottom:5px;
+}
+.trend span{
+  font-size:14.5px;
+  color:var(--muted);
+}
+
+.bonus{
+  display:grid;
+  gap:0;
+}
+.bonus .entry{grid-template-columns:104px 1fr}
+.bonus .rank{font-size:20px;color:var(--muted);letter-spacing:.04em}
+
+.colophon{
+  margin-top:70px;
+  padding-top:22px;
+  border-top:1px solid var(--ink);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+@media (max-width:680px){
+  .wrap{padding:0 20px 72px}
+  .entry,.moves li{grid-template-columns:1fr;gap:14px 0}
+  .rail{flex-direction:row;align-items:flex-start;gap:22px}
+  .rank{font-size:28px}
+  .meters{flex:1;max-width:220px}
+  .moves li::before{display:block}
+  .entry h3{margin-top:0}
+  .fact{flex-basis:calc(50% - 1px);border-right:none}
+}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">ვიზუალური კვლევა · მადარტი · 01.09.2026</p>
+  <h1>10 რეფერენსი <em>მადარტის</em> ახალი საიტისთვის</h1>
+  <p class="lead">მსოფლიოს საკონდიტრო და საცხობი ბრენდების საიტები, რომლებიც ღირს ცოცხლად დათვალიერება — თითოეულთან ის, რაც კარგად აქვთ გაკეთებული და ის, რაც კონკრეტულად ჩვენთან გადმოგვაქვს.</p>
+
+  <div class="facts">
+    <div class="fact"><b>19</b><span>მისამართი შემოწმებული ცოცხლად</span></div>
+    <div class="fact"><b>15</b><span>სრულად ჩაიტვირთა და შეფასდა</span></div>
+    <div class="fact"><b>10</b><span>ძირითადი რეფერენსი</span></div>
+    <div class="fact"><b>3</b><span>ბონუსი</span></div>
+  </div>
+
+  <p class="note"><strong>სია დალაგებულია მადარტისთვის რელევანტურობით — არა „ლამაზობით“.</strong> #1 ყველაზე ახლოსაა ჩვენს ბიზნეს-მოდელთან (ქსელი + ტკბილი და მარილიანი + საკუთარი მიტანა), #10 კი ყველაზე ძლიერი ცალკეულ დეტალშია. სამი მაჩვენებელი თითოეულთან — ჩემი სუბიექტური შეფასებაა, არა ბრენდის ოფიციალური მონაცემი.</p>
+</header>
+
+<div class="sec-head">
+  <h2>რეფერენსები</h2>
+  <span class="count">01 — 10</span>
+</div>
+
+<!-- 01 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">01</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>GAIL’s Bakery<span class="place">ლონდონი, დიდი ბრიტანეთი · 100+ ფილიალი</span></h3>
+    <a class="visit" href="https://gails.com/" target="_blank" rel="noopener">gails.com</a>
+    <p class="pitch">ჩვენი ბიზნეს-მოდელის ყველაზე ახლო ანალოგი მთელ სიაში: ქსელური საცხობი, სადაც პურიც იყიდება და ტკბილეულიც, ყოველდღიური მიმართვით და საკუთარი ლოიალობის სისტემით.</p>
+    <ul class="likes">
+      <li>ნავიგაცია აწყობილია <em>სიტუაციაზე</em> და არა ასორტიმენტზე: „ოფისისთვის“, „სახლისთვის“, „საჩუქრები“. მომხმარებელი ფიქრობს შემთხვევით, არა კატეგორიით — და მენიუ ზუსტად ასე კითხულობს.</li>
+      <li>Same Day Click &amp; Collect და მიტანის მინიმალური თანხა გატანილია პირველივე ეკრანზე. პირობები არ იმალება ჩექაუთამდე — ეს ნდობის საკითხია.</li>
+      <li>Journal — ედიტორიალური განყოფილება მიმწოდებლებზე და სეზონურ ინგრედიენტებზე. ხარისხს ყიდის ისე, რომ სიტყვა „ხარისხი“ არსად წერია.</li>
+      <li>ლოიალობის აპი ჩაშენებულია საიტის ნაკადში და არა ცალკე მივიწყებულ გვერდზე.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      „კორპორატიული / ოფისის შეკვეთა“ ცალკე შესვლის წერტილად მთავარ მენიუში. თბილისურ ბაზარზე ეს დიდწილად თავისუფალი ნიშაა, ჩვენ კი მიტანის სერვისი უკვე გვაქვს. + ფილიალის არჩევა და „დღეს აღება“ ერთ ეკრანზე.
+    </div>
+    <div class="tags"><span>ქსელი</span><span>Click &amp; Collect</span><span>ლოიალობა</span><span>B2B</span><span>ედიტორიალი</span></div>
+  </div>
+</article>
+
+<!-- 02 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">02</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="3 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="3 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Konditor<span class="place">ლონდონი, დიდი ბრიტანეთი · 1993 წლიდან</span></h3>
+    <a class="visit" href="https://www.konditor.co.uk/" target="_blank" rel="noopener">konditor.co.uk</a>
+    <p class="pitch">ტორტების ონლაინ-შეკვეთის ყველაზე გასაგებად აწყობილი ლოგიკა, რაც ამ კვლევაში ვნახე. ვიზუალურად ყველაზე თამამი არაა — სამაგიეროდ სტრუქტურა თითქმის სახელმძღვანელოა.</p>
+    <ul class="likes">
+      <li>სამი პარალელური ნავიგაცია ერთსა და იმავე კატალოგში: <b>პროდუქტით</b>, <b>შემთხვევით</b> (დაბადების დღე, იუბილე, ბოდიშის მოხდა) და <b>მიტანის ტიპით</b> (ქალაქში, ქვეყანაში, აღება, იმავე დღეს). სამი კარი ერთ ოთახში.</li>
+      <li>პერსონალიზაცია — წარწერა, სასაჩუქრე ბარათი — შეკვეთის ნაწილია, არა „დაგვიკავშირდით“ ფორმა.</li>
+      <li>საჩუქრის რეჟიმი: მისამართს ავსებ მიმღების და არა შემკვეთის. წვრილმანია, მაგრამ ცვლის კონვერსიას.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      „მიტანით შერჩევა“: მომხმარებელი ჯერ ირჩევს <em>როდის და სად</em> უნდა, საიტი კი აჩვენებს მხოლოდ იმას, რაც იმ ვადაში რეალურად მიდის. ჩვენი მთავარი უპირატესობა — პუნქტუალობა — ასე ხდება ინტერფეისი და არა ლოზუნგი.
+    </div>
+    <div class="tags"><span>ტორტები</span><span>შემთხვევები</span><span>პერსონალიზაცია</span><span>მიტანის ზონები</span></div>
+  </div>
+</article>
+
+<!-- 03 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">03</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Levain Bakery<span class="place">ნიუ-იორკი, აშშ · 20+ ფილიალი</span></h3>
+    <a class="visit" href="https://www.levainbakery.com/" target="_blank" rel="noopener">levainbakery.com</a>
+    <p class="pitch">ეტალონი იმისა, როგორ უნდა გამოიყურებოდეს პროდუქტის ბარათი და როგორ უნდა თანაარსებობდეს ფილიალები და ონლაინ-მაღაზია ერთ საიტზე.</p>
+    <ul class="likes">
+      <li>პროდუქტი, როგორც ობიექტი: დიდი სუფთა ფოტო, ბევრი ჰაერი, თანაბარი ბადე. დეკორი მინიმუმამდეა — ყველაფერი პროდუქტს ემსახურება.</li>
+      <li>სამი მიწოდების არხი (ქვეყნის მასშტაბით გაგზავნა / იმავე დღეს აღება-მიტანა / ფილიალში ყიდვა) მკაფიოდაა გამიჯნული და ერთმანეთს არ ერევა — ეს იშვიათია.</li>
+      <li>mega-menu-ში არსებული ფილიალები და „მალე გაიხსნება“ ერთადაა. ზრდა თავად ხდება კონტენტი.</li>
+      <li>კალათაში აპსელი გააზრებული ნაკრებებით, არა შემთხვევითი „იქნებ ესეც გინდა“.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      პროდუქტის ბარათის სტანდარტი (ფოტო → წონა/ზომა → შემადგენლობა → ალერგენები → ვადა → ფასი) და 5 ფილიალი 5 ცალკე ლენდინგად: საათები, ფოტო, რუკა, „ამ ფილიალში დღეს ხელმისაწვდომი“. ეს ლოკალური ძებნისთვისაც კრიტიკულია.
+    </div>
+    <div class="tags"><span>პროდუქტის ბარათი</span><span>ფილიალები</span><span>ონლაინ-მაღაზია</span><span>საჩუქრები</span></div>
+  </div>
+</article>
+
+<!-- 04 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">04</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Lune Croissanterie<span class="place">მელბურნი, ავსტრალია</span></h3>
+    <a class="visit" href="https://lunecroissanterie.com/" target="_blank" rel="noopener">lunecroissanterie.com</a>
+    <p class="pitch">ყველაზე დახვეწილი ვიზუალური ენა სიაში. მინიმალიზმი, რომელიც სიცარიელედ არ იქცევა — ტიპოგრაფია და პაუზები აკეთებს იმას, რასაც სხვები დეკორით ცდილობენ.</p>
+    <ul class="likes">
+      <li>მთავარ ეკრანზე ვიდეოა — ცომი და ხელები, პროდუქტი მოძრაობაში. ეს კატალოგის კადრზე ბევრად უფრო ძლიერია.</li>
+      <li><b>Lune Lab</b> — ცალკე განყოფილება ექსპერიმენტებზე და ტექნოლოგიაზე. ბრენდი თავად ხსნის, რატომ არის უკეთესი, ნაცვლად იმისა, რომ უბრალოდ თქვას.</li>
+      <li>უკიდურესად ვიწრო ფოკუსი (კრუასანი) და სწორედ ამის გამო ძალიან მკაფიო საიტი. ნაკლები კატეგორია = უფრო ძლიერი შთაბეჭდილება.</li>
+      <li>მენიუ, შეკვეთა, FAQ, „პასპორტი“ — ხუთი პუნქტი, სულ ეს არის.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      „როგორ ვაკეთებთ“ — თანამედროვე ტექნოლოგია და კვების უსაფრთხოების სტანდარტები ვიდეოთი და ციფრებით, არა ტექსტური აბზაცით. დღეს ეს ჩვენი ყველაზე ძლიერი და ყველაზე ცუდად გამოყენებული აქტივია.
+    </div>
+    <div class="tags"><span>ვიდეო-ჰერო</span><span>ტიპოგრაფია</span><span>ხელობა</span><span>მინიმალიზმი</span></div>
+  </div>
+</article>
+
+<!-- 05 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">05</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="3 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Yann Couvreur<span class="place">პარიზი, საფრანგეთი</span></h3>
+    <a class="visit" href="https://www.yanncouvreur.com/" target="_blank" rel="noopener">yanncouvreur.com</a>
+    <p class="pitch">ლუქს-პატისერია, რომელსაც არ რცხვენია იყოს ნორმალური მაღაზია. სწორედ ეს ბალანსი გვჭირდება ჩვენ.</p>
+    <ul class="likes">
+      <li>ბანერზე ზუსტი პირობა: „შეუკვეთე დღეს 20:00-მდე — აიღე ხვალ 10:00-დან“. ერთი წინადადება, რომელიც მთელ ლოგისტიკას ხსნის და კითხვებს კლავს.</li>
+      <li>sticky ჰედერი კატეგორიებით — ძებნა და კალათა ყოველთვის ხელთაა, სქროლის ნებისმიერ წერტილში.</li>
+      <li>პროდუქტის ფოტო რამდენიმე რაკურსით <em>და განაჭერით</em>. ტორტში მთავარი შიგნითაა — ეს უნდა ჩანდეს.</li>
+      <li>Click &amp; Collect და კურიერი ერთნაირად ხილვადია, არჩევანი მომხმარებელს რჩება.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      cut-off დროის კომუნიკაცია პირდაპირ ინტერფეისში — „დღეს 18:00-მდე შეკვეთა = ხვალ დილის მიტანა“. ჩვენი პუნქტუალობა უნდა ჩანდეს ღილაკის გვერდით და არა „ჩვენ შესახებ“ გვერდზე. + განაჭერის ფოტო ყველა ტორტისთვის.
+    </div>
+    <div class="tags"><span>cut-off დრო</span><span>Click &amp; Collect</span><span>განაჭერის ფოტო</span><span>sticky ჰედერი</span></div>
+  </div>
+</article>
+
+<!-- 06 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">06</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Milk Bar<span class="place">ნიუ-იორკი, აშშ</span></h3>
+    <a class="visit" href="https://milkbarstore.com/" target="_blank" rel="noopener">milkbarstore.com</a>
+    <p class="pitch">თამამი, მხიარული ბრენდი, რომელიც ინტერფეისში მაინც არ იშლება: ფონი ნეიტრალურია, ფერს მხოლოდ პროდუქტი იძლევა. ეს დისციპლინაა და არა სისადავე.</p>
+    <ul class="likes">
+      <li>ფილტრები აზრობრივი და არა ტექნიკური: ფასით, გემოთი, შემთხვევით. მომხმარებელი ასე ეძებს ნამდვილად.</li>
+      <li><b>Build Your Own Bundle</b> — მომხმარებელი თავად აწყობს ნაკრებს. საშუალო ჩეკი იზრდება ისე, რომ თავს გაყიდვად არ გრძნობ.</li>
+      <li>ერთი შეკვეთა რამდენიმე მისამართზე — საჩუქრებისთვის და კორპორატიული პერიოდისთვის კრიტიკული ფუნქცია.</li>
+      <li>უფასო მიტანის ზღვარი და ფასდაკლების მიმზიდველობა ჰედერშივეა, ღიად.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      ნაკრების კონსტრუქტორი — „ასორტი ნამცხვრები 6 / 12 / 24“ და კორპორატიული ყუთი, სადაც კლიენტი თავად ირჩევს შიგთავსს. ახალი წელი და 8 მარტი ამით სხვანაირად გამოიყურება.
+    </div>
+    <div class="tags"><span>ნაკრები</span><span>საჩუქრები</span><span>ფილტრები</span><span>ბრენდის ტონი</span></div>
+  </div>
+</article>
+
+<!-- 07 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">07</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="2 / 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Cédric Grolet<span class="place">პარიზი · სენ-ტროპე · მონაკო · ლონდონი · სინგაპური</span></h3>
+    <a class="visit" href="https://www.cedric-grolet.com/" target="_blank" rel="noopener">cedric-grolet.com</a>
+    <p class="pitch">მსოფლიოში ყველაზე ცნობილი პატისიეს საიტი. ვიზუალური ამბიციის ეტალონი — და კარგი გაფრთხილება იმისა, თუ სად გადის ზღვარი.</p>
+    <ul class="likes">
+      <li>საიტის არქიტექტურა აწყობილია <em>ლოკაციებზე</em> და არა პროდუქტებზე: თითოეული ბუტიკი ცალკე სამყაროა თავისი ფოტოგრაფიით. ჩვენ 5 ფილიალი გვაქვს — ეს პირდაპირ გადმოგვაქვს.</li>
+      <li>ფოტოგრაფია გალერეის დონისაა, ინტერფეისი კი განზრახ თითქმის უხილავი. ლუქსის ენა: ცოტა ტექსტი, დიდი პაუზები.</li>
+      <li>თითოეული ადგილი გარემოთი იყიდება, არა მისამართით.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      5 ფილიალი როგორც 5 ადგილი და არა როგორც მისამართების სია. <span class="warn">სუსტი მხარე: შეკვეთა პრაქტიკულად არ არსებობს. ჩვენ ამას ვერ გავიმეორებთ — ვიზუალურ ამბიციას ვიღებთ, ბიზნეს-ლოგიკას არა.</span>
+    </div>
+    <div class="tags"><span>არტ-დირექცია</span><span>ლოკაციები</span><span>ფოტოგრაფია</span><span>ლუქსი</span></div>
+  </div>
+</article>
+
+<!-- 08 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">08</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Poilâne<span class="place">პარიზი, საფრანგეთი · 1932 წლიდან</span></h3>
+    <a class="visit" href="https://www.poilane.com/" target="_blank" rel="noopener">poilane.com</a>
+    <p class="pitch">როგორ იქცევა ისტორია კონტენტად. საიტი Shopify-ზეა, მაგრამ არსად ჩანს შაბლონი — ეს ცალკე გაკვეთილია.</p>
+    <ul class="likes">
+      <li>ისტორია გაშლილია საიტში: არქივი, ხელობა, ოჯახის თაობები. ეს არ არის ერთი აბზაცი „ჩვენ შესახებ“ გვერდზე — ეს ცალკე გამოცემაა.</li>
+      <li>რეცეპტების განყოფილება, რომელიც პროდუქტს უბრუნდება. ორგანული ტრაფიკიც მოდის და საშუალო ჩეკიც იზრდება.</li>
+      <li>თბილი ნეიტრალური პალიტრა — კრემისფერი, შავი, ნაცრისფერი — და ფოტოგრაფია, სადაც ხელები და ცომი ჩანს, არა მხოლოდ საბოლოო პროდუქტი.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      2009 წლიდან, 17 წელი, 900+ თანამშრომელი, 5 ფილიალი — ეს რიცხვები ცალკე თავია, არა ერთი წინადადება. + ქართული საკონდიტრო ტრადიცია და რეცეპტების/სერვირების განყოფილება, როგორც მუდმივი ორგანული არხი.
+    </div>
+    <div class="tags"><span>მემკვიდრეობა</span><span>რეცეპტები</span><span>ედიტორიალი</span><span>Shopify</span></div>
+  </div>
+</article>
+
+<!-- 09 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">09</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="3 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="5 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="3 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Crumbl<span class="place">იუტა, აშშ · 1000+ ფილიალი</span></h3>
+    <a class="visit" href="https://crumblcookies.com/" target="_blank" rel="noopener">crumblcookies.com</a>
+    <p class="pitch">ყველაზე ნაკლებად „დახვეწილი“ სიაში — და ყველაზე ეფექტური მექანიკით. საიტი აგებულია დროზე და არა ასორტიმენტზე.</p>
+    <ul class="likes">
+      <li>მენიუ ყოველ ორშაბათს იცვლება. ეს ერთი გადაწყვეტილება მთელ საიტს აძლევს რიტმს და მომხმარებელს — მიზეზს, დაბრუნდეს.</li>
+      <li>ლიმიტირებული გემოები კონკრეტული თარიღებით. დეფიციტი ინტერფეისის ელემენტად არის ქცეული.</li>
+      <li>აპი და ლოკაციის შერჩევა ერთ ნაკადშია — „შენთან ახლოს დღეს რა არის“ სულ ორი ტაპია.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      „კვირის სიახლე“ ან სეზონური ხაზი მთავარ გვერდზე ფიქსირებული ადგილით. მუდმივი მიზეზი დაბრუნებისთვის, სოციალურ ქსელებთან ბუნებრივი კავშირი.
+      <span class="warn">გაფრთხილება: ეს მუშაობს მხოლოდ მაშინ, თუ რეალურად ყოველკვირეულად ვასრულებთ. ცარიელი „სიახლეების“ ბლოკი ბრენდს აზარალებს.</span>
+    </div>
+    <div class="tags"><span>როტაცია</span><span>დეფიციტი</span><span>მობაილ-ფერსტი</span><span>აპი</span></div>
+  </div>
+</article>
+
+<!-- 10 -->
+<article class="entry">
+  <div class="rail">
+    <div class="rank">10</div>
+    <div class="meters">
+      <div><span class="meter-label">ვიზუალი</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">კომერცია</span><div class="bar" title="4 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div><span class="meter-label">ამბავი</span><div class="bar" title="3 / 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+    </div>
+  </div>
+  <div>
+    <h3>Pierre Hermé Paris<span class="place">პარიზი, საფრანგეთი</span></h3>
+    <a class="visit" href="https://www.pierreherme.com/" target="_blank" rel="noopener">pierreherme.com</a>
+    <p class="pitch">კლასიკური ლუქს-ელექტრონული კომერცია, სადაც კატეგორიები კოლექციებივითაა აწყობილი. ნავიგაცია პირველივე შეხედვით გასაგებია — რაც ლუქსში იშვიათია.</p>
+    <ul class="likes">
+      <li>კატეგორიები პროდუქტის ტიპით (მაკარონი, შოკოლადი, ნამცხვრები, ვიენური, საჩუქრები) — მოკლე, დამახსოვრებადი ჰორიზონტალური მენიუ.</li>
+      <li>ვიდეო-ჰერო სეზონურ ხაზზე, ქვემოთ კი მშვიდი ბადე. ერთი ხმამაღალი ადგილი და მერე სიჩუმე.</li>
+      <li>უფასო მიტანის ზღვარი გატანილია ჰედერში, ჩექაუთის მოლოდინი დაწეულია.</li>
+      <li>საჩუქრები სრულფასოვანი განყოფილებაა და არა ფილტრი — ეს სეზონურ გაყიდვებზე პირდაპირ მოქმედებს.</li>
+    </ul>
+    <div class="take">
+      <span class="tl">მადარტისთვის</span>
+      საჩუქრების ხაზი ცალკე განყოფილებად, საკუთარი ფოტოგრაფიით და შეფუთვით. ასევე — მოკლე, სტაბილური მთავარი მენიუ: 5-6 პუნქტი მაქსიმუმ.
+    </div>
+    <div class="tags"><span>კოლექციები</span><span>საჩუქრები</span><span>ვიდეო-ჰერო</span><span>ლუქსი</span></div>
+  </div>
+</article>
+
+<div class="sec-head">
+  <h2>ბონუსი — ღირს ნახვა</h2>
+  <span class="count">+ 3</span>
+</div>
+
+<div class="bonus">
+  <article class="entry">
+    <div class="rail"><div class="rank">B1</div></div>
+    <div>
+      <h3>Fabrique<span class="place">სტოკჰოლმი · ლონდონი · ნიუ-იორკი</span></h3>
+      <a class="visit" href="https://www.fabrique.co.uk/" target="_blank" rel="noopener">fabrique.co.uk</a>
+      <p class="pitch">სკანდინავიური მინიმალიზმი, თბილი კრემისფერი პალიტრა და ძალიან ლამაზი ტიპოგრაფია. სამაგიეროდ შეკვეთა გატანილია გარე პლატფორმაზე — მომხმარებელი საიტს ტოვებს. კარგი მაგალითი იმისა, <b>რაც ჩვენ არ უნდა გავაკეთოთ</b>: მიტანა ჩვენი უპირატესობაა, ის საიტის შიგნით უნდა დარჩეს.</p>
+      <div class="tags"><span>ტიპოგრაფია</span><span>პალიტრა</span><span>ანტი-მაგალითი</span></div>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="rail"><div class="rank">B2</div></div>
+    <div>
+      <h3>Bread Ahead<span class="place">ლონდონი, დიდი ბრიტანეთი</span></h3>
+      <a class="visit" href="https://www.breadahead.com/" target="_blank" rel="noopener">breadahead.com</a>
+      <p class="pitch">საცხობი, რომელმაც სასწავლო მიმართულება სრულფასოვან პროდუქტად აქცია: კურსების ჯავშანი, „აკადემია“, სასაჩუქრე ვაუჩერები, სტუდენტური პროექტები. მადარტისთვის ეს ორ რამეს ხსნის — <b>მასტერკლასები</b> როგორც ახალი შემოსავალი და <b>დამსაქმებლის ბრენდი</b>: 900 თანამშრომელს კარიერის სრულფასოვანი განყოფილება ეკუთვნის, არა ერთი ვაკანსიის ფორმა.</p>
+      <div class="tags"><span>მასტერკლასი</span><span>ჯავშანი</span><span>კარიერა</span></div>
+    </div>
+  </article>
+
+  <article class="entry">
+    <div class="rail"><div class="rank">B3</div></div>
+    <div>
+      <h3>Dominique Ansel<span class="place">ნიუ-იორკი · ჰონკონგი</span></h3>
+      <a class="visit" href="https://dominiqueansel.com/" target="_blank" rel="noopener">dominiqueansel.com</a>
+      <p class="pitch">ოთხი განსხვავებული შეკვეთის გზა (წინასწარი შეკვეთა აღებაზე, გაგზავნა, კურიერი, რეგიონული მაღაზია) ერთ ჰედერში, ისე რომ არაფერი ერევა. Instagram ჩაშენებულია მთავარ გვერდზე — სოციალური აქტივობა ხდება საიტის ცოცხალი კონტენტი განახლების ხარჯების გარეშე.</p>
+      <div class="tags"><span>მრავალი არხი</span><span>Instagram</span><span>რეგიონები</span></div>
+    </div>
+  </article>
+</div>
+
+<div class="sec-head">
+  <h2>სინთეზი — რას ვიღებთ მადარტისთვის</h2>
+  <span class="count">8 გადაწყვეტილება</span>
+</div>
+
+<ol class="moves">
+  <li><div><h4>ორი პარალელური შესვლა მთავარ გვერდზე</h4><p>„მინდა დღეს“ (ფილიალი ან მიტანა, მზა პროდუქცია) და „მინდა თარიღისთვის“ (ტორტი შეკვეთით). ეს ორი სრულიად სხვადასხვა მომხმარებელია და ერთ ღილაკში ვერ ეტევა.</p></div></li>
+  <li><div><h4>მიტანა ინტერფეისის ნაწილად</h4><p>cut-off დრო, ზონა, „დღეს / ხვალ“ — ეკრანზე, პროდუქტის გვერდზე. ჩვენი ყველაზე ძლიერი მხარე ტექსტში კი არა, ინტერაქციაში უნდა ჩანდეს.</p></div></li>
+  <li><div><h4>ნავიგაცია შემთხვევებით</h4><p>დაბადების დღე, ქორწილი, ნათლობა, კორპორატივი, სუფრა — პროდუქტის კატეგორიების პარალელურად. ადამიანი ეძებს „რისთვის“, არა „რა“.</p></div></li>
+  <li><div><h4>ტორტის კონფიგურატორი</h4><p>ზომა → გემო → დეკორი → წარწერა → თარიღი → მიწოდება, ფასი ცოცხლად. სატელეფონო შეკვეთების დიდი ნაწილი ასე გადადის ონლაინში.</p></div></li>
+  <li><div><h4>ხაჭაპური და მარილიანი ხაზი ცალკე რიტმით</h4><p>ეს ყოველდღიური შენაძენია და სწრაფ ნაკადს მოითხოვს; ტორტი კი დაგეგმილი შესყიდვაა. ერთ შაბლონში ორივეს ჩატენვა ორივეს აზიანებს.</p></div></li>
+  <li><div><h4>5 ფილიალი = 5 გვერდი</h4><p>ფოტო, საათები, რუკა, პარკინგი, „ამ ფილიალში დღეს“. ლოკალური ძებნისთვისაც და ნდობისთვისაც.</p></div></li>
+  <li><div><h4>წარმოება და უსაფრთხოება, როგორც ვიზუალური თავი</h4><p>თანამედროვე ტექნოლოგია, სტანდარტები, ინგრედიენტების წარმომავლობა — ვიდეოთი და ციფრებით. დღეს ეს ჩვენი ყველაზე გამოუყენებელი უპირატესობაა.</p></div></li>
+  <li><div><h4>კარიერა, როგორც ცალკე პროდუქტი</h4><p>900+ თანამშრომელი ნიშნავს მუდმივ დაქირავებას. ვაკანსიები, გუნდის ისტორიები, სწავლება — საკუთარი განყოფილებით.</p></div></li>
+</ol>
+
+<div class="sec-head">
+  <h2>2026-ის ტრენდები, რომლებსაც ვიყენებთ</h2>
+  <span class="count">ტექნიკური ჩარჩო</span>
+</div>
+
+<div class="trends">
+  <div class="trend"><b>ტიპოგრაფია დეკორის ნაცვლად</b><span>დიდი, თავდაჯერებული სათაურები და მკაფიო იერარქია. ქართული შრიფტის შერჩევა ცალკე გადაწყვეტილებაა — ეს საიტის ხასიათს განსაზღვრავს.</span></div>
+  <div class="trend"><b>პროდუქტის ვიდეო</b><span>მოკლე, ხმის გარეშე, ავტომატური. ცომი, კრემი, განაჭერი. სტატიკურ ფოტოზე ბევრად უფრო ძლიერია.</span></div>
+  <div class="trend"><b>მუქი და ღია თემა</b><span>2026-ში მომხმარებლის თემის გათვალისწინება ნაგულისხმევია და არა დამატებითი ფუნქცია.</span></div>
+  <div class="trend"><b>სისწრაფე</b><span>ფოტო WebP/AVIF ფორმატში, ზარმაცი ჩატვირთვა. საკვების საიტზე მძიმე გალერეა ყველაზე გავრცელებული შეცდომაა.</span></div>
+  <div class="trend"><b>მობაილ-ფერსტი შეკვეთა</b><span>ტრაფიკის უმეტესობა მობილურიდან მოვა. კონფიგურატორი და ჩექაუთი ჯერ ტელეფონზე უნდა დაიხატოს.</span></div>
+  <div class="trend"><b>ხელმისაწვდომობა</b><span>კონტრასტი, ხილული ფოკუსი, კლავიატურით ნავიგაცია. ეს არა მხოლოდ სწორია — ძებნაშიც გვეხმარება.</span></div>
+  <div class="trend"><b>ზომიერი მოძრაობა</b><span>მიკროინტერაქციები ღილაკებზე და ბარათებზე. გადაჭარბებული ანიმაცია 2026-ში უკვე მოძველებულად ითვლება.</span></div>
+  <div class="trend"><b>სოციალური კონტენტი ჩაშენებული</b><span>Instagram-ის ცოცხალი ლენტა მთავარ გვერდზე — საიტი განახლებული ჩანს დამატებითი შრომის გარეშე.</span></div>
+</div>
+
+<footer class="colophon">
+  მეთოდი: თითოეული საიტი შემოწმდა პირდაპირ, ცოცხალ მისამართზე — არა დიზაინის ბლოგებიდან.<br>
+  შემოწმებული 19 მისამართი · სრულად შეფასდა 15 · სიაში შევიდა 13.<br>
+  არ შევიდა: Tartine, Ole &amp; Steen, Nudake — გვერდები სრულად არ ჩაიტვირთა შესაფასებლად.<br>
+  შეფასების სამი მაჩვენებელი სუბიექტურია. თარიღი: 01.09.2026.
+</footer>
+
+</div>

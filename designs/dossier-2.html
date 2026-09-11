@@ -1,0 +1,854 @@
+<title>მადარტის მეორე დოსიე</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#FBFAF7;
+  --surface:#FFFFFF;
+  --warm:#F4F0E7;
+  --dim:#E9E2D3;
+  --ink:#2A211B;
+  --ink-2:#544639;
+  --muted:#8C7D6E;
+  --rule:#E4DCCF;
+  --rule-hard:#2A211B;
+  --mark:#F6BB2F;
+  --mark-ink:#7A5A0A;
+  --ok:#33604A;      --ok-bg:#E4EDE6;
+  --warn:#9A5D1B;    --warn-bg:#F6E9D8;
+  --stop:#8E3226;    --stop-bg:#F6E1DC;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#16120E;
+    --surface:#1E1913;
+    --warm:#241D16;
+    --dim:#2E2620;
+    --ink:#F3EBE0;
+    --ink-2:#D3C6B6;
+    --muted:#9B8B7A;
+    --rule:#3A3027;
+    --rule-hard:#6B5B49;
+    --mark:#F6BB2F;
+    --mark-ink:#F0C558;
+    --ok:#8FC2A5;      --ok-bg:#22322A;
+    --warn:#E0A464;    --warn-bg:#33251580;
+    --stop:#E39184;    --stop-bg:#3A211C;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#16120E;
+  --surface:#1E1913;
+  --warm:#241D16;
+  --dim:#2E2620;
+  --ink:#F3EBE0;
+  --ink-2:#D3C6B6;
+  --muted:#9B8B7A;
+  --rule:#3A3027;
+  --rule-hard:#6B5B49;
+  --mark:#F6BB2F;
+  --mark-ink:#F0C558;
+  --ok:#8FC2A5;      --ok-bg:#22322A;
+  --warn:#E0A464;    --warn-bg:#332515;
+  --stop:#E39184;    --stop-bg:#3A211C;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans Georgian","Segoe UI",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px;margin:0 auto;padding:0 30px 110px}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--mark-ink);outline-offset:3px}
+p{margin:0 0 13px}
+p:last-child{margin-bottom:0}
+
+/* latin / data face */
+.lat{
+  font-family:Archivo,"Segoe UI",system-ui,sans-serif;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.04em;
+}
+
+/* ───────── masthead ───────── */
+.mast{padding:70px 0 0}
+.kicker{
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:11.5px;font-weight:600;letter-spacing:.16em;
+  color:var(--muted);margin:0 0 26px;
+}
+.mast h1{
+  font-weight:700;
+  font-size:clamp(32px,5.6vw,56px);
+  line-height:1.08;
+  letter-spacing:-.02em;
+  margin:0 0 22px;
+  max-width:17ch;
+  text-wrap:balance;
+}
+.mast h1 mark{
+  background:var(--mark);
+  color:#2A211B;
+  padding:0 .12em;
+  border-radius:3px;
+}
+.lead{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:19px;line-height:1.62;
+  color:var(--ink-2);
+  max-width:60ch;margin:0;
+}
+.facts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  margin:40px 0 0;
+  border-top:2px solid var(--rule-hard);
+  border-bottom:1px solid var(--rule);
+}
+.facts div{padding:15px 18px 15px 0}
+.facts b{
+  display:block;
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:30px;font-weight:600;line-height:1;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.01em;
+}
+.facts span{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.4}
+.brief{
+  margin-top:30px;
+  background:var(--warm);
+  padding:18px 22px;
+  border-left:5px solid var(--mark);
+  font-size:15px;line-height:1.62;color:var(--ink-2);
+  max-width:70ch;
+}
+.brief b{color:var(--ink)}
+
+/* ───────── section heads ───────── */
+.sh{
+  margin:84px 0 0;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--rule-hard);
+}
+.sh-tab{
+  background:var(--mark);color:#2A211B;
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.14em;
+  padding:4px 11px 5px;
+}
+.sh h2{font-size:24px;font-weight:700;letter-spacing:-.012em;margin:0;line-height:1.25}
+.sh .cnt{
+  margin-left:auto;
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+.sh-note{
+  margin:16px 0 0;max-width:66ch;font-size:15.5px;color:var(--ink-2);
+}
+
+/* ───────── reference entries ───────── */
+.ref{
+  display:grid;
+  grid-template-columns:206px 1fr;
+  gap:0 38px;
+  padding:34px 0;
+  border-bottom:1px solid var(--rule);
+}
+.rail{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+.rail .num{
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:.1em;
+  background:var(--ink);color:var(--paper);
+  padding:2px 8px 3px;margin-bottom:12px;
+  font-variant-numeric:tabular-nums;
+}
+.rail h3{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:0 0 3px;line-height:1.25}
+.rail .u{
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:13px;color:var(--mark-ink);word-break:break-all;
+}
+.rail .loc{font-size:13px;color:var(--muted);margin-top:9px;line-height:1.45}
+.rail .tag{
+  margin-top:12px;
+  font-size:11.5px;font-weight:600;letter-spacing:.02em;
+  border:1px solid var(--rule-hard);
+  padding:2px 8px 3px;
+  color:var(--ink-2);
+}
+
+.body p{max-width:64ch;color:var(--ink-2);font-family:"Noto Serif Georgian",Georgia,serif;font-size:15.5px;line-height:1.66}
+.body p.lede{
+  font-family:"Noto Sans Georgian","Segoe UI",system-ui,sans-serif;
+  font-size:18.5px;line-height:1.45;font-weight:600;color:var(--ink);
+  max-width:56ch;margin:0 0 14px;letter-spacing:-.005em;
+}
+.lede em{font-style:normal;box-shadow:inset 0 -.42em 0 var(--mark);color:var(--ink);padding:0 2px}
+.body p b{color:var(--ink);font-weight:600}
+.body p code,.tbl code{
+  font-family:Archivo,ui-monospace,monospace;
+  font-size:13px;background:var(--warm);color:var(--ink);
+  padding:1px 5px;letter-spacing:.01em;
+}
+
+.meta{
+  margin:18px 0 0;display:grid;gap:1px;
+  background:var(--rule);border:1px solid var(--rule);
+}
+.meta>div{
+  background:var(--surface);
+  display:grid;grid-template-columns:126px 1fr;gap:14px;
+  padding:9px 14px;font-size:14.5px;line-height:1.5;
+}
+.meta dt{color:var(--muted);font-size:12.5px;letter-spacing:.02em;margin:0}
+.meta dd{margin:0;color:var(--ink-2)}
+.pill{
+  display:inline-block;font-size:12px;font-weight:600;
+  padding:1px 9px 2px;border-radius:999px;white-space:nowrap;
+}
+.p-ok{background:var(--ok-bg);color:var(--ok)}
+.p-wa{background:var(--warn-bg);color:var(--warn)}
+.p-st{background:var(--stop-bg);color:var(--stop)}
+
+.skip{
+  margin-top:15px;padding:10px 0 0;
+  border-top:1px dashed var(--rule);
+  font-size:14.5px;line-height:1.58;color:var(--muted);max-width:64ch;
+}
+.skip b{color:var(--ink)}
+
+/* ───────── directions ───────── */
+.dir{padding:40px 0;border-bottom:1px solid var(--rule)}
+.dir-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.dir-code{
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.14em;
+  border:2px solid var(--ink);padding:2px 9px 3px;
+}
+.dir-head h3{font-size:29px;font-weight:700;letter-spacing:-.02em;margin:0;line-height:1.15}
+.dir-head .en{font-family:Archivo,system-ui,sans-serif;font-size:13px;letter-spacing:.1em;color:var(--muted)}
+.dir-why{
+  font-family:"Noto Serif Georgian",Georgia,serif;
+  font-size:17px;line-height:1.6;color:var(--ink-2);
+  max-width:64ch;margin:12px 0 0;
+}
+.dir-why b{color:var(--ink);font-weight:600}
+.dir-cols{
+  display:grid;grid-template-columns:1fr 300px;gap:38px;
+  margin-top:26px;align-items:start;
+}
+.blocks{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.blocks li{
+  background:var(--surface);
+  display:grid;grid-template-columns:36px 1fr;gap:14px;
+  padding:11px 14px;font-size:14.8px;line-height:1.55;
+}
+.bn{
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:12px;font-weight:700;color:var(--mark-ink);
+  font-variant-numeric:tabular-nums;padding-top:2px;
+}
+.blocks b{font-weight:600}
+.blocks span{color:var(--ink-2)}
+.spec{border-top:2px solid var(--rule-hard);padding-top:14px}
+.spec h4{
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--muted);
+  margin:0 0 12px;
+}
+.spec dl{margin:0;display:grid;gap:11px}
+.spec dt{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+.spec dd{margin:2px 0 0;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.swatches{display:flex;gap:6px;margin-top:6px}
+.swatches i{width:30px;height:30px;display:block;border:1px solid var(--rule)}
+.risk{
+  margin-top:20px;background:var(--warm);padding:12px 16px;
+  font-size:14.5px;line-height:1.58;color:var(--ink-2);border-left:4px solid var(--stop);
+}
+.risk b{color:var(--ink)}
+
+/* ───────── table ───────── */
+.tbl{overflow-x:auto;border:1px solid var(--rule);margin-top:26px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:760px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+th{background:var(--warm);font-weight:600;font-size:12.5px;letter-spacing:.04em;white-space:nowrap}
+td:first-child,th:first-child{font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td{color:var(--ink-2)}
+td:first-child{color:var(--ink)}
+.was,th.was{background:var(--dim)}
+td.was{color:var(--muted)}
+
+/* ───────── rules grid ───────── */
+.rules{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:24px;
+}
+.rules div{background:var(--surface);padding:18px}
+.rules .n{
+  display:block;font-family:Archivo,system-ui,sans-serif;
+  font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--mark-ink);margin-bottom:8px;
+}
+.rules h4{font-size:16px;font-weight:600;margin:0 0 6px;line-height:1.35}
+.rules p{font-size:14.3px;line-height:1.55;color:var(--ink-2);margin:0}
+
+/* ───────── also-seen ───────── */
+.also{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.also li{
+  background:var(--surface);padding:11px 15px;
+  display:grid;grid-template-columns:190px 1fr;gap:16px;
+  font-size:14.6px;line-height:1.55;
+}
+.also b{font-weight:600}
+.also .u{font-family:Archivo,system-ui,sans-serif;font-size:12.5px;color:var(--muted);display:block}
+.also span{color:var(--ink-2)}
+
+/* ───────── open questions ───────── */
+.qs{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.qs li{
+  background:var(--surface);padding:13px 16px;
+  display:grid;grid-template-columns:56px 1fr;gap:16px;
+  font-size:15px;line-height:1.58;
+}
+.qs .q{font-family:Archivo,system-ui,sans-serif;font-weight:700;color:var(--mark-ink);font-variant-numeric:tabular-nums}
+.qs b{font-weight:600}
+.qs span{color:var(--ink-2);display:block;margin-top:2px;font-size:14.3px}
+
+/* ───────── end ───────── */
+.end{margin-top:80px;border-top:6px solid var(--mark);background:var(--warm)}
+.end .wrap{padding-top:24px;padding-bottom:34px;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.end b{color:var(--ink);font-weight:600}
+
+@media (max-width:820px){
+  .dir-cols{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:700px){
+  .wrap{padding:0 20px 80px}
+  .ref{grid-template-columns:1fr;gap:16px 0}
+  .meta>div{grid-template-columns:1fr;gap:2px}
+  .also li,.qs li{grid-template-columns:1fr;gap:4px}
+  .mast{padding-top:48px}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="kicker lat">მადარტი · ვებგვერდის დიზაინი · მეორე რაუნდი · 08.09.2026</p>
+    <h1>თორმეტი ახალი რეფერენსი და <mark>სამი მიმართულება</mark>, რომელიც ჯერ არ გვიცდია</h1>
+    <p class="lead">პირველი დოსიე ევროპულმა საკონდიტროებმა შეავსო — Poilâne, Grolet, Hermé, Lune. აქედან ორივე მიმდინარე მაკეტი გამოვიდა: „Lune-ის ხაზი“ და „ჟურნალი“. ეს სია სხვაგან იყურება — ყოველდღიური საცხობი ქსელები, სასურსათო ბრენდები და შეკვეთის ინტერფეისები, რომლებიც პირველ რიგში <em>მუშაობს</em>, მერე ლამაზია.</p>
+
+    <div class="facts">
+      <div><b class="lat">12</b><span>ახალი რეფერენსი</span></div>
+      <div><b class="lat">0</b><span>გამეორება პირველი დოსიედან</span></div>
+      <div><b class="lat">3</b><span>ახალი მიმართულება</span></div>
+      <div><b class="lat">13</b><span>უკვე ნანახი საიტი</span></div>
+      <div><b class="lat">107</b><span>პროდუქტი, რომელსაც ვაწყობთ</span></div>
+    </div>
+
+    <p class="brief"><b>რას ნიშნავს „ახალი“.</b> არც ერთი საიტი და — რაც უფრო მნიშვნელოვანია — არც ერთი <b>გამოტანილი ელემენტი</b> არ მეორდება. თუ Grolet-იდან უკვე ავიღეთ „ფილიალი, როგორც ადგილი“, აქ Tartine-იდან სულ სხვა რამ მოდის: ფილიალი, როგორც <b>სესიის მდგომარეობა</b>. თუ Crumbl-იდან ავიღეთ კვირეული რიტმი, Toraya-დან სეზონი მოდის — არა ერთი ბლოკი, არამედ მთელი კატალოგის ღერძი.</p>
+  </header>
+
+  <!-- ══════════ A ══════════ -->
+  <div class="sh">
+    <span class="sh-tab lat">A</span>
+    <h2>თორმეტი ახალი რეფერენსი</h2>
+    <span class="cnt lat">01 — 12</span>
+  </div>
+  <p class="sh-note">თითოეულთან ერთი გამოტანილი ელემენტია, კონკრეტული ადგილით ჩვენს საიტზე, საჭირო მასალით და სტატუსით. ბოლოში ყოველთვის წერია, რას <b>არ</b> ვიღებთ.</p>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">01</span>
+      <h3>Ole &amp; Steen</h3>
+      <a class="u lat" href="https://oleandsteen.co.uk/">oleandsteen.co.uk</a>
+      <span class="loc">კოპენჰაგენი · 1991 წლიდან · 140+ ფილიალი დანიაში, ლონდონსა და ნიუ-იორკში</span>
+      <span class="tag">ბიზნესით ყველაზე ახლოს</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>დღის ღერძს — დილა · შუადღე · საღამო</em></p>
+      <p>მთელ სიაში ეს ერთადერთი კომპანიაა, რომელიც მადარტს ბიზნესით ემთხვევა: ყოველდღიური საცხობი ქსელი, პური და ტკბილეული ერთ დახლზე, ათეულობით ფილიალი. მისი ცენტრალური სიტყვაა <b>„all-day bakery“</b> და მენიუც ზუსტად ასეა აწყობილი — არა „პური / ნამცხვარი / სასმელი“, არამედ დღის მონაკვეთი.</p>
+      <p>ჩვენი ექვსი კატეგორია პასუხობს კითხვას „რა არის ეს“. კითხვა „ახლა რა მჭირდება“ საიტზე უპასუხოდაა. საცხობში კი პასუხი ობიექტურად არსებობს: დილის ცხობა, შუადღის ხაჭაპური, საღამოს ტორტი სტუმრებთან. ეს არ არის ახალი კონტენტი — ეს <b>არსებული 107 პროდუქტის მეორედ დალაგებაა</b>, დაახლოებით სამსაათიანი შიდა სამუშაო. და ეს პირდაპირ ეხმიანება წარმოების რეალურ გრაფიკს, რაც ბრენდის ერთ-ერთი მთავარი არგუმენტია.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd><code>catalog-mockup.html</code> — ჩიპების მეორე რიგი; მთავარზე „ახლა დახლზე“</dd></div>
+        <div><dt>მასალა</dt><dd>ახალი ფოტო არ სჭირდება ✅ · სამი თეგი 107 პროდუქტზე</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-ok">მზადაა დასაწყებად</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> მის კაფე-ცენტრულობას. Ole &amp; Steen-ის საიტი ადგილზე დაჯდომას ყიდის (brunch, toastie, flat white). მადარტი უპირატესად წაღებით და მიტანით ყიდის — დღის ღერძი შეკვეთის ლოგიკას უნდა დაექვემდებაროს, არა დარბაზის.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">02</span>
+      <h3>Tartine Bakery</h3>
+      <a class="u lat" href="https://tartinebakery.com/">tartinebakery.com</a>
+      <span class="loc">სან-ფრანცისკო · 11 ლოკაცია · ქვეყნის მასშტაბით გზავნით</span>
+      <span class="tag">11 ფილიალი — ჩვენ 5</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>ფილიალის არჩევას, როგორც სესიის მუდმივ მდგომარეობას</em></p>
+      <p>Tartine-ის ლოკაციების გვერდი ინტერაქტიული რუკაა: არჩევ რეგიონს, რუკა მიახლოვდება და გაჩვენებს იქაურ საცხობებს. <b>მაგრამ ჩვენთვის მთავარი რუკა არაა</b> — რუკა და „ფილიალი, როგორც ადგილი“ Grolet-იდან უკვე ავიღეთ. აქ სხვა რამ არის საინტერესო: არჩეული ფილიალი <b>რჩება</b> და მთელ შემდგომ სესიას განსაზღვრავს.</p>
+      <p>ჩვენთვის ეს გადამწყვეტია, რადგან 5 ფილიალის ასორტიმენტი და გრაფიკი ერთმანეთს არ ემთხვევა. თუ მომხმარებელი ჯერ ირჩევს ფილიალს (ან „მიტანას“), ყველა შემდეგი ეკრანი მისთვის ხდება ჭეშმარიტი: ფასი, ხელმისაწვდომობა, აღების დრო. ეს ჰედერში ერთი ჩიპია — <code>ვაკე ▾</code> — და <code>_shared.js</code>-ში ერთი შენახული ცვლადი. ონლაინ-შეკვეთის ამუშავებამდე ის მაინც ამარტივებს: „რომელ ფილიალში ვნახავ“ ჩვენს ყველაზე ხშირ კითხვად რჩება.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>ჰედერი (ყველა გვერდზე) · <code>_shared.js</code> · კატალოგისა და პროდუქტის ბარათი</dd></div>
+        <div><dt>მასალა</dt><dd>ფილიალების გრაფიკი და ასორტიმენტის სხვაობა ❌</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-wa">საჭიროა მონაცემი — ღია #97 · #98</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> ქვეყნის მასშტაბით გზავნას და მასთან დაკავშირებულ ინტერფეისს. 5 ფილიალი ერთ ქალაქშია — ჩვენი „სად“ არჩევანი სამპუნქტიანია: აღება · მიტანა თბილისში · წინასწარი შეკვეთა.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">03</span>
+      <h3>Sweetgreen</h3>
+      <a class="u lat" href="https://www.sweetgreen.com/">sweetgreen.com</a>
+      <span class="loc">აშშ · 250+ ფილიალი · სალათები და თბილი კერძები</span>
+      <span class="tag">მენიუ = მთავარი გვერდი</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>ალერგენს და დიეტურ ნიშანს პირდაპირ ბარათზე</em></p>
+      <p>Sweetgreen-თან თითოეული პოზიციის გვერდით სამი რამაა ერთდროულად: აღწერა, ალერგენების ხაზი („Contains milk, eggs, wheat“) და მოკლე ნიშნები — <b>G</b> უგლუტენოზე, <b>V</b> ვეგანზე. არა ქვეგვერდზე, არა PDF-ში — სიაშივე, სადაც არჩევანი კეთდება.</p>
+      <p>ჩვენ ეს მონაცემი <b>უკვე გვაქვს</b>: ბაზაში 43 ბრენდულ პროდუქტს შემადგენლობა და კვებითი ღირებულება უწერია — უბრალოდ პროდუქტის გვერდის ბოლოშია ჩამარხული. და ქართულ კონტექსტში ერთი ნიშანი განსაკუთრებით ძვირფასია: <b>სამარხვო</b> — ეს კატალოგში უკვე ქვეკატეგორიაა, ანუ სისტემა ნახევრად აწყობილია. ორმარხვიან პერიოდში (დიდი მარხვა, შობის მარხვა) ეს ფილტრი წელიწადში დაახლოებით 100 დღე მუშაობს.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>კატალოგის ბარათი · <code>product-mockup.html</code> · ფილტრი „სამარხვო · უგლუტენო · უკვერცხო“</dd></div>
+        <div><dt>მასალა</dt><dd>მონაცემი ბაზაშია ✅ · ნიშნების იკონები — ერთი დღის სამუშაო</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-ok">მზადაა</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> აპლიკაციაზე გადაბირებას. Sweetgreen-ის ყველა გზა აპში მიდის; ჩვენ აპი არ გვაქვს და უახლოეს რაუნდში არც გვექნება — ყველაფერი ბრაუზერში უნდა სრულდებოდეს.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">04</span>
+      <h3>Partake Foods</h3>
+      <a class="u lat" href="https://partakefoods.com/">partakefoods.com</a>
+      <span class="loc">ნიუ-ჯერსი · ალერგენებისგან თავისუფალი ნამცხვრები · Awwwards</span>
+      <span class="tag">ნდობის ინტერფეისი</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>ნდობის ნიშნების ზოლს გადაწყვეტილების წერტილში</em></p>
+      <p>Partake-ს გვერდის შუაში ოთხი ლაკონური ნიშანი აქვს: „Top-9 Allergen Free“, „Always Gluten Free“, „Wholesome Ingredients“, „Safe for School“. ეს არ არის ამბავი წარმოებაზე — ეს <b>ოთხი ხატულაა</b>, რომელიც ყიდვამდე უკანასკნელ წამში ეჩვენება.</p>
+      <p>განსხვავება Lune-ისგან პრინციპულია და უნდა დაფიქსირდეს: Lune-იდან ავიღეთ <b>წარმოების ამბავი</b> — ცალკე ბლოკი ან გვერდი ხელობაზე. აქედან სულ სხვა მასშტაბი მოდის — ოთხი ხატულა ბარათსა და ჩეკზე. ჩვენი ოთხი იქნება: <b>საკუთარი საწარმო · კვების უსაფრთხოების სტანდარტი · დღეს ნაცხობი · 2009 წლიდან</b>. ბრიფის ორი ყველაზე ძლიერი არგუმენტი დღეს საიტზე არსად ჩანს; ეს მათი ყველაზე იაფი გამოჩენაა.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>პროდუქტის ბარათი · <code>checkout-mockup.html</code> — ღილაკს ზემოთ</dd></div>
+        <div><dt>მასალა</dt><dd>ოთხი ხატულა · სერტიფიკატის ზუსტი დასახელება ❌</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-st">საჭიროა კლიენტის დადასტურება — რა სტანდარტს ვასახელებთ</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> მუდმივ ფასდაკლების ბანერს („20% პირველ შეკვეთაზე“) და მბრუნავ შეფასებებს. ჩვენს შემთხვევაში მუდმივი ფასდაკლების ლენტი ბრენდს იაფად წარმოაჩენს — და ეს პირდაპირ ეწინააღმდეგება იმას, რასაც ნდობის ზოლი აშენებს.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">05</span>
+      <h3>Graza</h3>
+      <a class="u lat" href="https://graza.co/">graza.co</a>
+      <span class="loc">ნიუ-იორკი / ესპანეთი · ზეითუნის ზეთი · 2022 წლიდან</span>
+      <span class="tag">ტექსტი, არა ფოტო</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>ერთსიტყვიან ხასიათს და გამოყენების ერთ ხაზს</em></p>
+      <p>Graza-ს სულ სამი პროდუქტი აქვს, მაგრამ თითოეულს სახელი, ერთსიტყვიანი ხასიათი და გამოყენების კონტექსტი უწერია: <b>Sizzle</b> — „Punchy“, შესაწვავად. <b>Drizzle</b> — „Mellow“, ბოლოს დასასხმელად. სამი სიტყვა და მყიდველმა უკვე იცის, რომელი უნდა.</p>
+      <p>ჩვენს 43 ბრენდულ პროდუქტს <b>მარკეტინგული აღწერა საერთოდ არ აქვს</b> — ბაზაში მხოლოდ შემადგენლობა და კვებითი ღირებულებაა. Poilâne-იდან რეცეპტების განყოფილება ავიღეთ, მაგრამ ის დიდი პროექტია. ეს კი ყველაზე იაფი ალტერნატივაა: სახელი + ერთი სიტყვა + ერთი ხაზი. „ნაპოლეონი — ფენოვანი. სუფრაზე, დაჭრილი“. „ეკლერი — მსუბუქი. ყავასთან, ერთ ხელში“. 43 პროდუქტი × 12 სიტყვა ≈ ერთი დღის სამუშაო, ერთი ფოტოს გარეშე.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>კატალოგის ბარათი (ფასის ქვეშ) · პროდუქტის გვერდის სათაურის ქვეშ</dd></div>
+        <div><dt>მასალა</dt><dd>ტექსტი 43 პროდუქტზე ❌ — შიდა სამუშაო, ფოტო არ სჭირდება</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-wa">საჭიროა ტექსტი</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> Graza-ს ხმას მთელ საიტზე. ის შეგნებულად უწიგნური და მხიარულია — სამპროდუქტიან ბრენდს ეს გამოსდის. 107 პოზიციაზე იგივე ტონი ხმაურად იქცევა; ჩვენთან ხმა მხოლოდ ბარათის ერთ ხაზში რჩება.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">06</span>
+      <h3>Little Sesame</h3>
+      <a class="u lat" href="https://eatlittlesesame.com/">eatlittlesesame.com</a>
+      <span class="loc">ვაშინგტონი · ჰუმუსის ბრენდი + საკუთარი რესტორნები</span>
+      <span class="tag">სტრუქტურული</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>ორ კარს ერთ საიტზე — „მაღაზია“ და „ფილიალი“</em></p>
+      <p>Little Sesame ერთდროულად ორი ბიზნესია: დახლზე გასაყიდი პროდუქტი და ფიზიკური რესტორნები. საიტიც ორ დამოუკიდებელ ჯგუფად იშლება — <b>Shop</b> (Build-Your-Own · Shop All · Story) და <b>Restaurant</b> (Menu · Locations · Catering). ერთი ბრენდი, ორი ლოგიკა, ორი კარი.</p>
+      <p>მადარტთან ზუსტად იგივე ორმაგობაა და დღეს ის <b>13 ბრტყელ გვერდადაა გაშლილი</b>, ერთ დონეზე. ერთი მხრივ — კატალოგი, კალათა, მიტანა, აქციები. მეორე მხრივ — 5 ფილიალი, ინდივიდუალური ტორტი, კორპორატიული შეკვეთა, ვაკანსიები. ეს ორი სხვადასხვა ადამიანია სხვადასხვა კითხვით. ჰედერის ორ ჯგუფად გაყოფა ყველაზე დიდი სტრუქტურული ცვლილებაა ამ სიაში — და ის არც ერთ ფოტოს არ ითხოვს.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>ჰედერის არქიტექტურა — მთელი საიტი; მთავარი გვერდის ლოგიკა</dd></div>
+        <div><dt>მასალა</dt><dd>ახალი მასალა არ სჭირდება ✅ — 13 არსებული გვერდის გადალაგება</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-st">საჭიროა გადაწყვეტილება — ეხება მთელ საიტს</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> გარე შეკვეთის სისტემას (Toast). Little Sesame-ს რესტორნის მენიუ მესამე მხარეს გადააქვს და მომხმარებელი საიტიდან გადის — ჩვენთვის ეს უკან გადადგმული ნაბიჯია: შეკვეთა საიტზევე უნდა სრულდებოდეს.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">07</span>
+      <h3>Ottolenghi</h3>
+      <a class="u lat" href="https://ottolenghi.co.uk/">ottolenghi.co.uk</a>
+      <span class="loc">ლონდონი · 11 დელი და რესტორანი · მაღაზია, რეცეპტები, კეთერინგი</span>
+      <span class="tag">დიდი კატალოგი</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>მრავალღერძიან მენიუს და ტერმინების ლექსიკონს</em></p>
+      <p>Ottolenghi-ს რეცეპტები ერთდროულად სამი ლოგიკითაა დალაგებული: <b>კვების დროით</b> (საუზმე, ლანჩი, მთავარი), <b>ინგრედიენტით</b> (ქათამი, პასტა, ბადრიჯანი) და <b>სეზონით ან შემთხვევით</b> (გაზაფხული, BBQ, შობა). ერთი და იგივე კონტენტი, სამი შესასვლელი — და მომხმარებელი შედის იმ კარით, რომლითაც ფიქრობს.</p>
+      <p>მეორე ელემენტი — <b>Foodipedia</b>: ინგრედიენტების მოკლე ლექსიკონი ცალკე ფილებად (თაჰინი, ზაათარი, ფეტა). ჩვენთვის ეს პირდაპირ ითარგმნება: <b>დაკუაზი, პრალინე, განაში, ბეზე, ნაპოლეონი, მედოვიკი</b> — სიტყვები, რომლებსაც მყიდველი ეტიკეტზე კითხულობს და არ იცის. ქართულად ამ ტერმინებზე ინტერნეტში პრაქტიკულად არაფერია — ორგანული ტრაფიკის იაფი და სუფთა წყაროა, ფოტოს გარეშე.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>ჰედერის გაშლადი მენიუ · ახალი მცირე განყოფილება „ტერმინები“</dd></div>
+        <div><dt>მასალა</dt><dd>15–20 ტერმინი × 40 სიტყვა ❌ — შიდა ტექსტი</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-wa">საჭიროა ტექსტი</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> რესტორნის ფენას — მაგიდის დაჯავშნას და შეკვეთის სისტემას. მადარტს დარბაზში მომსახურება არ ყიდის; ჯავშნის ინტერფეისი ცარიელ ფუნქციად დარჩება.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">08</span>
+      <h3>Toraya</h3>
+      <a class="u lat" href="https://global.toraya-group.co.jp/">toraya-group.co.jp</a>
+      <span class="loc">კიოტო / ტოკიო / პარიზი · ვაგაში · მე-16 საუკუნიდან</span>
+      <span class="tag">ყველაზე მკვეთრად სხვა</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>სეზონს, როგორც კატალოგის ხერხემალს</em></p>
+      <p>Toraya-სთან სეზონი არ არის ბანერი — ის პროდუქტის <b>სახელშივე ზის</b>: „Kankobai / ქლიავის ყვავილი სიცივეში“, „Momijigasane / შემოდგომის ფოთლების ფენები“. ასორტიმენტი კალენდარს მიჰყვება: რაღაც შემოდის, რაღაც გადის, და დაბრუნების მიზეზი თავისთავად ჩნდება.</p>
+      <p>Crumbl-იდან უკვე ავიღეთ <b>კვირეული</b> რიტმი და იქვე ჩავიწერეთ რისკი: ცარიელი ბლოკი საიტს მიტოვებულს აჩვენებს, ხოლო ყოველკვირეული შესრულება 5 ფილიალისთვის მძიმეა. სეზონური ტემპი ამ რისკს ხსნის — წელიწადში 8–10 ჩანაწერი, არა 52. და ქართული კვების კალენდარი მზა მოცემულობაა: <b>მარხვა · აღდგომა · ახალი წელი · ქორწილების სეზონი · სექტემბერი, სკოლის დასაწყისი</b>. „სამარხვო“ ჩვენს კატალოგში უკვე ქვეკატეგორიაა — ანუ ღერძი უკვე დაწყებულია, უბრალოდ ერთ ჩიპადაა დაყვანილი.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>კატალოგის მესამე ღერძი · მთავარის სეზონური ბლოკი · პროდუქტის სახელდება</dd></div>
+        <div><dt>მასალა</dt><dd>სეზონური კალენდარი 8–10 ჩანაწერით ❌ · ფოტო — არქივიდან ✅</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-st">საოპერაციო ვალდებულება — კლიენტის გადაწყვეტილება</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> მემკვიდრეობის ტონს. Toraya-ს ხუთი საუკუნე აქვს, ჩვენ 17 წელი — იგივე გაფრთხილება, რაც Poilâne-სთან ჩავწერეთ. ჩვენი სეზონურობა წარმოების რიტმია და არა ტრადიციის რიტუალი.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">09</span>
+      <h3>Oddbox</h3>
+      <a class="u lat" href="https://www.oddbox.co.uk/">oddbox.co.uk</a>
+      <span class="loc">ლონდონი · ხილისა და ბოსტნეულის ყუთები · გამოწერით</span>
+      <span class="tag">ლოგისტიკა, როგორც სექცია</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>სამნაბიჯიან „როგორ მუშაობს“-ს და პირობის გამჭვირვალობას</em></p>
+      <p>Oddbox მთავარ გვერდზე მთელ ლოგისტიკას სამ ნაბიჯად ხსნის: <b>„აირჩიე ყუთი → შეცვალე, დაამატე → დილით მიიღე“</b>. და მაშინვე ხსნის მთავარ შიშს ერთი წინადადებით: <b>„ნებისმიერ დროს შეგიძლია შეცვალო, გადადო ან შეწყვიტო“</b>.</p>
+      <p>ჩვენთან ზუსტად აქ არის სიცარიელე. Yann Couvreur-იდან ავიღეთ <b>ერთი წინადადება</b> cut-off დროზე — ეს ბარათის დონეა. Oddbox სხვა მასშტაბს გვაძლევს: მთავარი გვერდის ცალკე ბლოკს, სადაც მიტანა ვიზუალურად აიხსნება. დღეს ჩეკში მიტანის ადგილას <b>ტირეა</b> და ჯამში არ ერევა (ღია #42). პუნქტუალობა ჩვენი მთავარი გასაყიდი არგუმენტია — ეკრანზე კი ცარიელი ადგილია.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>მთავარი — ახალი ბლოკი; მიტანის გვერდი; <code>checkout-mockup.html</code></dd></div>
+        <div><dt>მასალა</dt><dd>სამი მარტივი ილუსტრაცია · მიტანის ზონები, თანხა და ვადები ❌</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-wa">დაბლოკილია — ღია #3 · #42</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> გამოწერის მოდელს და ეკოლოგიურ მისიას მთავარ არგუმენტად. Oddbox-ის მთელი საიტი „გადარჩენილი ბოსტნეულის“ იდეაზე დგას — მადარტს სხვა დაპირება აქვს: სიახლე და პუნქტუალობა.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">10</span>
+      <h3>Potluck Market</h3>
+      <a class="u lat" href="https://potluckmarket.com/">potluckmarket.com</a>
+      <span class="loc">ნიუ-იორკი · მცირე პარტიების სასურსათო ბრენდი</span>
+      <span class="tag">მარაგის სიმართლე</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>„გაიყიდა“-ს ღიად ჩვენებას — მდგომარეობა ბადეზევე</em></p>
+      <p>Potluck-ის ბადეზე პროდუქტს სამი რამ აწერია: ფოტო, ფასი და <b>სტატუსი</b>. „Sold out“ არ იმალება და პოზიცია სიიდან არ ქრება. მცირე პარტიების ბრენდისთვის ეს არა სისუსტე, არამედ მთავარი მტკიცებულებაა — ნიშნავს, რომ ნამდვილად მცირე პარტიაა.</p>
+      <p>საცხობი ზუსტად ასეთი ბიზნესია: დღიური წარმოება, საღამოს ბევრი რამ აღარაა. თუ საიტი ამას მალავს, ის კატალოგად რჩება; თუ აჩვენებს — <b>დახლად იქცევა</b>. ჩვენთვის საჭიროა ოთხმდგომარეობიანი სისტემა: <b>დახლზეა · ბოლო ცალები · გაიყიდა · წინასწარი შეკვეთით</b>. ბოლო მდგომარეობა ტორტებისთვისაა, სადაც წინასწარი ვადა ისედაც აუცილებელია. ეს ერთდროულად აგვარებს ორ სხვადასხვა პრობლემას — ნდობას და ინდივიდუალური ტორტის ადგილს კატალოგში.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd><code>catalog-mockup.html</code> — ბარათის მდგომარეობა; <code>_shared.js</code></dd></div>
+        <div><dt>მასალა</dt><dd>ფოტო არ სჭირდება ✅ · POS-იდან მარაგის კავშირი ❌</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-wa">ვიზუალი მზადაა · მონაცემი — ღია</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> მის თითქმის ცარიელ, გალერეისებრ ესთეტიკას მთელ საიტზე. Potluck-ს 20-ოდე პოზიცია აქვს და თეთრ სივრცეს იოლად უძლებს; ჩვენი 107 პროდუქტი უფრო მჭიდრო ბადეს ითხოვს.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">11</span>
+      <h3>Aura Bora</h3>
+      <a class="u lat" href="https://www.aurabora.com/">aurabora.com</a>
+      <span class="loc">კალიფორნია · მცენარეული გაზიანი წყალი · ილუსტრირებული ბრენდი</span>
+      <span class="tag">55 პროდუქტის პასუხი</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>ილუსტრაციას ფოტოს ნაცვლად — იქ, სადაც ფოტო არ გვაქვს</em></p>
+      <p>Aura Bora-ს ვიზუალს ფოტო კი არა, ხატვა ატარებს: ილუსტრირებული გემოები, პერსონაჟები, ბრტყელი ფერი. შედეგი ერთიანია იმიტომ, რომ <b>ყველაფერი ერთი ხელით არის დახატული</b> — და არა იმიტომ, რომ ერთ სტუდიაში გადაიღეს.</p>
+      <p>ეს ჩვენი ერთი კონკრეტული პრობლემის პასუხია. 107 პროდუქტიდან <b>55 მადარტს არ დაუმზადებია</b> — 34 აქსესუარი (სანთლები, შუშხუნები) და 21 სასმელი (Coca-Cola, ლაღიძის წყალი). დღეს ისინი მომწოდებლის ჭრელი ფოტოებით დგანან და პალიტრას პირდაპირ ეწინააღმდეგებიან; რუკაში ჩავწერეთ, რომ მათ „ერთიანი ბრენდული ფონი სჭირდებათ“. მაგრამ 55 პოზიციის ხელახლა გადაღება ცალკე სესიაა. <b>ერთი ხაზოვანი ილუსტრაციული ნაკრები ბრენდის ყვითელზე</b> იმავე შედეგს იძლევა ერთი გადაღების გარეშე — და ამავე დროს ცხადად ჰყოფს „ჩვენს ნაწარმს“ და „თანმხლებ საქონელს“.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>კატალოგი — 55 არა-მადარტული პოზიცია; კალათის დამატებები</dd></div>
+        <div><dt>მასალა</dt><dd>ილუსტრაციული ნაკრები ≈ 20 ხატულა ❌ — ერთი დიზაინერული სამუშაო</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-st">საჭიროა გადაწყვეტილება — ხატვა თუ ხელახალი გადაღება</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> მინი-თამაშს ფასდაკლების კოდით და პერსონაჟ-მასკოტს. მადარტი 900-თანამშრომლიანი საწარმოა და არა DTC-სტარტაპი — თამაში ბრენდის სერიოზულობას ჭამს.</p>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="rail">
+      <span class="num lat">12</span>
+      <h3>Arensbak</h3>
+      <a class="u lat" href="https://arensbak.com/">arensbak.com</a>
+      <span class="loc">კოპენჰაგენი · უალკოჰოლო ალტერნატივები მიშლენის რესტორნებისთვის</span>
+      <span class="tag">B2B</span>
+    </div>
+    <div class="body">
+      <p class="lede">ვიღებთ: <em>მტკიცებულების ზოლს — ვინ გვენდობა</em></p>
+      <p>Arensbak-ის მთავარი გვერდი ლენტად ატარებს 30-ზე მეტ მიშლენვარსკვლავიან რესტორანს, რომლებიც მის პროდუქტს იყენებენ. ეს არც ფასია და არც აღწერა — <b>ეს მტკიცებულებაა</b>, და B2B გაყიდვაში ის ყველა სხვა არგუმენტზე ძლიერია.</p>
+      <p>GAIL's-იდან უკვე ავიღეთ <b>B2B კარი</b> — ცალკე შესვლის წერტილი მენიუში. მაგრამ კარს შიგნით არგუმენტი სჭირდება. ჩვენთან ის რეალურად არსებობს: ბაზაში <code>price_merchant</code> ველია, POS-ში ცალკე ჯგუფი „კორპორატიული“ — ეკლერი იქ <b>2.30 ₾</b>-ია, საცალოში <b>3.30 ₾</b>. ანუ საბითუმო მიმართულება მუშაობს და კლიენტები ჰყავს. მათი ნუსხა ერთ ზოლად — და B2B გვერდი ცარიელი ფორმიდან წინადადებად იქცევა.</p>
+      <dl class="meta">
+        <div><dt>სად ჩაჯდება</dt><dd>B2B გვერდი — GAIL's-ის კარის შიგთავსი; „ჩვენს შესახებ“</dd></div>
+        <div><dt>მასალა</dt><dd>კორპორატიული კლიენტების ნუსხა და ლოგოს გამოყენების თანხმობა ❌</dd></div>
+        <div><dt>სტატუსი</dt><dd><span class="pill p-st">საჭიროა კლიენტისგან სია — ღია #7-თან ერთად</span></dd></div>
+      </dl>
+      <p class="skip"><b>არ ვიღებთ:</b> ლუქს-პოზიციონირებას. Arensbak თავს პრემიუმ-ალტერნატივად ყიდის და მთელი მისი ენა ამაზეა აწყობილი; მადარტის B2B არგუმენტი სხვაა — მოცულობა, სტაბილურობა და გრაფიკი.</p>
+    </div>
+  </article>
+
+  <!-- ══════════ B ══════════ -->
+  <div class="sh">
+    <span class="sh-tab lat">B</span>
+    <h2>სამი ახალი მიმართულება</h2>
+    <span class="cnt lat">D1 — D3</span>
+  </div>
+  <p class="sh-note">აქამდე ორივე მიმართულება <b>თხრობით იწყებოდა</b>: „Lune-ის ხაზი“ ვიდეო-ბენტოთი, „ჟურნალი“ სრულეკრანიანი თავებით. ორივეს ჰერო ატარებს და კატალოგამდე მომხმარებელი სქროლით მიდის. ქვემოთ სამი მიმართულებაა, რომელთაგან <b>არც ერთი არ იწყება ჰეროთი იმ გაგებით</b> — და თითოეული ზემოთ ჩამოთვლილ რეფერენსებზე დგას.</p>
+
+  <section class="dir">
+    <div class="dir-head">
+      <span class="dir-code lat">D1</span>
+      <h3>დახლი</h3>
+      <span class="en lat">THE COUNTER</span>
+    </div>
+    <p class="dir-why"><b>რატომ სხვაა:</b> მთავარი გვერდი აღარ ყვება — ის <b>ყიდის პირველივე ეკრანიდან</b>. ჰერო-ფოტო საერთოდ არ არსებობს; მის ადგილას მუშა დახლია, ფასებით, მარაგის სტატუსით და კალათაში დამატებით. ეს სამივე მიმართულებიდან ყველაზე მოსახერხებელია და პირდაპირ პასუხობს იმას, რაზეც ბიზნესი დგას — 107 პროდუქტი, 5 ფილიალი, ყოველდღიური ცხობა.</p>
+    <div class="dir-cols">
+      <ol class="blocks">
+        <li><span class="bn lat">01</span><div><b>ჰედერი</b> <span>— ლოგო · ფილიალის ჩიპი (<code>ვაკე ▾</code>) · <b>ღია საძებნი ველი</b>, არა ხატულა · კალათა. ძებნა 107 პოზიციაზე ნავიგაციაზე მნიშვნელოვანია.</span></div></li>
+        <li><span class="bn lat">02</span><div><b>დღის ხაზი</b> <span>— ერთსტრიქონიანი: „ორშაბათი, 8 სექტემბერი · 5 ფილიალი ღიაა 08:00-დან“ და დღის ღერძის სამი ჩიპი: დილა · შუადღე · საღამო <span class="lat">(01)</span>.</span></div></li>
+        <li><span class="bn lat">03</span><div><b>ახლა დახლზე</b> <span>— 12 პროდუქტის ბადე ფასით, ერთსიტყვიანი ხასიათით <span class="lat">(05)</span>, სტატუსით <span class="lat">(10)</span> და „კალათაში“ ღილაკით. ეს არის მთავარი გვერდის ცენტრი.</span></div></li>
+        <li><span class="bn lat">04</span><div><b>ექვსი კატეგორია</b> <span>— ტექსტური სია რაოდენობით („ტორტები · 24“), არა ფერის ველები. ერთი ეკრანი, ერთი გადახედვა.</span></div></li>
+        <li><span class="bn lat">05</span><div><b>როგორ მიიღებ</b> <span>— სამი ნაბიჯი და პირობა ერთ ხაზში <span class="lat">(09)</span>. აქვე ნდობის ოთხი ნიშანი <span class="lat">(04)</span>.</span></div></li>
+        <li><span class="bn lat">06</span><div><b>ინდივიდუალური ტორტი</b> <span>— ერთი ვიწრო ზოლი ფორმაზე გადასასვლელით. კატალოგში არ ჯდება და აქ არც ცდილობს.</span></div></li>
+        <li><span class="bn lat">07</span><div><b>ფილიალები</b> <span>— სია საათებით; არჩეული ფილიალი პირველია და მონიშნულია.</span></div></li>
+        <li><span class="bn lat">08</span><div><b>ფუტერი</b> <span>— B2B კარი, ვაკანსიები, კონტაქტი.</span></div></li>
+      </ol>
+      <div class="spec">
+        <h4 class="lat">სპეციფიკაცია</h4>
+        <dl>
+          <dt>ფოტოს როლი</dt>
+          <dd>მხოლოდ packshot, კვადრატში, პატარა. არსებული 98 ფოტო საკმარისია — გადაღება არ სჭირდება.</dd>
+          <dt>ფერი</dt>
+          <dd>კრემისფერი ფურცელი, ყავისფერი ტექსტი. ყვითელი <b>მხოლოდ</b> სტატუსზე და ღილაკზე.
+            <span class="swatches"><i style="background:#FBEED3"></i><i style="background:#2A211B"></i><i style="background:#F6BB2F"></i><i style="background:#FFFFFF"></i></span>
+          </dd>
+          <dt>ტიპოგრაფია</dt>
+          <dd>ერთი მჭიდრო სკალა, ბევრი 13–15px. სათაურები მცირეა — ინფორმაცია დომინირებს.</dd>
+          <dt>მოძრაობა</dt>
+          <dd>თითქმის არაფერი: მხოლოდ ჩიპის და ღილაკის მდგომარეობა.</dd>
+          <dt>რეფერენსები</dt>
+          <dd class="lat">01 · 02 · 03 · 04 · 05 · 09 · 10</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="risk"><b>რისკი:</b> კლიენტმა შეიძლება „ნაკლებად ლამაზი“ იპოვოს — მოძრავი ელემენტები მოიწონა (გადაწყვეტილება N2). შერბილება: ბლოკი <span class="lat">03</span> დიდი, ხარისხიანი კადრებით და ერთი ვიდეო ფუტერამდე. მაგრამ ჰერო-ვიდეო აქ <b>არ ბრუნდება</b> — ეს მიმართულების არსია.</p>
+  </section>
+
+  <section class="dir">
+    <div class="dir-head">
+      <span class="dir-code lat">D2</span>
+      <h3>ეტიკეტი</h3>
+      <span class="en lat">THE LABEL</span>
+    </div>
+    <p class="dir-why"><b>რატომ სხვაა:</b> ვიზუალს <b>ფოტო აღარ ატარებს</b> — ატარებს ბრტყელი ფერი და ტიპოგრაფია, ისე, როგორც შეფუთვაზე. ფოტო ობიექტად შემოდის (ამოჭრილი პროდუქტი ფერზე), არა ფონად. „Lune-ის ხაზში“ ფერის ველები არსებობს, მაგრამ ფოტოს ემსახურება; აქ პირიქითაა. ჟურნალის მუქ, ფოტოცენტრულ ენას ეს პირდაპირ უპირისპირდება.</p>
+    <div class="dir-cols">
+      <ol class="blocks">
+        <li><span class="bn lat">01</span><div><b>ყდა</b> <span>— სრული ყვითელი ველი, გიგანტური ტიპოგრაფია („საკონდიტრო მადარტი · 2009 წლიდან“), ერთი ამოჭრილი პროდუქტი. ვიდეო არაა.</span></div></li>
+        <li><span class="bn lat">02</span><div><b>ექვსი ფერადი ფურცელი</b> <span>— თითო კატეგორია ერთი მთლიანი ფერის ეკრანია. არქივის სტუდიური კადრები <b>უკვე ბრენდის ყვითელ, ნარინჯისფერ და კორალისფერ ფონზეა გადაღებული</b> — პალიტრა ფაქტობრივად უკვე გადაღებულია.</span></div></li>
+        <li><span class="bn lat">03</span><div><b>პროდუქტის ხმა</b> <span>— სახელი, ერთი სიტყვა, ერთი ხაზი <span class="lat">(05)</span>. ეტიკეტის ლოგიკა სიტყვაზეც ვრცელდება.</span></div></li>
+        <li><span class="bn lat">04</span><div><b>თანმხლები საქონელი</b> <span>— ხაზოვანი ილუსტრაციები ბრტყელ ფერზე <span class="lat">(11)</span>. 55 არა-მადარტული პოზიცია ერთ ენაზე გადადის.</span></div></li>
+        <li><span class="bn lat">05</span><div><b>სეზონის ლენტი</b> <span>— ერთი ვიწრო ზოლი თარიღით <span class="lat">(08)</span>: „სამარხვო · 15 თებერვლიდან“.</span></div></li>
+        <li><span class="bn lat">06</span><div><b>შემადგენლობის ბლოკი</b> <span>— ალერგენები და ნიშნები ეტიკეტის ესთეტიკით <span class="lat">(03)</span>: ეს დიზაინსა და ფუნქციას ერთ ხაზზე აყენებს.</span></div></li>
+        <li><span class="bn lat">07</span><div><b>ფილიალები</b> <span>— ხუთი ბრტყელი ფერადი ბარათი, თითო თავისი ფერით; ფოტო მცირე.</span></div></li>
+        <li><span class="bn lat">08</span><div><b>ფუტერი</b> <span>— ყავისფერი ველი, ორი კარი <span class="lat">(06)</span>: „ვყიდულობ“ და „ვგეგმავ“.</span></div></li>
+      </ol>
+      <div class="spec">
+        <h4 class="lat">სპეციფიკაცია</h4>
+        <dl>
+          <dt>ფოტოს როლი</dt>
+          <dd>ამოჭრილი ობიექტი ფერზე. ფონად არასდროს. საჭიროა cutout-ები არსებული packshot-ებიდან.</dd>
+          <dt>ფერი</dt>
+          <dd>სამივე ბრენდის ფერი სრულ ველებად + კრემი.
+            <span class="swatches"><i style="background:#F6BB2F"></i><i style="background:#E8752F"></i><i style="background:#E1615A"></i><i style="background:#FBEED3"></i></span>
+          </dd>
+          <dt>ტიპოგრაფია</dt>
+          <dd>მკვეთრი კონტრასტი: 96–140px სათაური, 14px ყველაფერი დანარჩენი. შუალედი არ არსებობს.</dd>
+          <dt>მოძრაობა</dt>
+          <dd>ფერის ველების ცვლა სქროლზე; ტიპოგრაფია უძრავია.</dd>
+          <dt>რეფერენსები</dt>
+          <dd class="lat">03 · 05 · 06 · 08 · 11</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="risk"><b>რისკი:</b> ყვითელი ტექსტისთვის აკრძალულია — <code>#F6BB2F</code> თეთრზე 1.74:1 იძლევა. ამ მიმართულებაში ყვითელი ბევრია, ამიტომ ტექსტი ყოველთვის ყავისფერია (<code>#2A211B</code>) ან <code>#8C6410</code>. ასევე: მომრგვალება — N1-ით ფორმები რბილია (22–34px), ეტიკეტის ენა კი მკაცრ კიდეს ითხოვს. ეს წინააღმდეგობა წინასწარ უნდა გადაწყდეს.</p>
+  </section>
+
+  <section class="dir">
+    <div class="dir-head">
+      <span class="dir-code lat">D3</span>
+      <h3>სეზონი</h3>
+      <span class="en lat">THE SEASON</span>
+    </div>
+    <p class="dir-why"><b>რატომ სხვაა:</b> საიტს <b>დრო ალაგებს</b>, არა პროდუქტის ტიპი. მთავარი გვერდი წელიწადის კონკრეტულ მონაკვეთს ეკუთვნის და ერთ თვეში სხვანაირად გამოიყურება. აქამდე ორივე მაკეტი სტატიკური იყო — ერთხელ აწყობილი და მუდმივი. ეს ერთადერთი მიმართულებაა, რომელიც <b>დაბრუნების მიზეზს</b> აშენებს.</p>
+    <div class="dir-cols">
+      <ol class="blocks">
+        <li><span class="bn lat">01</span><div><b>სეზონის ყდა</b> <span>— სეზონის სახელი, თარიღები და ერთი დიდი კადრი: „შემოდგომა · 8 ნაწარმი · სექტემბერი–ნოემბერი“.</span></div></li>
+        <li><span class="bn lat">02</span><div><b>წლის ლენტი</b> <span>— თორმეტი თვე ჰორიზონტალურ ზოლად, მიმდინარე გამოკვეთილი. დაწკაპუნებით ჩანს, რა ცხვება მაშინ. ეს არქივის ღირებულებას <b>ხელახლა ხსნის</b> — 16 927 კადრი წლის ყველა მონაკვეთს ფარავს.</span></div></li>
+        <li><span class="bn lat">03</span><div><b>სეზონის ნაწარმი</b> <span>— 6–9 პროდუქტი სეზონური სახელდებით <span class="lat">(08)</span>, თარიღით: „აღდგომამდე“.</span></div></li>
+        <li><span class="bn lat">04</span><div><b>შემთხვევის კარები</b> <span>— მარხვა · ქორწილი · დაბადების დღე · კორპორატივი. მეორე ღერძი, რომელიც Konditor-იდან უკვე დაფიქსირდა, აქ სტრუქტურის ცენტრში დგება.</span></div></li>
+        <li><span class="bn lat">05</span><div><b>ყოველდღიური</b> <span>— მუდმივი ასორტიმენტი ერთ მშვიდ ბლოკად: „ეს ყოველთვის დახლზეა“. სეზონურის საპირწონე და დამამშვიდებელი.</span></div></li>
+        <li><span class="bn lat">06</span><div><b>ჩვენი წელი</b> <span>— წარმოების რიტმი, არა მემკვიდრეობა: რამდენი ნაცხობი მარხვაში, რამდენი ქორწილის ტორტი ზაფხულში. ციფრები <span class="lat">(12)</span>-ის ლოგიკით მუშაობს.</span></div></li>
+        <li><span class="bn lat">07</span><div><b>ფილიალები და ფუტერი</b> <span>— მოკლედ; აქცენტი სეზონზე რჩება.</span></div></li>
+      </ol>
+      <div class="spec">
+        <h4 class="lat">სპეციფიკაცია</h4>
+        <dl>
+          <dt>ფოტოს როლი</dt>
+          <dd>დომინანტური და <b>ცვალებადი</b> — თითო სეზონს თავისი კადრები. არქივიდან, გადაღების გარეშე.</dd>
+          <dt>ფერი</dt>
+          <dd>ბაზა მუდმივია, აქცენტი სეზონს მიჰყვება — ზამთარი ღრმა ყავისფერი, გაზაფხული ღია კრემი.
+            <span class="swatches"><i style="background:#FBEED3"></i><i style="background:#F6BB2F"></i><i style="background:#4A3527"></i><i style="background:#C9D6C4"></i></span>
+          </dd>
+          <dt>ტიპოგრაფია</dt>
+          <dd>თარიღი ტიპოგრაფიული ელემენტია — დიდი, ტაბულარული ციფრები სეზონის სახელთან.</dd>
+          <dt>მოძრაობა</dt>
+          <dd>წლის ლენტი — ერთადერთი რეალურად ინტერაქტიული ელემენტი.</dd>
+          <dt>რეფერენსები</dt>
+          <dd class="lat">03 · 07 · 08 · 10 · 12</dd>
+        </dl>
+      </div>
+    </div>
+    <p class="risk"><b>რისკი:</b> ეს დიზაინი კი არა, <b>ვალდებულებაა</b>. თუ სეზონი წელიწადში 8–10-ჯერ არ განახლდება, საიტი დათარიღებული და მიტოვებული გამოჩნდება — ზუსტად ის რისკი, რომელიც Crumbl-თან უკვე ჩავიწერეთ. სანამ ვხატავთ, კლიენტმა უნდა დაადასტუროს, ვინ ავსებს კალენდარს.</p>
+  </section>
+
+  <!-- ══════════ C ══════════ -->
+  <div class="sh">
+    <span class="sh-tab lat">C</span>
+    <h2>ხუთივე მიმართულება გვერდიგვერდ</h2>
+    <span class="cnt lat">2 არსებული + 3 ახალი</span>
+  </div>
+  <p class="sh-note">ნაცრისფერი სვეტები უკვე აწყობილია და კლიენტს ნანახი აქვს. სამი მარჯვენა — ამ დოსიედან.</p>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="was">Lune-ის ხაზი</th>
+          <th class="was">ჟურნალი</th>
+          <th>D1 დახლი</th>
+          <th>D2 ეტიკეტი</th>
+          <th>D3 სეზონი</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>რითი იწყება</td><td class="was">ვიდეო-ბენტო</td><td class="was">სრულეკრანიანი თავი</td><td>მუშა დახლი, ფასებით</td><td>ყვითელი ველი და ტიპოგრაფია</td><td>სეზონის ყდა</td></tr>
+        <tr><td>ფოტოს როლი</td><td class="was">მთავარი</td><td class="was">მთავარი, სრულ ეკრანზე</td><td>დამხმარე, პატარა</td><td>ობიექტი ფერზე</td><td>მთავარი და ცვალებადი</td></tr>
+        <tr><td>ფერის ლოგიკა</td><td class="was">კრემი + ველები</td><td class="was">მუქი, ერთი ფერადი ბლოკი</td><td>კრემი, ყვითელი მხოლოდ სტატუსზე</td><td>სამი ბრენდის ფერი სრულ ველებად</td><td>სეზონზე მიბმული აქცენტი</td></tr>
+        <tr><td>ნავიგაცია</td><td class="was">კლასიკური</td><td class="was">თავების ინდექსი</td><td>ძებნა + ფილიალი მუდმივად</td><td>ორი კარი ფუტერში</td><td>დროის ღერძი</td></tr>
+        <tr><td>ვის ემსახურება</td><td class="was">პირველად შემოსულს</td><td class="was">ბრენდით დაინტერესებულს</td><td>დაბრუნებულ მყიდველს</td><td>ბრენდის დამახსოვრებას</td><td>სეზონურ და საჩუქრის მყიდველს</td></tr>
+        <tr><td>ახალი მასალა</td><td class="was">არ სჭირდება</td><td class="was">არ სჭირდება</td><td>ტექსტი 43 პროდუქტზე</td><td>cutout-ები + ილუსტრაციები</td><td>სეზონური კალენდარი</td></tr>
+        <tr><td>მთავარი რისკი</td><td class="was">ჩვეულია</td><td class="was">კატალოგამდე შორია</td><td>„არა საკმარისად ლამაზი“</td><td>ყვითლის კონტრასტი</td><td>განახლების ვალდებულება</td></tr>
+        <tr><td>სირთულე</td><td class="was">—</td><td class="was">—</td><td>დაბალი</td><td>საშუალო</td><td>მაღალი</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════ D ══════════ -->
+  <div class="sh">
+    <span class="sh-tab lat">D</span>
+    <h2>ექვსი წესი, რომელიც რეფერენსებზე მაღლა დგას</h2>
+    <span class="cnt lat">განახლებული</span>
+  </div>
+  <p class="sh-note">პირველი რუკის წესები ძალაშია, ორი შესწორებით. თუ რეფერენსი და ეს სია ეწინააღმდეგება — იმარჯვებს სია.</p>
+  <div class="rules">
+    <div>
+      <span class="n lat">01</span>
+      <h4>ყვითელი ტექსტისთვის არასდროს</h4>
+      <p><code>#F6BB2F</code> თეთრზე 1.74:1 იძლევა, საჭიროა 4.5:1. ყვითელი მხოლოდ ფონია და მდგომარეობის ნიშანი. ტექსტურ აქცენტს — <code>#8C6410</code>.</p>
+    </div>
+    <div>
+      <span class="n lat">02</span>
+      <h4>მომრგვალება — გადასინჯულია</h4>
+      <p>ძველი წესი „კვადრატული ბადე, 0/4/8px“ <b>გაუქმებულია</b> კლიენტის პირდაპირი მითითებით (N1): ფორმები რბილია — 22–34px, წრეები, pill-ღილაკები. D2 ამას ეწინააღმდეგება და ცალკე დათქმას ითხოვს.</p>
+    </div>
+    <div>
+      <span class="n lat">03</span>
+      <h4>ქართულს მთავრული არ აქვს</h4>
+      <p>FiraGO-ში U+1C90 არ არსებობს — <code>text-transform:uppercase</code> ქართულ ტექსტზე აკრძალულია. ლათინური ლეიბლები და ციფრები ამის შემცვლელია.</p>
+    </div>
+    <div>
+      <span class="n lat">04</span>
+      <h4>ცარიელი ბლოკი უარესია, ვიდრე არარსებული</h4>
+      <p>ეხება სეზონს, სიახლეებს, შეთავაზებებს. სანამ სექციას ვხატავთ, უნდა ვიცოდეთ ვინ და რა სიხშირით ავსებს. D3 მთლიანად ამ წესზეა დამოკიდებული.</p>
+    </div>
+    <div>
+      <span class="n lat">05</span>
+      <h4>ინფორმაცია არსებულ გვერდს არ სცილდება</h4>
+      <p>N4 ძალაშია — ბლოკი არ ემატება და არ აკლდება. ახალი ელემენტები <b>არსებული მონაცემის სხვაგვარი ჩვენებაა</b>, არა ახალი კონტენტი.</p>
+    </div>
+    <div>
+      <span class="n lat">06</span>
+      <h4>სტუმრიანი კადრები არ გამოიყენება</h4>
+      <p>ქორწილისა და ღონისძიების არქივში ადამიანები ჩანან; გამოქვეყნების თანხმობა არ გვაქვს. D3-ის სეზონურ კადრებზე ეს განსაკუთრებით ეხება.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ E ══════════ -->
+  <div class="sh">
+    <span class="sh-tab lat">E</span>
+    <h2>ასევე ვნახეთ</h2>
+    <span class="cnt lat">არ შევიდა სიაში</span>
+  </div>
+  <p class="sh-note">ეს საიტები განხილული და უარყოფილია — თითოეულთან მიზეზი.</p>
+  <ul class="also">
+    <li><div><b>Janjou Patisserie</b><span class="u lat">janjou.com</span></div><span>გალერეისებრი მინიმალიზმი, ინტერფეისი თითქმის უხილავი. ძალიან ჰგავს იმას, რაც Grolet-იდან უკვე ავიღეთ — ერთი დიდი კადრი და ცოტა ტექსტი.</span></li>
+    <li><div><b>Deadstock Coffee</b><span class="u lat">deadstockcoffee.com</span></div><span>ყვითელი აქცენტი მუქზე — ტექნიკურად საინტერესო, მაგრამ „ჟურნალის“ მუქ ენას იმეორებს. ქუჩური ტონი 900-თანამშრომლიან საწარმოს არ უხდება.</span></li>
+    <li><div><b>Crumbl-ის მსგავსები</b><span class="u lat">—</span></div><span>ყოველკვირეული როტაციის ყველა ვარიანტი — რიტმი უკვე გამოტანილია პირველ დოსიეში; გამეორება არ ღირს.</span></li>
+    <li><div><b>Meatopia · Pier88 · Santioni</b><span class="u lat">awwwards</span></div><span>Awwwards-ის 2026 გამარჯვებულები. ღონისძიების და ბარის საიტებია — ეფექტური, მაგრამ კატალოგი და კალათა არ აქვთ. ჩვენთვის სტრუქტურა უფრო ღირებულია, ვიდრე ეფექტი.</span></li>
+    <li><div><b>Huel · HelloFresh</b><span class="u lat">—</span></div><span>შესანიშნავი შეკვეთის ინტერფეისი, მაგრამ სრულად გამოწერაზეა აწყობილი. მადარტს გამოწერის მოდელი არ აქვს.</span></li>
+  </ul>
+
+  <!-- ══════════ F ══════════ -->
+  <div class="sh">
+    <span class="sh-tab lat">F</span>
+    <h2>რა უნდა გადაწყდეს, სანამ ვხატავთ</h2>
+    <span class="cnt lat">5</span>
+  </div>
+  <ul class="qs">
+    <li><span class="q lat">01</span><div><b>რომელი მიმართულება იხატება ბოლომდე?</b><span>სამივეს სრული აწყობა სამ ცალკე მაკეტს ნიშნავს. თუ ერთი უნდა შეირჩეს — <b>D1 „დახლი“</b> ყველაზე ნაკლებ ახალ მასალას ითხოვს და ბიზნესის რეალობას ყველაზე ახლოს დგას.</span></div></li>
+    <li><span class="q lat">02</span><div><b>D3 „სეზონი“ — ვინ ავსებს კალენდარს?</b><span>წელიწადში 8–10 განახლება. პასუხის გარეშე ამ მიმართულების ხატვა უსაფუძვლოა.</span></div></li>
+    <li><span class="q lat">03</span><div><b>55 არა-მადარტული პროდუქტი — ხატვა თუ გადაღება?</b><span>ილუსტრაციული ნაკრები ერთი დიზაინერული სამუშაოა; ხელახალი გადაღება — ცალკე სესია 55 პოზიციაზე.</span></div></li>
+    <li><span class="q lat">04</span><div><b>ჰედერი ორ ჯგუფად იყოფა?</b><span>„ვყიდულობ“ / „ვგეგმავ“. ეს ეხება 13-ვე გვერდს და ყველაზე დიდი სტრუქტურული ცვლილებაა ამ დოსიეში.</span></div></li>
+    <li><span class="q lat">05</span><div><b>მიტანის პირობები</b><span>ღია #3 და #42. სანამ თანხა, ზონები და ვადები არ გვაქვს, ლოგისტიკის ბლოკი (რეფერენსი <span class="lat">09</span>) ვერ დაიხატება.</span></div></li>
+  </ul>
+
+</div>
+
+<div class="end">
+  <div class="wrap">
+    <b>მადარტი</b> · შპს „არბო 2009“ · მთავარი გვერდის დიზაინი, მეორე რაუნდი · 08.09.2026<br>
+    12 რეფერენსი შემოწმებულია პირდაპირ საიტებზე 2026 წლის სექტემბერში · წყაროები: Awwwards Food&amp;Drink, siteInspire, Baymard Institute, თითოეული ბრენდის საკუთარი საიტი<br>
+    პირველი დოსიე და რეფერენსების რუკა ძალაშია — ეს დამატებაა, არა ჩანაცვლება
+  </div>
+</div>
