@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>მადარტი — საერთაშორისო რეფერენსები</title>
+<meta name="description" content="ყველა საერთაშორისო საიტი, რომელიც მადარტის ვებგვერდის კვლევაში რეფერენსად გამოვიყენეთ — 25 საიტი, ორი ტალღა.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Serif+Georgian:wght@600;700&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f1; --card:#fffdf9; --ink:#1b1916; --mut:#6e665a; --soft:#948b7d;
+    --line:#e6dfd2; --line2:#d6ccba; --acc:#c9922a; --acc2:#8a5a12;
+    --shadow:0 1px 2px rgba(40,30,10,.05),0 8px 28px -18px rgba(40,30,10,.35);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans Georgian","Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.62;
+  }
+  .lat{font-family:"Archivo","Segoe UI",system-ui,sans-serif;letter-spacing:.01em}
+  a{color:var(--acc2)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:#f1ebe0;padding:1px 5px;border-radius:4px}
+
+  header.hero{background:#14120f;color:#f6f1e7;padding:52px 0 46px;border-bottom:3px solid var(--acc)}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#c9b98f;margin:0 0 14px}
+  header.hero h1{font-family:"Noto Serif Georgian","Noto Sans Georgian",serif;font-size:clamp(30px,5.2vw,50px);line-height:1.18;margin:0 0 16px;font-weight:700}
+  header.hero p{margin:0;max-width:64ch;color:#d9d1c2;font-size:17px}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{border:1px solid #3b352c;border-radius:999px;padding:7px 15px;font-size:13px;color:#e7dfd0;background:#1d1a15}
+  .fact b{color:#f4c65c;font-weight:600}
+
+  .toolbar{position:sticky;top:0;z-index:20;background:rgba(250,247,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0}
+  .tbin{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  #q{flex:1;min-width:220px;padding:11px 14px;border:1px solid var(--line2);border-radius:10px;background:#fff;font:inherit;font-size:15px;color:var(--ink)}
+  #q:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:var(--acc)}
+  .chips{display:flex;gap:7px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line2);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:13.5px;color:var(--mut);cursor:pointer}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .hitcount{font-size:13px;color:var(--soft);white-space:nowrap}
+
+  section{padding:46px 0 10px}
+  .shead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:8px}
+  .shead h2{font-family:"Noto Serif Georgian",serif;font-size:clamp(21px,3vw,28px);margin:0;font-weight:700}
+  .shead .n{font-size:13px;color:var(--soft);letter-spacing:.12em;text-transform:uppercase}
+  .sintro{color:var(--mut);max-width:72ch;margin:14px 0 26px;font-size:15.5px}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:680px;font-size:14.5px}
+  th,td{text-align:right;padding:11px 14px;border-bottom:1px solid var(--line)}
+  thead th{background:#f2ece1;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#f7f2e8}
+  td.num{color:var(--soft);font-size:12.5px;width:62px;white-space:nowrap}
+  td.nm{font-weight:600;white-space:nowrap}
+  td.url a{text-decoration:none;border-bottom:1px solid rgba(138,90,18,.3);white-space:nowrap}
+  td.url a:hover{border-bottom-color:var(--acc2)}
+  td.tk{color:var(--mut)}
+
+  .grid{display:grid;gap:18px;margin-top:6px}
+  article.ref{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:214px 1fr}
+  .rail{background:#f4eee3;border-left:1px solid var(--line);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+  .rail .idx{font-size:12px;letter-spacing:.16em;color:var(--soft)}
+  .rail h3{margin:0;font-size:20px;line-height:1.25;font-weight:700}
+  .rail .loc{font-size:12.5px;color:var(--mut);line-height:1.5}
+  .visit{display:inline-block;margin-top:2px;font-size:13px;text-decoration:none;color:var(--acc2);border-bottom:1px solid rgba(138,90,18,.35);word-break:break-all;align-self:flex-start}
+  .tagline{display:inline-block;margin-top:6px;background:var(--ink);color:#fff;border-radius:6px;padding:5px 10px;font-size:11.5px;align-self:flex-start;line-height:1.4}
+  .meters{margin-top:8px;display:grid;gap:6px}
+  .m{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--mut)}
+  .m span{width:56px}
+  .bar{display:flex;gap:3px}
+  .bar i{width:9px;height:9px;border-radius:2px;background:#ded5c5;display:block}
+  .bar i.on{background:var(--acc)}
+
+  .body{padding:22px 24px 20px}
+  .lede{margin:0 0 12px;font-size:15px;color:var(--acc2);font-weight:600}
+  .body p{margin:0 0 12px;font-size:15px}
+  .body ul{margin:0 0 14px;padding-right:20px;padding-left:0}
+  .body li{margin-bottom:7px;font-size:14.6px}
+  .take{background:#fdf6e4;border:1px solid #ecdcb4;border-right:4px solid var(--acc);border-radius:10px;padding:13px 15px;font-size:14.6px;margin:14px 0 12px}
+  .take b{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2);margin-bottom:5px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tags span{border:1px solid var(--line2);border-radius:999px;padding:4px 11px;font-size:12px;color:var(--mut);background:#fff}
+
+  .empty{display:none;text-align:center;padding:50px 20px;color:var(--soft)}
+  .empty.on{display:block}
+
+  footer{margin-top:56px;border-top:1px solid var(--line);background:#f2ece1;padding:30px 0 46px;color:var(--mut);font-size:13.5px}
+  footer p{margin:0 0 8px;max-width:76ch}
+
+  @media (max-width:760px){
+    article.ref{grid-template-columns:1fr}
+    .rail{border-left:0;border-bottom:1px solid var(--line)}
+    .body{padding:18px}
+  }
+  @media print{
+    .toolbar,footer{display:none}
+    body{background:#fff;font-size:11pt}
+    article.ref{break-inside:avoid;box-shadow:none}
+    header.hero{background:#fff;color:#000;border-bottom:2px solid #000}
+    header.hero p,.fact{color:#333}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">მადარტი · ვებგვერდის კვლევა · 2026</p>
+    <h1>საერთაშორისო რეფერენსები</h1>
+    <p>ყველა უცხოური საიტი, რომელიც ამ პროექტში მოვიძიეთ და რეფერენსად გამოვიყენეთ — ერთ ფაილში, ბმულებით და იმ კონკრეტული ელემენტით, რომელიც თითოეულიდან ავიღეთ.</p>
+    <div class="facts">
+      <span class="fact"><b>25</b> საიტი</span>
+      <span class="fact"><b>2</b> კვლევის ტალღა</span>
+      <span class="fact"><b>9</b> ქვეყანა</span>
+      <span class="fact">საცხობი · პატისერია · სასურსათო ბრენდი</span>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap tbin">
+    <input id="q" type="search" placeholder="ძებნა — სახელი, ქვეყანა, თემა (მაგ. „ალერგენი“, „ფილიალი“, „B2B“)" autocomplete="off">
+    <div class="chips">
+      <button class="chip" data-f="all" aria-pressed="true">ყველა</button>
+      <button class="chip" data-f="w1" aria-pressed="false">I ტალღა</button>
+      <button class="chip" data-f="w2" aria-pressed="false">II ტალღა</button>
+    </div>
+    <span class="hitcount" id="hits">25 საიტი</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="index">
+    <div class="shead"><h2>სრული ნუსხა</h2><span class="n">25 ბმული</span></div>
+    <p class="sintro">ყველა ბმული იხსნება ახალ ფანჯარაში. მარჯვენა სვეტი ერთი წინადადებით ამბობს, რისთვის დაგვჭირდა ეს საიტი.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>საიტი</th><th>მისამართი</th><th>რატომ არის სიაში</th></tr></thead>
+        <tbody>
+          <tr><td class="num">I · 01</td><td class="nm lat">GAIL’s Bakery</td><td class="url"><a class="lat" href="https://gails.com/" target="_blank" rel="noopener">gails.com</a></td><td class="tk">ბიზნეს-მოდელის ყველაზე ახლო ანალოგი · B2B კარი მენიუში</td></tr>
+          <tr><td class="num">I · 02</td><td class="nm lat">Konditor</td><td class="url"><a class="lat" href="https://www.konditor.co.uk/" target="_blank" rel="noopener">konditor.co.uk</a></td><td class="tk">ტორტის ონლაინ-შეკვეთის სტრუქტურა · მიტანით შერჩევა</td></tr>
+          <tr><td class="num">I · 03</td><td class="nm lat">Levain Bakery</td><td class="url"><a class="lat" href="https://www.levainbakery.com/" target="_blank" rel="noopener">levainbakery.com</a></td><td class="tk">პროდუქტის ბარათის ეტალონი · ფილიალი = ცალკე გვერდი</td></tr>
+          <tr><td class="num">I · 04</td><td class="nm lat">Lune Croissanterie</td><td class="url"><a class="lat" href="https://lunecroissanterie.com/" target="_blank" rel="noopener">lunecroissanterie.com</a></td><td class="tk">ვიზუალური ენა · წარმოების ამბავი ვიდეოთი</td></tr>
+          <tr><td class="num">I · 05</td><td class="nm lat">Yann Couvreur</td><td class="url"><a class="lat" href="https://www.yanncouvreur.com/" target="_blank" rel="noopener">yanncouvreur.com</a></td><td class="tk">cut-off დრო ინტერფეისში · განაჭერის ფოტო</td></tr>
+          <tr><td class="num">I · 06</td><td class="nm lat">Milk Bar</td><td class="url"><a class="lat" href="https://milkbarstore.com/" target="_blank" rel="noopener">milkbarstore.com</a></td><td class="tk">ნაკრების კონსტრუქტორი · ბრენდის ტონი</td></tr>
+          <tr><td class="num">I · 07</td><td class="nm lat">Cédric Grolet</td><td class="url"><a class="lat" href="https://www.cedric-grolet.com/" target="_blank" rel="noopener">cedric-grolet.com</a></td><td class="tk">არტ-დირექცია · ფილიალი როგორც ადგილი</td></tr>
+          <tr><td class="num">I · 08</td><td class="nm lat">Poilâne</td><td class="url"><a class="lat" href="https://www.poilane.com/" target="_blank" rel="noopener">poilane.com</a></td><td class="tk">ისტორია როგორც კონტენტი · რეცეპტების განყოფილება</td></tr>
+          <tr><td class="num">I · 09</td><td class="nm lat">Crumbl</td><td class="url"><a class="lat" href="https://crumblcookies.com/" target="_blank" rel="noopener">crumblcookies.com</a></td><td class="tk">კვირეული როტაცია · დაბრუნების მიზეზი</td></tr>
+          <tr><td class="num">I · 10</td><td class="nm lat">Pierre Hermé Paris</td><td class="url"><a class="lat" href="https://www.pierreherme.com/" target="_blank" rel="noopener">pierreherme.com</a></td><td class="tk">საჩუქრების ხაზი · მოკლე მთავარი მენიუ</td></tr>
+          <tr><td class="num">I · B1</td><td class="nm lat">Fabrique</td><td class="url"><a class="lat" href="https://www.fabrique.co.uk/" target="_blank" rel="noopener">fabrique.co.uk</a></td><td class="tk">ტიპოგრაფია და პალიტრა · ანტი-მაგალითი შეკვეთაზე</td></tr>
+          <tr><td class="num">I · B2</td><td class="nm lat">Bread Ahead</td><td class="url"><a class="lat" href="https://www.breadahead.com/" target="_blank" rel="noopener">breadahead.com</a></td><td class="tk">მასტერკლასები როგორც პროდუქტი · დამსაქმებლის ბრენდი</td></tr>
+          <tr><td class="num">I · B3</td><td class="nm lat">Dominique Ansel</td><td class="url"><a class="lat" href="https://dominiqueansel.com/" target="_blank" rel="noopener">dominiqueansel.com</a></td><td class="tk">ოთხი შეკვეთის არხი ერთ ჰედერში · Instagram ლენტა</td></tr>
+          <tr><td class="num">II · 01</td><td class="nm lat">Ole &amp; Steen</td><td class="url"><a class="lat" href="https://oleandsteen.co.uk/" target="_blank" rel="noopener">oleandsteen.co.uk</a></td><td class="tk">დღის ღერძი — დილა · შუადღე · საღამო</td></tr>
+          <tr><td class="num">II · 02</td><td class="nm lat">Tartine Bakery</td><td class="url"><a class="lat" href="https://tartinebakery.com/" target="_blank" rel="noopener">tartinebakery.com</a></td><td class="tk">არჩეული ფილიალი რჩება მთელ სესიაში</td></tr>
+          <tr><td class="num">II · 03</td><td class="nm lat">Sweetgreen</td><td class="url"><a class="lat" href="https://www.sweetgreen.com/" target="_blank" rel="noopener">sweetgreen.com</a></td><td class="tk">ალერგენი და სამარხვო ნიშანი პირდაპირ ბარათზე</td></tr>
+          <tr><td class="num">II · 04</td><td class="nm lat">Partake Foods</td><td class="url"><a class="lat" href="https://partakefoods.com/" target="_blank" rel="noopener">partakefoods.com</a></td><td class="tk">ნდობის ოთხი ნიშანი გადაწყვეტილების წერტილში</td></tr>
+          <tr><td class="num">II · 05</td><td class="nm lat">Graza</td><td class="url"><a class="lat" href="https://graza.co/" target="_blank" rel="noopener">graza.co</a></td><td class="tk">ერთსიტყვიანი ხასიათი + გამოყენების ერთი ხაზი</td></tr>
+          <tr><td class="num">II · 06</td><td class="nm lat">Little Sesame</td><td class="url"><a class="lat" href="https://eatlittlesesame.com/" target="_blank" rel="noopener">eatlittlesesame.com</a></td><td class="tk">ორი კარი ერთ საიტზე — „მაღაზია“ და „ფილიალი“</td></tr>
+          <tr><td class="num">II · 07</td><td class="nm lat">Ottolenghi</td><td class="url"><a class="lat" href="https://ottolenghi.co.uk/" target="_blank" rel="noopener">ottolenghi.co.uk</a></td><td class="tk">მრავალღერძიანი მენიუ · ტერმინების ლექსიკონი</td></tr>
+          <tr><td class="num">II · 08</td><td class="nm lat">Toraya</td><td class="url"><a class="lat" href="https://global.toraya-group.co.jp/" target="_blank" rel="noopener">global.toraya-group.co.jp</a></td><td class="tk">სეზონი როგორც კატალოგის ხერხემალი</td></tr>
+          <tr><td class="num">II · 09</td><td class="nm lat">Oddbox</td><td class="url"><a class="lat" href="https://www.oddbox.co.uk/" target="_blank" rel="noopener">oddbox.co.uk</a></td><td class="tk">სამნაბიჯიანი „როგორ მუშაობს“ · პირობის გამჭვირვალობა</td></tr>
+          <tr><td class="num">II · 10</td><td class="nm lat">Potluck Market</td><td class="url"><a class="lat" href="https://potluckmarket.com/" target="_blank" rel="noopener">potluckmarket.com</a></td><td class="tk">„გაიყიდა“ ღიად — მარაგის სიმართლე ბადეზე</td></tr>
+          <tr><td class="num">II · 11</td><td class="nm lat">Aura Bora</td><td class="url"><a class="lat" href="https://www.aurabora.com/" target="_blank" rel="noopener">aurabora.com</a></td><td class="tk">ილუსტრაცია ფოტოს ნაცვლად — 55 პროდუქტის პასუხი</td></tr>
+          <tr><td class="num">II · 12</td><td class="nm lat">Arensbak</td><td class="url"><a class="lat" href="https://arensbak.com/" target="_blank" rel="noopener">arensbak.com</a></td><td class="tk">მტკიცებულების ზოლი — ვინ გვენდობა (B2B)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="w1">
+    <div class="shead"><h2>I ტალღა — საცხობები და პატისერიები</h2><span class="n">13 საიტი</span></div>
+    <p class="sintro">პირველი კვლევა: მსოფლიოს წამყვანი საცხობები და საკონდიტროები. აქ ვეძებდით მთლიან სურათს — როგორ ყიდის, როგორ ჰყვება და როგორ გამოიყურება საცხობი ინტერნეტში. სამი შკალა: <b>ვიზუალი</b> · <b>კომერცია</b> · <b>ამბავი</b>.</p>
+    <div class="grid">
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 01</div>
+          <h3 class="lat">GAIL’s Bakery</h3>
+          <div class="loc">ლონდონი, დიდი ბრიტანეთი · 100+ ფილიალი</div>
+          <a class="visit lat" href="https://gails.com/" target="_blank" rel="noopener">gails.com</a>
+          <span class="tagline">ბიზნესით ყველაზე ახლოს</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>ჩვენი ბიზნეს-მოდელის ყველაზე ახლო ანალოგი მთელ სიაში: ქსელური საცხობი, სადაც პურიც იყიდება და ტკბილეულიც, ყოველდღიური მიმართვით და საკუთარი ლოიალობის სისტემით.</p>
+          <ul>
+            <li>ნავიგაცია აწყობილია <em>სიტუაციაზე</em> და არა ასორტიმენტზე: „ოფისისთვის“, „სახლისთვის“, „საჩუქრები“.</li>
+            <li>Same Day Click &amp; Collect და მიტანის მინიმალური თანხა პირველივე ეკრანზეა — პირობები არ იმალება ჩექაუთამდე.</li>
+            <li>Journal — ედიტორიალი მიმწოდებლებზე და სეზონურ ინგრედიენტებზე. ხარისხს ყიდის ისე, რომ სიტყვა „ხარისხი“ არსად წერია.</li>
+            <li>ლოიალობის აპი ჩაშენებულია საიტის ნაკადში, არა ცალკე გვერდზე.</li>
+          </ul>
+          <div class="take"><b>მადარტისთვის</b>„კორპორატიული / ოფისის შეკვეთა“ ცალკე შესვლის წერტილად მთავარ მენიუში. თბილისურ ბაზარზე ეს დიდწილად თავისუფალი ნიშაა, ჩვენ კი მიტანის სერვისი უკვე გვაქვს. + ფილიალის არჩევა და „დღეს აღება“ ერთ ეკრანზე.</div>
+          <div class="tags"><span>ქსელი</span><span>Click &amp; Collect</span><span>ლოიალობა</span><span>B2B</span><span>ედიტორიალი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 02</div>
+          <h3 class="lat">Konditor</h3>
+          <div class="loc">ლონდონი, დიდი ბრიტანეთი · 1993 წლიდან</div>
+          <a class="visit lat" href="https://www.konditor.co.uk/" target="_blank" rel="noopener">konditor.co.uk</a>
+          <span class="tagline">შეკვეთის ლოგიკა</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>ტორტების ონლაინ-შეკვეთის ყველაზე გასაგებად აწყობილი ლოგიკა მთელ კვლევაში. ვიზუალურად ყველაზე თამამი არაა — სამაგიეროდ სტრუქტურა თითქმის სახელმძღვანელოა.</p>
+          <ul>
+            <li>სამი პარალელური ნავიგაცია ერთსა და იმავე კატალოგში: <b>პროდუქტით</b>, <b>შემთხვევით</b> (დაბადების დღე, იუბილე, ბოდიშის მოხდა) და <b>მიტანის ტიპით</b>. სამი კარი ერთ ოთახში.</li>
+            <li>პერსონალიზაცია — წარწერა, სასაჩუქრე ბარათი — შეკვეთის ნაწილია, არა „დაგვიკავშირდით“ ფორმა.</li>
+            <li>საჩუქრის რეჟიმი: მისამართს ავსებ მიმღების და არა შემკვეთის.</li>
+          </ul>
+          <div class="take"><b>მადარტისთვის</b>„მიტანით შერჩევა“: მომხმარებელი ჯერ ირჩევს როდის და სად უნდა, საიტი კი აჩვენებს მხოლოდ იმას, რაც იმ ვადაში რეალურად მიდის. ჩვენი მთავარი უპირატესობა — პუნქტუალობა — ასე ხდება ინტერფეისი და არა ლოზუნგი.</div>
+          <div class="tags"><span>ტორტები</span><span>შემთხვევები</span><span>პერსონალიზაცია</span><span>მიტანის ზონები</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 03</div>
+          <h3 class="lat">Levain Bakery</h3>
+          <div class="loc">ნიუ-იორკი, აშშ · 20+ ფილიალი</div>
+          <a class="visit lat" href="https://www.levainbakery.com/" target="_blank" rel="noopener">levainbakery.com</a>
+          <span class="tagline">პროდუქტის ბარათი</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>ეტალონი იმისა, როგორ უნდა გამოიყურებოდეს პროდუქტის ბარათი და როგორ უნდა თანაარსებობდეს ფილიალები და ონლაინ-მაღაზია ერთ საიტზე.</p>
+          <div class="take"><b>მადარტისთვის</b>პროდუქტის ბარათის სტანდარტი (ფოტო → წონა/ზომა → შემადგენლობა → ალერგენები → ვადა → ფასი) და 5 ფილიალი 5 ცალკე ლენდინგად: საათები, ფოტო, რუკა, „ამ ფილიალში დღეს ხელმისაწვდომი“. ეს ლოკალური ძებნისთვისაც კრიტიკულია.</div>
+          <div class="tags"><span>პროდუქტის ბარათი</span><span>ფილიალები</span><span>ონლაინ-მაღაზია</span><span>საჩუქრები</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 04</div>
+          <h3 class="lat">Lune Croissanterie</h3>
+          <div class="loc">მელბურნი, ავსტრალია</div>
+          <a class="visit lat" href="https://lunecroissanterie.com/" target="_blank" rel="noopener">lunecroissanterie.com</a>
+          <span class="tagline">ვიზუალური ეტალონი</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>ყველაზე დახვეწილი ვიზუალური ენა სიაში. მინიმალიზმი, რომელიც სიცარიელედ არ იქცევა — ტიპოგრაფია და პაუზები აკეთებს იმას, რასაც სხვები დეკორით ცდილობენ.</p>
+          <div class="take"><b>მადარტისთვის</b>„როგორ ვაკეთებთ“ — თანამედროვე ტექნოლოგია და კვების უსაფრთხოების სტანდარტები ვიდეოთი და ციფრებით, არა ტექსტური აბზაცით. დღეს ეს ჩვენი ყველაზე ძლიერი და ყველაზე ცუდად გამოყენებული აქტივია.</div>
+          <div class="tags"><span>ვიდეო-ჰერო</span><span>ტიპოგრაფია</span><span>ხელობა</span><span>მინიმალიზმი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 05</div>
+          <h3 class="lat">Yann Couvreur</h3>
+          <div class="loc">პარიზი, საფრანგეთი</div>
+          <a class="visit lat" href="https://www.yanncouvreur.com/" target="_blank" rel="noopener">yanncouvreur.com</a>
+          <span class="tagline">cut-off დრო</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>ლუქს-პატისერია, რომელსაც არ რცხვენია იყოს ნორმალური მაღაზია. სწორედ ეს ბალანსი გვჭირდება ჩვენ.</p>
+          <div class="take"><b>მადარტისთვის</b>cut-off დროის კომუნიკაცია პირდაპირ ინტერფეისში — „დღეს 18:00-მდე შეკვეთა = ხვალ დილის მიტანა“. ჩვენი პუნქტუალობა უნდა ჩანდეს ღილაკის გვერდით და არა „ჩვენ შესახებ“ გვერდზე. + განაჭერის ფოტო ყველა ტორტისთვის.</div>
+          <div class="tags"><span>cut-off დრო</span><span>Click &amp; Collect</span><span>განაჭერის ფოტო</span><span>sticky ჰედერი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 06</div>
+          <h3 class="lat">Milk Bar</h3>
+          <div class="loc">ნიუ-იორკი, აშშ</div>
+          <a class="visit lat" href="https://milkbarstore.com/" target="_blank" rel="noopener">milkbarstore.com</a>
+          <span class="tagline">ნაკრები და საჩუქარი</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>თამამი, მხიარული ბრენდი, რომელიც ინტერფეისში მაინც არ იშლება: ფონი ნეიტრალურია, ფერს მხოლოდ პროდუქტი იძლევა. ეს დისციპლინაა და არა სისადავე.</p>
+          <div class="take"><b>მადარტისთვის</b>ნაკრების კონსტრუქტორი — „ასორტი ნამცხვრები 6 / 12 / 24“ და კორპორატიული ყუთი, სადაც კლიენტი თავად ირჩევს შიგთავსს. ახალი წელი და 8 მარტი ამით სხვანაირად გამოიყურება.</div>
+          <div class="tags"><span>ნაკრები</span><span>საჩუქრები</span><span>ფილტრები</span><span>ბრენდის ტონი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 07</div>
+          <h3 class="lat">Cédric Grolet</h3>
+          <div class="loc">პარიზი · სენ-ტროპე · მონაკო · ლონდონი · სინგაპური</div>
+          <a class="visit lat" href="https://www.cedric-grolet.com/" target="_blank" rel="noopener">cedric-grolet.com</a>
+          <span class="tagline">არტ-დირექცია</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>მსოფლიოში ყველაზე ცნობილი პატისიეს საიტი. ვიზუალური ამბიციის ეტალონი — და კარგი გაფრთხილება იმისა, თუ სად გადის ზღვარი.</p>
+          <div class="take"><b>მადარტისთვის</b>5 ფილიალი როგორც 5 ადგილი და არა როგორც მისამართების სია. სუსტი მხარე: შეკვეთა პრაქტიკულად არ არსებობს. ჩვენ ამას ვერ გავიმეორებთ — ვიზუალურ ამბიციას ვიღებთ, ბიზნეს-ლოგიკას არა.</div>
+          <div class="tags"><span>არტ-დირექცია</span><span>ლოკაციები</span><span>ფოტოგრაფია</span><span>ლუქსი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 08</div>
+          <h3 class="lat">Poilâne</h3>
+          <div class="loc">პარიზი, საფრანგეთი · 1932 წლიდან</div>
+          <a class="visit lat" href="https://www.poilane.com/" target="_blank" rel="noopener">poilane.com</a>
+          <span class="tagline">მემკვიდრეობა</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>როგორ იქცევა ისტორია კონტენტად. საიტი Shopify-ზეა, მაგრამ არსად ჩანს შაბლონი — ეს ცალკე გაკვეთილია.</p>
+          <div class="take"><b>მადარტისთვის</b>2009 წლიდან, 17 წელი, 900+ თანამშრომელი, 5 ფილიალი — ეს რიცხვები ცალკე თავია, არა ერთი წინადადება. + ქართული საკონდიტრო ტრადიცია და რეცეპტების/სერვირების განყოფილება, როგორც მუდმივი ორგანული არხი.</div>
+          <div class="tags"><span>მემკვიდრეობა</span><span>რეცეპტები</span><span>ედიტორიალი</span><span>Shopify</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 09</div>
+          <h3 class="lat">Crumbl</h3>
+          <div class="loc">იუტა, აშშ · 1000+ ფილიალი</div>
+          <a class="visit lat" href="https://crumblcookies.com/" target="_blank" rel="noopener">crumblcookies.com</a>
+          <span class="tagline">კვირეული როტაცია</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>ყველაზე ნაკლებად „დახვეწილი“ სიაში — და ყველაზე ეფექტური მექანიკით. საიტი აგებულია დროზე და არა ასორტიმენტზე.</p>
+          <div class="take"><b>მადარტისთვის</b>„კვირის სიახლე“ ან სეზონური ხაზი მთავარ გვერდზე ფიქსირებული ადგილით. მუდმივი მიზეზი დაბრუნებისთვის. გაფრთხილება: ეს მუშაობს მხოლოდ მაშინ, თუ რეალურად ყოველკვირეულად ვასრულებთ — ცარიელი „სიახლეების“ ბლოკი ბრენდს აზარალებს.</div>
+          <div class="tags"><span>როტაცია</span><span>დეფიციტი</span><span>მობაილ-ფერსტი</span><span>აპი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · 10</div>
+          <h3 class="lat">Pierre Hermé Paris</h3>
+          <div class="loc">პარიზი, საფრანგეთი</div>
+          <a class="visit lat" href="https://www.pierreherme.com/" target="_blank" rel="noopener">pierreherme.com</a>
+          <span class="tagline">კოლექციები</span>
+          <div class="meters">
+            <div class="m"><span>ვიზუალი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>კომერცია</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+            <div class="m"><span>ამბავი</span><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <p>კლასიკური ლუქს-ელექტრონული კომერცია, სადაც კატეგორიები კოლექციებივითაა აწყობილი. ნავიგაცია პირველივე შეხედვით გასაგებია — რაც ლუქსში იშვიათია.</p>
+          <div class="take"><b>მადარტისთვის</b>საჩუქრების ხაზი ცალკე განყოფილებად, საკუთარი ფოტოგრაფიით და შეფუთვით. ასევე — მოკლე, სტაბილური მთავარი მენიუ: 5–6 პუნქტი მაქსიმუმ.</div>
+          <div class="tags"><span>კოლექციები</span><span>საჩუქრები</span><span>ვიდეო-ჰერო</span><span>ლუქსი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · B1 · ბონუსი</div>
+          <h3 class="lat">Fabrique</h3>
+          <div class="loc">სტოკჰოლმი · ლონდონი · ნიუ-იორკი</div>
+          <a class="visit lat" href="https://www.fabrique.co.uk/" target="_blank" rel="noopener">fabrique.co.uk</a>
+          <span class="tagline">ანტი-მაგალითი</span>
+        </div>
+        <div class="body">
+          <p>სკანდინავიური მინიმალიზმი, თბილი კრემისფერი პალიტრა და ძალიან ლამაზი ტიპოგრაფია. სამაგიეროდ შეკვეთა გატანილია გარე პლატფორმაზე — მომხმარებელი საიტს ტოვებს. კარგი მაგალითი იმისა, <b>რაც ჩვენ არ უნდა გავაკეთოთ</b>: მიტანა ჩვენი უპირატესობაა, ის საიტის შიგნით უნდა დარჩეს.</p>
+          <div class="tags"><span>ტიპოგრაფია</span><span>პალიტრა</span><span>ანტი-მაგალითი</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · B2 · ბონუსი</div>
+          <h3 class="lat">Bread Ahead</h3>
+          <div class="loc">ლონდონი, დიდი ბრიტანეთი</div>
+          <a class="visit lat" href="https://www.breadahead.com/" target="_blank" rel="noopener">breadahead.com</a>
+          <span class="tagline">მასტერკლასი · კარიერა</span>
+        </div>
+        <div class="body">
+          <p>საცხობი, რომელმაც სასწავლო მიმართულება სრულფასოვან პროდუქტად აქცია: კურსების ჯავშანი, „აკადემია“, სასაჩუქრე ვაუჩერები, სტუდენტური პროექტები. მადარტისთვის ეს ორ რამეს ხსნის — <b>მასტერკლასები</b> როგორც ახალი შემოსავალი და <b>დამსაქმებლის ბრენდი</b>: 900 თანამშრომელს კარიერის სრულფასოვანი განყოფილება ეკუთვნის, არა ერთი ვაკანსიის ფორმა.</p>
+          <div class="tags"><span>მასტერკლასი</span><span>ჯავშანი</span><span>კარიერა</span></div>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w1">
+        <div class="rail">
+          <div class="idx">I · B3 · ბონუსი</div>
+          <h3 class="lat">Dominique Ansel</h3>
+          <div class="loc">ნიუ-იორკი · ჰონკონგი</div>
+          <a class="visit lat" href="https://dominiqueansel.com/" target="_blank" rel="noopener">dominiqueansel.com</a>
+          <span class="tagline">მრავალი არხი</span>
+        </div>
+        <div class="body">
+          <p>ოთხი განსხვავებული შეკვეთის გზა (წინასწარი შეკვეთა აღებაზე, გაგზავნა, კურიერი, რეგიონული მაღაზია) ერთ ჰედერში, ისე რომ არაფერი ერევა. Instagram ჩაშენებულია მთავარ გვერდზე — სოციალური აქტივობა ხდება საიტის ცოცხალი კონტენტი განახლების ხარჯების გარეშე.</p>
+          <div class="tags"><span>მრავალი არხი</span><span>Instagram</span><span>რეგიონები</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="w2">
+    <div class="shead"><h2>II ტალღა — მიმდებარე ინდუსტრიები</h2><span class="n">12 საიტი</span></div>
+    <p class="sintro">მეორე კვლევა უკვე კონკრეტულ ხარვეზებს ეძებდა და შეგნებულად გავიდა საცხობების გარეთ: სალათების ქსელი, ზეითუნის ზეთი, ჰუმუსი, ბოსტნეულის გამოწერა, იაპონური ვაგაში. თითოეულიდან <b>ერთი</b> ელემენტი ავიღეთ — არა მთლიანი დიზაინი.</p>
+    <div class="grid">
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 01</div>
+          <h3 class="lat">Ole &amp; Steen</h3>
+          <div class="loc">კოპენჰაგენი · 1991 წლიდან · 140+ ფილიალი დანიაში, ლონდონსა და ნიუ-იორკში</div>
+          <a class="visit lat" href="https://oleandsteen.co.uk/" target="_blank" rel="noopener">oleandsteen.co.uk</a>
+          <span class="tagline">ბიზნესით ყველაზე ახლოს</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: დღის ღერძს — დილა · შუადღე · საღამო</p>
+          <p>მთელ სიაში ეს ერთადერთი კომპანიაა, რომელიც მადარტს ბიზნესით ემთხვევა: ყოველდღიური საცხობი ქსელი, პური და ტკბილეული ერთ დახლზე, ათეულობით ფილიალი. მისი ცენტრალური სიტყვაა „all-day bakery“ და მენიუც ზუსტად ასეა აწყობილი — არა „პური / ნამცხვარი / სასმელი“, არამედ დღის მონაკვეთი.</p>
+          <p>ჩვენი ექვსი კატეგორია პასუხობს კითხვას „რა არის ეს“. კითხვა „ახლა რა მჭირდება“ საიტზე უპასუხოდაა. საცხობში კი პასუხი ობიექტურად არსებობს: დილის ცხობა, შუადღის ხაჭაპური, საღამოს ტორტი სტუმრებთან. ეს არ არის ახალი კონტენტი — ეს არსებული 107 პროდუქტის მეორედ დალაგებაა და ის პირდაპირ ეხმიანება წარმოების რეალურ გრაფიკს.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 02</div>
+          <h3 class="lat">Tartine Bakery</h3>
+          <div class="loc">სან-ფრანცისკო · 11 ლოკაცია · ქვეყნის მასშტაბით გზავნით</div>
+          <a class="visit lat" href="https://tartinebakery.com/" target="_blank" rel="noopener">tartinebakery.com</a>
+          <span class="tagline">11 ფილიალი — ჩვენ 5</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: ფილიალის არჩევას, როგორც სესიის მუდმივ მდგომარეობას</p>
+          <p>Tartine-ის ლოკაციების გვერდი ინტერაქტიული რუკაა. მაგრამ ჩვენთვის მთავარი რუკა არაა — რუკა და „ფილიალი, როგორც ადგილი“ Grolet-იდან უკვე ავიღეთ. აქ სხვა რამ არის საინტერესო: არჩეული ფილიალი <b>რჩება</b> და მთელ შემდგომ სესიას განსაზღვრავს.</p>
+          <p>ჩვენთვის ეს გადამწყვეტია, რადგან 5 ფილიალის ასორტიმენტი და გრაფიკი ერთმანეთს არ ემთხვევა. თუ მომხმარებელი ჯერ ირჩევს ფილიალს (ან „მიტანას“), ყველა შემდეგი ეკრანი მისთვის ხდება ჭეშმარიტი: ფასი, ხელმისაწვდომობა, აღების დრო. ჰედერში ეს ერთი ჩიპია — <code>ვაკე ▾</code>.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 03</div>
+          <h3 class="lat">Sweetgreen</h3>
+          <div class="loc">აშშ · 250+ ფილიალი · სალათები და თბილი კერძები</div>
+          <a class="visit lat" href="https://www.sweetgreen.com/" target="_blank" rel="noopener">sweetgreen.com</a>
+          <span class="tagline">მენიუ = მთავარი გვერდი</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: ალერგენს და დიეტურ ნიშანს პირდაპირ ბარათზე</p>
+          <p>Sweetgreen-თან თითოეული პოზიციის გვერდით სამი რამაა ერთდროულად: აღწერა, ალერგენების ხაზი („Contains milk, eggs, wheat“) და მოკლე ნიშნები — G უგლუტენოზე, V ვეგანზე. არა ქვეგვერდზე, არა PDF-ში — სიაშივე, სადაც არჩევანი კეთდება.</p>
+          <p>ჩვენ ეს მონაცემი უკვე გვაქვს: ბაზაში 43 ბრენდულ პროდუქტს შემადგენლობა და კვებითი ღირებულება უწერია. ქართულ კონტექსტში ერთი ნიშანი განსაკუთრებით ძვირფასია: <b>სამარხვო</b> — ორმარხვიან პერიოდში ეს ფილტრი წელიწადში დაახლოებით 100 დღე მუშაობს.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 04</div>
+          <h3 class="lat">Partake Foods</h3>
+          <div class="loc">ნიუ-ჯერსი · ალერგენებისგან თავისუფალი ნამცხვრები · Awwwards</div>
+          <a class="visit lat" href="https://partakefoods.com/" target="_blank" rel="noopener">partakefoods.com</a>
+          <span class="tagline">ნდობის ინტერფეისი</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: ნდობის ნიშნების ზოლს გადაწყვეტილების წერტილში</p>
+          <p>Partake-ს გვერდის შუაში ოთხი ლაკონური ნიშანი აქვს: „Top-9 Allergen Free“, „Always Gluten Free“, „Wholesome Ingredients“, „Safe for School“. ეს არ არის ამბავი წარმოებაზე — ეს ოთხი ხატულაა, რომელიც ყიდვამდე უკანასკნელ წამში ეჩვენება.</p>
+          <p>განსხვავება Lune-ისგან პრინციპულია: Lune-იდან ავიღეთ წარმოების ამბავი — ცალკე ბლოკი ხელობაზე. აქედან სულ სხვა მასშტაბი მოდის — ოთხი ხატულა ბარათსა და ჩეკზე. ჩვენი ოთხი იქნება: საკუთარი საწარმო · კვების უსაფრთხოების სტანდარტი · დღეს ნაცხობი · 2009 წლიდან.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 05</div>
+          <h3 class="lat">Graza</h3>
+          <div class="loc">ნიუ-იორკი / ესპანეთი · ზეითუნის ზეთი · 2022 წლიდან</div>
+          <a class="visit lat" href="https://graza.co/" target="_blank" rel="noopener">graza.co</a>
+          <span class="tagline">ტექსტი, არა ფოტო</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: ერთსიტყვიან ხასიათს და გამოყენების ერთ ხაზს</p>
+          <p>Graza-ს სულ სამი პროდუქტი აქვს, მაგრამ თითოეულს სახელი, ერთსიტყვიანი ხასიათი და გამოყენების კონტექსტი უწერია: Sizzle — „Punchy“, შესაწვავად. Drizzle — „Mellow“, ბოლოს დასასხმელად. სამი სიტყვა და მყიდველმა უკვე იცის, რომელი უნდა.</p>
+          <p>ჩვენს 43 ბრენდულ პროდუქტს მარკეტინგული აღწერა საერთოდ არ აქვს. ეს ყველაზე იაფი ალტერნატივაა: სახელი + ერთი სიტყვა + ერთი ხაზი. „ნაპოლეონი — ფენოვანი. სუფრაზე, დაჭრილი“. „ეკლერი — მსუბუქი. ყავასთან, ერთ ხელში“. 43 პროდუქტი × 12 სიტყვა ≈ ერთი დღის სამუშაო, ერთი ფოტოს გარეშე.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 06</div>
+          <h3 class="lat">Little Sesame</h3>
+          <div class="loc">ვაშინგტონი · ჰუმუსის ბრენდი + საკუთარი რესტორნები</div>
+          <a class="visit lat" href="https://eatlittlesesame.com/" target="_blank" rel="noopener">eatlittlesesame.com</a>
+          <span class="tagline">სტრუქტურული</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: ორ კარს ერთ საიტზე — „მაღაზია“ და „ფილიალი“</p>
+          <p>Little Sesame ერთდროულად ორი ბიზნესია: დახლზე გასაყიდი პროდუქტი და ფიზიკური რესტორნები. საიტიც ორ დამოუკიდებელ ჯგუფად იშლება — Shop (Build-Your-Own · Shop All · Story) და Restaurant (Menu · Locations · Catering). ერთი ბრენდი, ორი ლოგიკა, ორი კარი.</p>
+          <p>მადარტთან ზუსტად იგივე ორმაგობაა და დღეს ის 13 ბრტყელ გვერდადაა გაშლილი, ერთ დონეზე. ერთი მხრივ — კატალოგი, კალათა, მიტანა. მეორე მხრივ — 5 ფილიალი, ინდივიდუალური ტორტი, კორპორატიული შეკვეთა, ვაკანსიები. ჰედერის ორ ჯგუფად გაყოფა ყველაზე დიდი სტრუქტურული ცვლილებაა ამ სიაში — და ის არც ერთ ფოტოს არ ითხოვს.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 07</div>
+          <h3 class="lat">Ottolenghi</h3>
+          <div class="loc">ლონდონი · 11 დელი და რესტორანი · მაღაზია, რეცეპტები, კეთერინგი</div>
+          <a class="visit lat" href="https://ottolenghi.co.uk/" target="_blank" rel="noopener">ottolenghi.co.uk</a>
+          <span class="tagline">დიდი კატალოგი</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: მრავალღერძიან მენიუს და ტერმინების ლექსიკონს</p>
+          <p>Ottolenghi-ს რეცეპტები ერთდროულად სამი ლოგიკითაა დალაგებული: კვების დროით (საუზმე, ლანჩი, მთავარი), ინგრედიენტით (ქათამი, პასტა, ბადრიჯანი) და სეზონით ან შემთხვევით. ერთი და იგივე კონტენტი, სამი შესასვლელი — და მომხმარებელი შედის იმ კარით, რომლითაც ფიქრობს.</p>
+          <p>მეორე ელემენტი — Foodipedia: ინგრედიენტების მოკლე ლექსიკონი ცალკე ფილებად. ჩვენთვის ეს პირდაპირ ითარგმნება: დაკუაზი, პრალინე, განაში, ბეზე, ნაპოლეონი, მედოვიკი — სიტყვები, რომლებსაც მყიდველი ეტიკეტზე კითხულობს და არ იცის. ქართულად ამ ტერმინებზე ინტერნეტში პრაქტიკულად არაფერია.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 08</div>
+          <h3 class="lat">Toraya</h3>
+          <div class="loc">კიოტო / ტოკიო / პარიზი · ვაგაში · მე-16 საუკუნიდან</div>
+          <a class="visit lat" href="https://global.toraya-group.co.jp/" target="_blank" rel="noopener">global.toraya-group.co.jp</a>
+          <span class="tagline">ყველაზე მკვეთრად სხვა</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: სეზონს, როგორც კატალოგის ხერხემალს</p>
+          <p>Toraya-სთან სეზონი არ არის ბანერი — ის პროდუქტის სახელშივე ზის: „Kankobai / ქლიავის ყვავილი სიცივეში“, „Momijigasane / შემოდგომის ფოთლების ფენები“. ასორტიმენტი კალენდარს მიჰყვება: რაღაც შემოდის, რაღაც გადის, და დაბრუნების მიზეზი თავისთავად ჩნდება.</p>
+          <p>Crumbl-იდან უკვე ავიღეთ კვირეული რიტმი და იქვე ჩავიწერეთ რისკი. სეზონური ტემპი ამ რისკს ხსნის — წელიწადში 8–10 ჩანაწერი, არა 52. ქართული კვების კალენდარი მზა მოცემულობაა: მარხვა · აღდგომა · ახალი წელი · ქორწილების სეზონი · სექტემბერი, სკოლის დასაწყისი.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 09</div>
+          <h3 class="lat">Oddbox</h3>
+          <div class="loc">ლონდონი · ხილისა და ბოსტნეულის ყუთები · გამოწერით</div>
+          <a class="visit lat" href="https://www.oddbox.co.uk/" target="_blank" rel="noopener">oddbox.co.uk</a>
+          <span class="tagline">ლოგისტიკა, როგორც სექცია</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: სამნაბიჯიან „როგორ მუშაობს“-ს და პირობის გამჭვირვალობას</p>
+          <p>Oddbox მთავარ გვერდზე მთელ ლოგისტიკას სამ ნაბიჯად ხსნის: „აირჩიე ყუთი → შეცვალე, დაამატე → დილით მიიღე“. და მაშინვე ხსნის მთავარ შიშს ერთი წინადადებით: „ნებისმიერ დროს შეგიძლია შეცვალო, გადადო ან შეწყვიტო“.</p>
+          <p>Yann Couvreur-იდან ავიღეთ ერთი წინადადება cut-off დროზე — ეს ბარათის დონეა. Oddbox სხვა მასშტაბს გვაძლევს: მთავარი გვერდის ცალკე ბლოკს, სადაც მიტანა ვიზუალურად აიხსნება. პუნქტუალობა ჩვენი მთავარი გასაყიდი არგუმენტია — ეკრანზე კი ცარიელი ადგილია.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 10</div>
+          <h3 class="lat">Potluck Market</h3>
+          <div class="loc">ნიუ-იორკი · მცირე პარტიების სასურსათო ბრენდი</div>
+          <a class="visit lat" href="https://potluckmarket.com/" target="_blank" rel="noopener">potluckmarket.com</a>
+          <span class="tagline">მარაგის სიმართლე</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: „გაიყიდა“-ს ღიად ჩვენებას — მდგომარეობა ბადეზევე</p>
+          <p>Potluck-ის ბადეზე პროდუქტს სამი რამ აწერია: ფოტო, ფასი და სტატუსი. „Sold out“ არ იმალება და პოზიცია სიიდან არ ქრება. მცირე პარტიების ბრენდისთვის ეს არა სისუსტე, არამედ მთავარი მტკიცებულებაა — ნიშნავს, რომ ნამდვილად მცირე პარტიაა.</p>
+          <p>საცხობი ზუსტად ასეთი ბიზნესია: დღიური წარმოება, საღამოს ბევრი რამ აღარაა. თუ საიტი ამას მალავს, ის კატალოგად რჩება; თუ აჩვენებს — დახლად იქცევა. ჩვენთვის საჭიროა ოთხმდგომარეობიანი სისტემა: დახლზეა · ბოლო ცალები · გაიყიდა · წინასწარი შეკვეთით.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 11</div>
+          <h3 class="lat">Aura Bora</h3>
+          <div class="loc">კალიფორნია · მცენარეული გაზიანი წყალი · ილუსტრირებული ბრენდი</div>
+          <a class="visit lat" href="https://www.aurabora.com/" target="_blank" rel="noopener">aurabora.com</a>
+          <span class="tagline">55 პროდუქტის პასუხი</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: ილუსტრაციას ფოტოს ნაცვლად — იქ, სადაც ფოტო არ გვაქვს</p>
+          <p>Aura Bora-ს ვიზუალს ფოტო კი არა, ხატვა ატარებს: ილუსტრირებული გემოები, პერსონაჟები, ბრტყელი ფერი. შედეგი ერთიანია იმიტომ, რომ ყველაფერი ერთი ხელით არის დახატული — და არა იმიტომ, რომ ერთ სტუდიაში გადაიღეს.</p>
+          <p>107 პროდუქტიდან 55 მადარტს არ დაუმზადებია — 34 აქსესუარი (სანთლები, შუშხუნები) და 21 სასმელი. დღეს ისინი მომწოდებლის ჭრელი ფოტოებით დგანან და პალიტრას ეწინააღმდეგებიან. ერთი ხაზოვანი ილუსტრაციული ნაკრები ბრენდის ყვითელზე იმავე შედეგს იძლევა ერთი გადაღების გარეშე — და ცხადად ჰყოფს „ჩვენს ნაწარმს“ და „თანმხლებ საქონელს“.</p>
+        </div>
+      </article>
+
+      <article class="ref" data-w="w2">
+        <div class="rail">
+          <div class="idx">II · 12</div>
+          <h3 class="lat">Arensbak</h3>
+          <div class="loc">კოპენჰაგენი · უალკოჰოლო ალტერნატივები მიშლენის რესტორნებისთვის</div>
+          <a class="visit lat" href="https://arensbak.com/" target="_blank" rel="noopener">arensbak.com</a>
+          <span class="tagline">B2B · მთავარი გვერდის კარკასი</span>
+        </div>
+        <div class="body">
+          <p class="lede">ვიღებთ: მტკიცებულების ზოლს — ვინ გვენდობა</p>
+          <p>Arensbak-ის მთავარი გვერდი ლენტად ატარებს 30-ზე მეტ მიშლენვარსკვლავიან რესტორანს, რომლებიც მის პროდუქტს იყენებენ. ეს არც ფასია და არც აღწერა — ეს მტკიცებულებაა, და B2B გაყიდვაში ის ყველა სხვა არგუმენტზე ძლიერია.</p>
+          <p>GAIL’s-იდან უკვე ავიღეთ B2B კარი — ცალკე შესვლის წერტილი მენიუში. მაგრამ კარს შიგნით არგუმენტი სჭირდება. ჩვენთან ის რეალურად არსებობს: ბაზაში <code>price_merchant</code> ველია, POS-ში ცალკე ჯგუფი „კორპორატიული“. მათი ნუსხა ერთ ზოლად — და B2B გვერდი ცარიელი ფორმიდან წინადადებად იქცევა.</p>
+          <p><b>დამატებით:</b> ამ საიტის მთავარი გვერდის აგებულება ცალკე გავარჩიეთ და სამ სამუშაო ვერსიად ავაწყვეთ — <code>hp-arensbak/</code>, <code>hp-arensbak-full/</code>, <code>hp-ref-arensbak/</code>.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="empty" id="empty">ამ ძებნაზე შედეგი არ მოიძებნა.</div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><b>ფაილის შესახებ.</b> ეს არის მადარტის ვებგვერდის კვლევაში გამოყენებული ყველა საერთაშორისო რეფერენსის სრული ნუსხა. ფაილი დამოუკიდებელია — გაიხსნება ნებისმიერ ბრაუზერში ორმაგი დაწკაპუნებით, დამატებითი პროგრამის გარეშე. ბმულების გასახსნელად ინტერნეტია საჭირო.</p>
+    <p>წყაროები პროექტში: <code>madart-reference-dossier.html</code> (I ტალღა) · <code>madart-reference-dossier-2.html</code> (II ტალღა) · <code>madart-layout-map.html</code> · <code>README.md</code>.</p>
+    <p>განახლდა: 2026 წლის 11 სექტემბერი.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('article.ref'));
+  var rows  = Array.prototype.slice.call(document.querySelectorAll('tbody tr'));
+  var hits  = document.getElementById('hits');
+  var empty = document.getElementById('empty');
+  var secs  = Array.prototype.slice.call(document.querySelectorAll('section#w1, section#w2'));
+  var filter = 'all';
+
+  cards.forEach(function(c){ c.setAttribute('data-text', c.textContent.toLowerCase()); });
+  rows.forEach(function(r){
+    r.setAttribute('data-text', r.textContent.toLowerCase());
+    var num = r.querySelector('td.num');
+    r.setAttribute('data-w', (num && num.textContent.indexOf('II') === 0) ? 'w2' : 'w1');
+  });
+
+  function apply(){
+    var term = q.value.trim().toLowerCase();
+    var n = 0;
+    cards.forEach(function(c){
+      var on = (filter === 'all' || c.getAttribute('data-w') === filter) &&
+               (!term || c.getAttribute('data-text').indexOf(term) > -1);
+      c.style.display = on ? '' : 'none';
+      if (on) n++;
+    });
+    rows.forEach(function(r){
+      var on = (filter === 'all' || r.getAttribute('data-w') === filter) &&
+               (!term || r.getAttribute('data-text').indexOf(term) > -1);
+      r.style.display = on ? '' : 'none';
+    });
+    secs.forEach(function(s){
+      var any = Array.prototype.slice.call(s.querySelectorAll('article.ref'))
+                 .some(function(c){ return c.style.display !== 'none'; });
+      s.style.display = any ? '' : 'none';
+    });
+    hits.textContent = n + ' საიტი';
+    empty.className = n === 0 ? 'empty on' : 'empty';
+  }
+
+  q.addEventListener('input', apply);
+  chips.forEach(function(b){
+    b.addEventListener('click', function(){
+      filter = b.getAttribute('data-f');
+      chips.forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+      apply();
+    });
+  });
+})();
+</script>
+</body>
+</html>
